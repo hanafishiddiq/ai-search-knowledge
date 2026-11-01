@@ -1,0 +1,42 @@
+{
+  "id": "matanyone-e-efficient-matting",
+  "title": "MatAnyone-E: sparse propagation for high-resolution video matting",
+  "as_of": "2026-11-01",
+  "topics": [
+    "video matting",
+    "computer vision",
+    "inference efficiency"
+  ],
+  "claims": [
+    {
+      "text": "The method uses a low-resolution pass to identify uncertain queries and relevant memory, then restricts expensive high-resolution matching. A distilled lightweight decoder reduces another runtime bottleneck.",
+      "evidence": [
+        {
+          "source_id": "60e74043c3e0b9575502",
+          "text_sha256": "14d7de044b102c90904d49e794524dcedd8229b5910e89cae476835d6a956a87",
+          "start_line": 61,
+          "end_line": 71
+        }
+      ]
+    },
+    {
+      "text": "The abstract reports compiled inference at 73.07 FPS for 1080p and 28.62 FPS for 4K on one NVIDIA H200. A separate estimated 7.4× speedup is presented under its stated comparison.",
+      "evidence": [
+        {
+          "source_id": "60e74043c3e0b9575502",
+          "text_sha256": "14d7de044b102c90904d49e794524dcedd8229b5910e89cae476835d6a956a87",
+          "start_line": 73,
+          "end_line": 78
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "These speeds must retain the H200 and compilation conditions.",
+    "The estimated speedup and the separately stated compiled comparison are not interchangeable."
+  ],
+  "gaps": [
+    "Performance on a Mac or consumer GPU was not measured.",
+    "The video’s visual quality comparison was not reviewed."
+  ]
+}

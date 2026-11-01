@@ -1,0 +1,52 @@
+{
+  "id": "autoswarm-agent-coordination",
+  "title": "AutoSwarm: coordination across existing agents",
+  "as_of": "2026-11-01",
+  "topics": [
+    "agent orchestration",
+    "context sharing",
+    "developer tools"
+  ],
+  "claims": [
+    {
+      "text": "The README describes routing work by agent capability, sharing context, connecting tools, coordinating parallel tasks and combining results.",
+      "evidence": [
+        {
+          "source_id": "d528e97f4ac5c2675478",
+          "text_sha256": "e89e1f70270896affbbc8001cdc45d9a8fe27ce2c78f80aff86bc3f8df93ef66",
+          "start_line": 35,
+          "end_line": 50
+        }
+      ]
+    },
+    {
+      "text": "Listed integrations include Codex and Claude Code. The host needs skill support and local command execution; collaborators require compatible local CLIs.",
+      "evidence": [
+        {
+          "source_id": "d528e97f4ac5c2675478",
+          "text_sha256": "e89e1f70270896affbbc8001cdc45d9a8fe27ce2c78f80aff86bc3f8df93ef66",
+          "start_line": 50,
+          "end_line": 68
+        }
+      ]
+    },
+    {
+      "text": "Its documentation distinguishes executable/version discovery from probes that test model replies and native resume. Those probes consume model calls.",
+      "evidence": [
+        {
+          "source_id": "d528e97f4ac5c2675478",
+          "text_sha256": "e89e1f70270896affbbc8001cdc45d9a8fe27ce2c78f80aff86bc3f8df93ef66",
+          "start_line": 177,
+          "end_line": 184
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Integration and reliability claims are from the project maintainers.",
+    "No downloaded instructions were executed and no agent integrations were installed or tested."
+  ],
+  "gaps": [
+    "Comparative performance and real-workload reliability remain unverified."
+  ]
+}

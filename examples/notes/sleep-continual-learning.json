@@ -1,0 +1,65 @@
+{
+  "id": "sleep-continual-learning",
+  "title": "SLEEP: periodic consolidation for continual learning",
+  "as_of": "2026-11-01",
+  "topics": [
+    "continual learning",
+    "memory",
+    "LLM research"
+  ],
+  "claims": [
+    {
+      "text": "Google Research’s October 27, 2026 post describes alternating active interaction with offline consolidation. The sleep phase updates numerical weights within a fixed architecture and predefined training rules.",
+      "evidence": [
+        {
+          "source_id": "e97319d8730a2e801954",
+          "text_sha256": "3d6906c9eb9225b1241030685f4a466caf0f2920fa470117daefb103a2e87821",
+          "start_line": 15,
+          "end_line": 18
+        },
+        {
+          "source_id": "e97319d8730a2e801954",
+          "text_sha256": "3d6906c9eb9225b1241030685f4a466caf0f2920fa470117daefb103a2e87821",
+          "start_line": 34,
+          "end_line": 38
+        }
+      ]
+    },
+    {
+      "text": "Consolidation combines additional low-rank memory experts with distillation. A separate dreaming stage varies expert activation, selects synthetic practice data and refines the model.",
+      "evidence": [
+        {
+          "source_id": "e97319d8730a2e801954",
+          "text_sha256": "3d6906c9eb9225b1241030685f4a466caf0f2920fa470117daefb103a2e87821",
+          "start_line": 42,
+          "end_line": 53
+        },
+        {
+          "source_id": "e97319d8730a2e801954",
+          "text_sha256": "3d6906c9eb9225b1241030685f4a466caf0f2920fa470117daefb103a2e87821",
+          "start_line": 56,
+          "end_line": 61
+        }
+      ]
+    },
+    {
+      "text": "The authors report long-context results reaching 10 million tokens on BABILong and sequential-learning results intended to reduce forgetting. These are experiment-specific publisher claims.",
+      "evidence": [
+        {
+          "source_id": "e97319d8730a2e801954",
+          "text_sha256": "3d6906c9eb9225b1241030685f4a466caf0f2920fa470117daefb103a2e87821",
+          "start_line": 78,
+          "end_line": 85
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Results were not independently reproduced here.",
+    "This is a model-training proposal; its benefits cannot be assumed for an ordinary file-search archive."
+  ],
+  "gaps": [
+    "The paper is archived separately; detailed experimental review remains pending.",
+    "The video’s visual explanations were not reviewed."
+  ]
+}

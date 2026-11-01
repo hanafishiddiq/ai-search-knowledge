@@ -1,0 +1,81 @@
+{
+  "id": "audio8-realistic-tts",
+  "title": "Audio8 Realistic: compact multilingual TTS and evaluation caveats",
+  "as_of": "2026-11-01",
+  "topics": [
+    "text to speech",
+    "voice cloning",
+    "local models"
+  ],
+  "claims": [
+    {
+      "text": "The model card reports 601,159,424 main-model parameters, excluding the separate 44.1 kHz codec. It supports 23 languages, including Indonesian, and zero-shot voice cloning.",
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 69,
+          "end_line": 76
+        },
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 55,
+          "end_line": 58
+        },
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 45,
+          "end_line": 46
+        },
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 30,
+          "end_line": 32
+        }
+      ]
+    },
+    {
+      "text": "The listening page uses curated English and Chinese examples; it explicitly does not represent all languages or a blind preference test.",
+      "evidence": [
+        {
+          "source_id": "ece69941b922ed9e6bb4",
+          "text_sha256": "e7e87e93c898958a989c4aa5a6e9a389ca8b39cbf9c7dc347aeb11961a7a0e63",
+          "start_line": 48,
+          "end_line": 52
+        }
+      ]
+    },
+    {
+      "text": "The serving validation used NVIDIA H20/BF16 with compilation and CUDA graphs disabled. It checked non-streaming API compatibility without benchmarking throughput or streaming.",
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 165,
+          "end_line": 167
+        }
+      ]
+    },
+    {
+      "text": "The card identifies Apache 2.0 for code and model weights and links license and notice files.",
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "text_sha256": "8e58d8ced66901ec887423dfe880441a5187a604e14cec03859c17d2635c180e",
+          "start_line": 322,
+          "end_line": 324
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Parameter-size conventions differ across the compared projects.",
+    "Publisher tests were not independently reproduced here."
+  ],
+  "gaps": [
+    "Mac compatibility, throughput and listening quality remain untested."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "motionbricks-modular-motion",
+  "title": "MotionBricks: modular motion generation and smart primitives",
+  "as_of": "2026-11-01",
+  "topics": [
+    "motion generation",
+    "robotics",
+    "animation"
+  ],
+  "claims": [
+    {
+      "text": "The project describes a real-time generative backbone trained on over 350,000 motion clips. Smart primitives expose navigation and object interaction controls, with claimed zero-shot transfer to downstream tasks.",
+      "evidence": [
+        {
+          "source_id": "c10c7a35a1aa4ddd271d",
+          "text_sha256": "23bd79548e4482c3ddef8eb15fe7729581193a8efa240816256f65746253da75",
+          "start_line": 87,
+          "end_line": 97
+        }
+      ]
+    },
+    {
+      "text": "The project links a public runtime with Warp, Newton and TensorRT backends, pretrained SOMA and Unitree G1 models, an ONNX exporter and interactive authoring tools.",
+      "evidence": [
+        {
+          "source_id": "c10c7a35a1aa4ddd271d",
+          "text_sha256": "23bd79548e4482c3ddef8eb15fe7729581193a8efa240816256f65746253da75",
+          "start_line": 152,
+          "end_line": 163
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Real-time and zero-shot descriptions are publisher claims rather than measurements made here.",
+    "The visual demonstration was not evaluated."
+  ],
+  "gaps": [
+    "Latency, hardware suitability and deployment licensing require their own checks against the linked release."
+  ]
+}

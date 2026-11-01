@@ -1,0 +1,16 @@
+{
+  "channel_url": "https://www.youtube.com/@theAIsearch",
+  "channel_id": "UCIgnGlGkVRhd4qNFcEwLL4A",
+  "tabs": ["videos"],
+  "lookback_months": 6,
+  "scope_timezone": "Asia/Jakarta",
+  "language": "source-original; English for authored notes",
+  "user_agent": "AI-Search-Knowledge/0.1 (local personal research)",
+  "source_workers": 6,
+  "per_host_delay_seconds": 1.0,
+  "timeout_seconds": 25,
+  "max_response_bytes": 15000000,
+  "metadata_recheck_days": 30,
+  "source_recheck_days": 30,
+  "retry_days": 7
+}
