@@ -31,7 +31,7 @@ uv run aisk work --limit 3
 uv run aisk gaps --limit 20
 ```
 
-Search uses local SQLite FTS5 and returns bounded JSON passages with original links, timestamps and line citations. It requires no embedding service or running database server. Summaries are cached when useful; full evidence remains available for questions that need more detail.
+Search uses local SQLite FTS5 and returns JSON evidence excerpts with original links, timestamps and line citations. It requires no embedding service or running database server. Summaries are cached when useful; full evidence remains available for questions that need more detail. The [architecture audit](docs/ARCHITECTURE-AUDIT-2026-11-01.md) records current limits: incomplete extraction on some pages, query previews that can miss supporting text, and an unresolved long-line case that exceeds the requested preview budget. Graphify, semantic embeddings and entity-graph reasoning are not currently implemented.
 
 ## Observed coverage
 
