@@ -26,3 +26,6 @@ packages = ["src/ai_search_knowledge"]
 
 [dependency-groups]
 dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

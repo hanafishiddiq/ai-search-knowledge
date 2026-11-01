@@ -33,12 +33,12 @@ def digest(value: str | bytes) -> str:
 def save(path: Path, value: dict | list) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding='utf-8')
     tmp.replace(path)
 
 
 def read(path: Path, default=None):
-    return json.loads(path.read_text()) if path.exists() else default
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
 
 
 def config(root: Path = ROOT) -> dict:

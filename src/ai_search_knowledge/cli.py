@@ -1,5 +1,6 @@
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from .core import collect_videos, config, inventory, read
@@ -9,6 +10,10 @@ from .workflow import add_note, discover, update, work_queue, writer_lock, impor
 
 
 def main():
+    # Corpus text and JSON are UTF-8 even when a Windows pipe defaults to cp1252.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, 'reconfigure'):
+            stream.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description="Local source-linked AI Search knowledge library")
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="Project directory containing config.json")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -89,7 +94,7 @@ def main():
             path = (root / args.path).resolve()
             if not path.is_relative_to(root / "knowledge") or path.suffix != ".md":
                 raise ValueError("read accepts only Markdown evidence files under knowledge/")
-            lines = path.read_text().splitlines()
+            lines = path.read_text(encoding='utf-8').splitlines()
             start = max(1, args.start)
             return {"path": str(path.relative_to(root)), "total_lines": len(lines),
                     "text": "\n".join(f"{i}: {line}" for i, line in enumerate(lines, 1)

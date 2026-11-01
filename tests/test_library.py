@@ -1,4 +1,7 @@
 import json
+import os
+import subprocess
+import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -75,7 +78,7 @@ def test_search_passages_are_bounded_numbered_and_deduplicated(library):
     result = search(root, 'octopus OR " DROP TABLE', 5, "source", 500)
     assert len(result) == 1
     match = result[0]
-    lines = (root / match["path"]).read_text().splitlines()
+    lines = (root / match["path"]).read_text(encoding='utf-8').splitlines()
     assert match["text"] == "\n".join(lines[match["start_line"] - 1:match["end_line"]])
     assert len(match["text"]) <= 500
     assert match["start_line"] >= 15
@@ -143,3 +146,18 @@ def test_refresh_failure_preserves_good_source_and_defers_an_immediate_retry(lib
     assert read(root / f'data/sources/{sid}.json')['status'] == 'ok'
     assert collect_sources(root)['queued'] == 0
     assert len(calls) == 1
+
+
+def test_cli_help_survives_a_legacy_windows_output_encoding():
+    env = dict(os.environ, PYTHONIOENCODING='cp1252')
+    result = subprocess.run([sys.executable, '-m', 'ai_search_knowledge.cli', '--help'], env=env, capture_output=True)
+    assert result.returncode == 0, result.stderr.decode('utf-8', errors='replace')
+    assert 'discover → metadata' in result.stdout.decode('utf-8')
+
+
+def test_multilingual_json_is_persisted_as_utf8(tmp_path):
+    path = tmp_path / 'multilingual.json'
+    value = {'title': '中文 → Bahasa Indonesia — 日本語'}
+    save(path, value)
+    assert path.read_bytes().decode('utf-8')
+    assert read(path) == value

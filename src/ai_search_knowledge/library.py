@@ -49,10 +49,10 @@ def source_document(root: Path, source: dict, mentions: list[dict]) -> tuple[Pat
              "", "## Source text", ""] + wrap_source(source["text"])
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
-        path.write_text("\n".join(lines) + "\n")
+        path.write_text("\n".join(lines) + "\n", encoding='utf-8')
     else:
         # Immutable evidence files keep the original retrieval provenance.
-        lines = path.read_text().splitlines()
+        lines = path.read_text(encoding='utf-8').splitlines()
     return path, lines
 
 
@@ -65,9 +65,9 @@ def video_document(root: Path, video: dict) -> tuple[Path, list[str]]:
              "", "## Description", ""] + wrap_source(video["description"])
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
-        path.write_text("\n".join(lines) + "\n")
+        path.write_text("\n".join(lines) + "\n", encoding='utf-8')
     else:
-        lines = path.read_text().splitlines()
+        lines = path.read_text(encoding='utf-8').splitlines()
     return path, lines
 
 
@@ -133,7 +133,7 @@ def validate_note(note: dict, root: Path) -> list[str]:
             if source.get("status") != "ok" or source.get("text_sha256") != sha or not path.exists():
                 errors.append(f"claim {i} evidence missing, unsuccessful or stale: {sid}")
                 continue
-            if not isinstance(e["start_line"], int) or not isinstance(e["end_line"], int) or not (15 <= e["start_line"] <= e["end_line"] <= len(path.read_text().splitlines())):
+            if not isinstance(e["start_line"], int) or not isinstance(e["end_line"], int) or not (15 <= e["start_line"] <= e["end_line"] <= len(path.read_text(encoding='utf-8').splitlines())):
                 errors.append(f"claim {i} line range invalid or points only to metadata")
     return errors
 
@@ -196,7 +196,7 @@ def build_index(root: Path) -> dict:
         lines = render_note(note, root)
         output = root / f"knowledge/notes/{note['id']}.md"
         output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text("\n".join(lines) + "\n")
+        output.write_text("\n".join(lines) + "\n", encoding='utf-8')
         add("note:" + note["id"], "note", note["title"], output, lines, {"as_of": note["as_of"], "topics": note.get("topics"), "claims": note["claims"]}, skip=8)
     db.execute("INSERT INTO passages(passages) VALUES('optimize')")
     db.commit(); db.close()
@@ -248,7 +248,7 @@ def generate_catalog(root: Path, active: list[dict], manifest: dict):
         lines += [f"- {v['published_at'][:10]} — [{v['title']}]({v['url']}) — `{v['id']}` — {len(v['chapters'])} chapters"]
     lines += ["", "## Sources", "", "See `data/source-manifest.json` for all URLs, classifications and video relationships.",
               "See `data/coverage.json` for successes and gaps. Use `aisk gaps` to inspect them."]
-    out.write_text("\n".join(lines) + "\n")
+    out.write_text("\n".join(lines) + "\n", encoding='utf-8')
 
 
 def search(root: Path, query: str, limit: int = 5, kind: str | None = None, max_chars: int = 1400) -> list[dict]:
