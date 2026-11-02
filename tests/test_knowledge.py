@@ -172,3 +172,18 @@ def test_public_knowledge_export_excludes_source_text_anchors_and_local_paths(kn
     assert 'value_text' not in claim and 'quote' not in claim['evidence'][0]
     assert 'text' not in claim['evidence'][0] and 'path' not in claim['evidence'][0]
     assert claim['evidence'][0]['source_url'] == 'https://example.org/speech-card'
+
+
+def test_named_technology_outranks_incidental_generic_context(knowledge_case):
+    import copy
+    root, record = knowledge_case
+    add_knowledge(root, record)
+    general = copy.deepcopy(record)
+    general['id'] = 'general-utility'
+    general['entities'][0] = {'id': 'tool:general', 'type': 'tool', 'name': 'General Utility'}
+    general['claims'][0]['subject'] = 'tool:general'
+    general['claims'][0]['statement'] = ('The source reports Indonesian support. Coding repository production '
+                                         'compatibility is not established by this passage.')
+    add_knowledge(root, general)
+    result = technology_facts(root, 'Speech Example coding repository production', limit=1)
+    assert result['technologies'][0]['id'] == 'model:speech-example'

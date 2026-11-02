@@ -330,7 +330,14 @@ def technology_facts(root: Path, query: str, required: list[str] | None = None, 
         entity = entities[key]
         labels = ' '.join([entity['name']] + entity.get('aliases', []))
         fact_text = ' '.join(claim['statement'] for _, claim in pairs)
-        hits = len(words & set(re.findall(r'\w+', (labels + ' ' + fact_text).casefold())))
+        label_words = set(re.findall(r'\w+', labels.casefold()))
+        hits = 4 * len(words & label_words) + len(words & set(re.findall(r'\w+', fact_text.casefold())))
+        # A named candidate must outrank an unrelated profile that happens to
+        # repeat generic words such as code, local, production and repository.
+        normalized_query = ' ' + ' '.join(re.findall(r'\w+', query.casefold())) + ' '
+        if any(' ' + ' '.join(re.findall(r'\w+', label.casefold())) + ' ' in normalized_query
+               for label in [entity['name']] + entity.get('aliases', []) if len(label) >= 4):
+            hits += 8
         if hits or _compact(query) in _compact(labels):
             ranked.append((hits, key))
     result = []
