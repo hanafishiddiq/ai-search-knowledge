@@ -4,6 +4,8 @@ A local, searchable evidence library built from [AI Search](https://www.youtube.
 
 The library preserves publication dates, video timestamps, original URLs, retrieval dates, source text and explicit coverage gaps. English authored notes retain the terminology of the original sources. You can ask your AI assistant questions in any language.
 
+The owner-defined goal is [evidence-backed technology research and selection](docs/GOALS.md). On 2026-11-02 the owner clarified that six months is the initial seed and the archive should subsequently grow. The current implementation still applies a rolling window; that behavior needs alignment before the next collection/index update.
+
 ## Use it locally
 
 Install [uv](https://docs.astral.sh/uv/), then:

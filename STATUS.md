@@ -2,6 +2,8 @@
 
 Observed: 2026-11-01, Asia/Jakarta. Local initial collection is usable with recorded gaps.
 
+**Goal clarified, 2026-11-02:** the primary job is AI-assisted research and technology selection for projects/work. Six months is the initial acquisition scope; the archive then grows. [GOALS.md](docs/GOALS.md) is the canonical definition and working acceptance criteria. The existing rolling-window implementation still needs alignment before another acquisition/index update. This goal-definition step did not change runtime behavior.
+
 **Overall knowledge-completeness goal is not finished.** The collector/search system and initial corpus are available; source-quality review and synthesis beyond five examples remain incomplete. Successful extraction counts are not measures of understanding or factual verification.
 
 **Architecture audit, 2026-11-01:** current retrieval is SQLite FTS5/BM25 with provenance metadata, without Graphify, entity knowledge graph, embeddings or automatic synthesis. Verified gaps extend beyond the 35 failed URLs: some `ok` snapshots contain incomplete/non-topic text, previews can omit the requested evidence, and one embedded-image line bypasses `max_chars` (46,325 returned for a 1,400-character request). Optimality is not established. See [architecture audit](docs/ARCHITECTURE-AUDIT-2026-11-01.md).

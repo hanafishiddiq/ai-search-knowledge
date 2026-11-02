@@ -4,9 +4,9 @@ Observed: 2026-11-01 (Asia/Jakarta). Initial channel: `@theAIsearch`, channel ID
 
 ## Goal
 
-Maintain a local, searchable knowledge library containing the technology information covered by the channel, with complete provenance and honest coverage. An AI agent should be able to find a topic, retrieve relevant evidence efficiently, explain it and cite publication date, video timestamp and original source. The reusable system will be published as a public GitHub repository named `ai-search-knowledge`.
+The canonical operational goal is now [GOALS.md](GOALS.md), defined with the owner on 2026-11-02: support AI-assisted research and technology selection for projects/work through a continuously growing, evidence-backed knowledge base. Finding information, comparing suitability, explaining tradeoffs and retaining honest uncertainty are the outcomes. The public reusable repository is `ai-search-knowledge`.
 
-**Scope changed by the owner on 2026-11-01:** only long-form videos from the most recent six calendar months, excluding Shorts. For the initial collection the date boundary is 2026-05-01 00:00 Asia/Jakarta. Subsequent updates compute the rolling six-month boundary in that timezone. Previously discovered Shorts and older entries may remain in raw discovery snapshots, but are excluded from active source collection and retrieval.
+**Initial scope, 2026-11-01:** long-form videos from the preceding six calendar months, excluding Shorts. The initial collection began at 2026-05-01 00:00 Asia/Jakarta. The initial implementation computed a rolling six-month boundary. **That ongoing rolling-window assumption is superseded by the owner's 2026-11-02 decision:** acquire the initial six months, then grow the archive and retain prior knowledge. Runtime scope handling has not yet been changed to match; see GOALS.md before another update.
 
 ## Decisions from the owner
 
