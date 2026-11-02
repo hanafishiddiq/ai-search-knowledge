@@ -160,6 +160,18 @@ def validate_knowledge(record: dict, root: Path, *, _catalog: dict | None = None
             errors.append(f'Claim {cid} uses an unsupported predicate')
         if claim.get('object_entity') is not None and claim['object_entity'] not in entities:
             errors.append(f'Claim {cid} object entity is not declared')
+        target = entities.get(claim.get('object_entity'))
+        expected_types = {'supports_language': {'language'}, 'license': {'license'},
+                          'tested_on': {'hardware'}, 'runs_on': {'hardware', 'tool', 'project'},
+                          'uses_method': {'method'}, 'developed_by': {'organization'}, 'supersedes': TECH_TYPES}
+        if target and claim.get('predicate') in expected_types and target.get('type') not in expected_types[claim['predicate']]:
+            errors.append(f'Claim {cid} object entity has an incompatible type for its predicate')
+        if target and claim.get('predicate') in {'supports_language', 'license'} and isinstance(claim.get('value'), str):
+            labels = [target.get('name', '')] + target.get('aliases', [])
+            if not any(value_binding({'value': claim['value'], 'predicate': claim['predicate'], 'value_text': label})['status'] == 'literal_bound'
+                       or value_binding({'value': label, 'predicate': claim['predicate'], 'value_text': claim.get('value_text', '')})['status'] == 'literal_bound'
+                       for label in labels):
+                errors.append(f'Claim {cid} object entity contradicts its typed literal value')
         if claim.get('assertion_kind') not in {'publisher_reported', 'source_stated'}:
             errors.append(f'Claim {cid} must retain publisher/source attribution')
         if not isinstance(claim.get('statement'), str) or not claim['statement'].strip():

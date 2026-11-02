@@ -187,3 +187,16 @@ def test_named_technology_outranks_incidental_generic_context(knowledge_case):
     add_knowledge(root, general)
     result = technology_facts(root, 'Speech Example coding repository production', limit=1)
     assert result['technologies'][0]['id'] == 'model:speech-example'
+
+
+def test_graph_language_target_cannot_disagree_with_supported_scalar(knowledge_case):
+    root, record = knowledge_case
+    record['entities'][1]['name'] = 'English'
+    record['entities'][1]['aliases'] = []
+    assert any('object entity contradicts' in e for e in validate_knowledge(record, root))
+
+
+def test_graph_language_target_requires_a_language_entity(knowledge_case):
+    root, record = knowledge_case
+    record['entities'][1]['type'] = 'hardware'
+    assert any('incompatible type' in e for e in validate_knowledge(record, root))
