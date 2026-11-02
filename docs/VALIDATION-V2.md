@@ -54,7 +54,7 @@ The first local semantic build encoded 4,163 unique texts into 4,165 segments in
 
 Pinned multilingual E5-small assets total 492,421,556 bytes. No remote repository Python or cloud embedding/synthesis API is executed. Real semantic inference was tested on the owner's Mac; cross-platform CI uses injected synthetic encoders and does not claim real ONNX execution on every OS.
 
-The final local suite has 144 tests covering growing scope, extraction quality/raw history, immutable citations, literal typed-value binding, aliases, filters, budgets, review state, fallback, cache reuse, CLI/workflow locking and UTF-8. Main implementation `c6d75a0` passed macOS/Python3.14, Linux/Python3.11 and Windows/Python3.14 in [CI run 41390113641](https://github.com/hanafishiddiq/ai-search-knowledge/actions/runs/41390113641). The named-profile follow-up has its own final CI receipt recorded in STATUS.
+The final local suite has 144 tests covering growing scope, extraction quality/raw history, immutable citations, literal typed-value binding, aliases, filters, budgets, review state, fallback, cache reuse, CLI/workflow locking and UTF-8. Main implementation `c6d75a0` passed macOS/Python 3.14, Linux/Python 3.11 and Windows/Python 3.14 in [CI run 41390113641](https://github.com/hanafishiddiq/ai-search-knowledge/actions/runs/41390113641). Final code `2df0a41` (144 tests) passed all three platforms in [CI run 41390715622](https://github.com/hanafishiddiq/ai-search-knowledge/actions/runs/41390715622).
 
 ## Reproduce and observe
 
