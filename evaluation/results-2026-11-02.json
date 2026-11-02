@@ -1,0 +1,4410 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-11-02T04:38:58.544114+00:00",
+  "fixture_sha256": "2b57aa82a8dc28fb41a1009930657d3335a8317ca854d76962662978a521a826",
+  "case_count": 40,
+  "known_relevant_sources": 18,
+  "scope": {
+    "method": "Questions and gold facts hand-authored from direct readings of normalized retained source documents, before running retrieval. No search ranking or generated answer used to select gold.",
+    "evidence_status": "Publisher statements in retained source snapshots; not independently reproduced facts, audiovisual review or semantic review of every corpus document.",
+    "literal_quotes": "At most 12 whitespace-delimited words per anchor and 25 total quoted words per source across all cases, counting repeated anchors again.",
+    "gold_scope": "Expected source IDs are known relevant documents, not exhaustive relevance judgments. Alternative valid sources may exist. These fixed questions are a diagnostic development set, not an independently held-out randomized sample.",
+    "unsupported_cases": "Partial and not_established cases still have relevant context sources. Document/span hits measure context retrieval only and do not establish a supported conclusion, abstention quality or answer faithfulness. Required unknowns must stay explicit in manual answer review.",
+    "temporal_scope": "Dated claims are scoped to their retained announcements. No guessed source date filters, present-day availability or price guarantees are encoded.",
+    "retrieval_metrics": "Report top-5 source-document relevance and literal supporting-anchor hits separately, with language/domain/answerability slices. A document hit is not a supporting-span hit. Neither is a complete research-answer evaluation.",
+    "public_contents": "Original questions, concise factual expectations, stable IDs, hashes and short literal anchors only. Raw documents, long passages, machine paths and private logs are excluded."
+  },
+  "modes": {
+    "lexical": {
+      "summary": {
+        "cases": 40,
+        "any_expected_document_at_5": 39,
+        "all_expected_documents_at_5": 38,
+        "any_expected_anchor_at_5": 26,
+        "all_expected_anchors_at_5": 23,
+        "median_seconds": 0.08842706249924959,
+        "p95_seconds": 0.23942679200263228,
+        "excerpt_budget_violations": 0,
+        "provenance_errors": 0
+      },
+      "slices": {
+        "language": {
+          "en": {
+            "cases": 23,
+            "any_expected_document_at_5": 22,
+            "all_expected_documents_at_5": 21,
+            "any_expected_anchor_at_5": 13,
+            "all_expected_anchors_at_5": 13,
+            "median_seconds": 0.0926363750040764,
+            "p95_seconds": 0.23942679200263228,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "id": {
+            "cases": 17,
+            "any_expected_document_at_5": 17,
+            "all_expected_documents_at_5": 17,
+            "any_expected_anchor_at_5": 13,
+            "all_expected_anchors_at_5": 10,
+            "median_seconds": 0.07781791700108442,
+            "p95_seconds": 0.21755475000099977,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "category": {
+          "agents": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 2,
+            "median_seconds": 0.0816482710033597,
+            "p95_seconds": 0.1957905830058735,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "coding": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 4,
+            "median_seconds": 0.12082716650184011,
+            "p95_seconds": 0.19346333399880677,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "image": {
+            "cases": 5,
+            "any_expected_document_at_5": 5,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 4,
+            "median_seconds": 0.07781791700108442,
+            "p95_seconds": 0.09362012500059791,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "language_models": {
+            "cases": 6,
+            "any_expected_document_at_5": 6,
+            "all_expected_documents_at_5": 6,
+            "any_expected_anchor_at_5": 6,
+            "all_expected_anchors_at_5": 5,
+            "median_seconds": 0.1302328125020722,
+            "p95_seconds": 0.21755475000099977,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "research": {
+            "cases": 2,
+            "any_expected_document_at_5": 2,
+            "all_expected_documents_at_5": 2,
+            "any_expected_anchor_at_5": 1,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.06527735450072214,
+            "p95_seconds": 0.09149354200053494,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "tts": {
+            "cases": 10,
+            "any_expected_document_at_5": 10,
+            "all_expected_documents_at_5": 10,
+            "any_expected_anchor_at_5": 6,
+            "all_expected_anchors_at_5": 5,
+            "median_seconds": 0.07110170850137365,
+            "p95_seconds": 0.17537879200244788,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "video": {
+            "cases": 9,
+            "any_expected_document_at_5": 8,
+            "all_expected_documents_at_5": 8,
+            "any_expected_anchor_at_5": 3,
+            "all_expected_anchors_at_5": 2,
+            "median_seconds": 0.09889837499940768,
+            "p95_seconds": 0.668665167002473,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "answerability": {
+          "not_established": {
+            "cases": 5,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 3,
+            "median_seconds": 0.06954899999982445,
+            "p95_seconds": 0.21755475000099977,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "partial": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 3,
+            "all_expected_anchors_at_5": 3,
+            "median_seconds": 0.1430498545014416,
+            "p95_seconds": 0.20224900000175694,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "supported": {
+            "cases": 31,
+            "any_expected_document_at_5": 31,
+            "all_expected_documents_at_5": 30,
+            "any_expected_anchor_at_5": 19,
+            "all_expected_anchors_at_5": 17,
+            "median_seconds": 0.08873666699946625,
+            "p95_seconds": 0.23942679200263228,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        }
+      },
+      "cold_initialization_seconds": 0.16676016700512264,
+      "availability": {
+        "status": "not_requested"
+      },
+      "actual_modes": {
+        "lexical": 40
+      },
+      "cases": [
+        {
+          "id": "tts-higgs-controls",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "0441f5644303dad5b450",
+            "dc113b0fd94a04b46054",
+            "087337a222b159255808",
+            "f7794ae26edb3a7c479f"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.06982254199829185,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16829,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-higgs-matched-prompt",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "ab1290d1a84fe7b93905",
+            "fbec4857ab78bd2a083e",
+            "ca03e77e00827468345d",
+            "ece69941b922ed9e6bb4"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.06751666600030148,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17034,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-method",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "c9093e13f571975b2946",
+            "029f4f6cd7936fd26e77",
+            "0781918e1175c60c1cde",
+            "68697d8b4a8e1c1514e1",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.06753670800389955,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16497,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-indonesian-commercial",
+          "language": "id",
+          "category": "tts",
+          "answerability": "not_established",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "c9093e13f571975b2946",
+            "458c04cd04ca960bc316",
+            "ca03e77e00827468345d",
+            "f0bfb648eb1c22bf5081",
+            "f21a8cb9b9ce5abde972"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.032914417002757546,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19543,
+          "required_unknowns": [
+            "Indonesian evaluation for the intended narration workload",
+            "Applicable commercial-use license terms"
+          ]
+        },
+        {
+          "id": "model-deepseek-active-parameters",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "6e725a73dc7669f76049",
+            "cac24968e5aa0d5bf28d",
+            "e800ee9ae57a1b53ea96",
+            "db9ca812eb17b8c3b05a",
+            "be38b11f937cd76cc249"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.0707100409999839,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17422,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-routing-date",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "c0948e70c4f5d841804e",
+            "039a4975e102cb538c36",
+            "0216c7938e68654c4eab",
+            "6e725a73dc7669f76049",
+            "1809664d20064a1ba891"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.06711874999746215,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15408,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-current-price",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "7d6ba79e9a7b5a47dfef",
+            "13ef434401cf612b69bb",
+            "6e725a73dc7669f76049",
+            "d7dddac5c9c6043e7c06",
+            "d528e97f4ac5c2675478"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.06954899999982445,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16309,
+          "required_unknowns": [
+            "Current official tariff and billing conditions",
+            "Exact dollar amounts from an accessible pricing source"
+          ]
+        },
+        {
+          "id": "coding-deepswe-v11-change",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "7911d8e2d43a7c1a5a9e",
+            "608eb672ebb7d160faf8",
+            "7cf5c0f5e51ae17fa4fd",
+            "72638330f853e6032370",
+            "1988761466109b07b2ee"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.08256362500105752,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16005,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-deepswe-no-wallclock",
+          "language": "id",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "7911d8e2d43a7c1a5a9e",
+            "131cc33953e1e64d024c",
+            "7cf5c0f5e51ae17fa4fd",
+            "bf44de9e544de4cbe9fe",
+            "cac24968e5aa0d5bf28d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.08811745799903292,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15965,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-footprint",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "a0bc0f630680e91c4594",
+            "9e45464166d4e2042626",
+            "b99c151f8719568d862a",
+            "c7ab9ca01b3696cda119"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.07689945799938869,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15856,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-m1-speed",
+          "language": "id",
+          "category": "image",
+          "answerability": "partial",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "ee1498e61562e7a9e42d",
+            "668256d89af8ad5d4b18",
+            "a0bc0f630680e91c4594",
+            "b99c151f8719568d862a",
+            "9e45464166d4e2042626"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.06075099999725353,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15941,
+          "required_unknowns": [
+            "Measured latency and peak memory on the target Mac M1",
+            "Matching model variant, resolution and runtime configuration"
+          ]
+        },
+        {
+          "id": "image-flux-layout",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "0de13d9ba99633429fb2",
+            "c7bfc11fff614d782b0a",
+            "668256d89af8ad5d4b18",
+            "ac461dcf313aa72f58e1"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.07999741600360721,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16431,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-flux-commercial",
+          "language": "id",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18",
+            "ac461dcf313aa72f58e1",
+            "0cc83752db63c86fabeb",
+            "c7bfc11fff614d782b0a"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.07781791700108442,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17488,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-reuse",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "f17b1396bd6b353ee820",
+            "5fc31544674c6cbab287",
+            "259c8fd88c0fe455b5ee",
+            "e83de83eee8dd4e60f8b",
+            "f7794ae26edb3a7c479f"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.07066016700264299,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16828,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-free-unlimited",
+          "language": "en",
+          "category": "agents",
+          "answerability": "not_established",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "f17b1396bd6b353ee820",
+            "87dd323306f86865044e",
+            "d8989963e8e03233d51f",
+            "5fc31544674c6cbab287",
+            "006c7eeb54ff362fa127"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.06609341599687468,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18048,
+          "required_unknowns": [
+            "Current account plan, generation charges and quotas"
+          ]
+        },
+        {
+          "id": "video-h3-modalities",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "643740d8b1d776507524",
+            "f4aa7b19fabcf725700c",
+            "435b2f544ed33453e535",
+            "0f8268f141c4f8b87459",
+            "57d0838116badebf5eb0"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.06018958300410304,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16159,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-h3-mac-local",
+          "language": "en",
+          "category": "video",
+          "answerability": "not_established",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "4614d93b14f5a752c9fb",
+            "6b6f38377d861449d93e",
+            "f44ceb1521d590512122",
+            "7d6ba79e9a7b5a47dfef",
+            "0f8268f141c4f8b87459"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.08309345899760956,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16915,
+          "required_unknowns": [
+            "Current weight availability and applicable terms",
+            "Supported Mac runtime, memory and generation-time measurements"
+          ]
+        },
+        {
+          "id": "video-ltx-gated-download",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "b00cef0a46c39a3ea170",
+            "92c1824269f45469ee06",
+            "58a31237900f264a9452",
+            "e3eb3569330482ffe8c5",
+            "0cc83752db63c86fabeb"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.09889837499940768,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16446,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-ltx-fps-runtime",
+          "language": "id",
+          "category": "video",
+          "answerability": "partial",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "b00cef0a46c39a3ea170",
+            "708b9bb70fc7491ee345",
+            "92c1824269f45469ee06",
+            "06087f4a460e95f05f36",
+            "60e74043c3e0b9575502"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.20224900000175694,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15169,
+          "required_unknowns": [
+            "Measured render speed and memory for the laptop and requested settings"
+          ]
+        },
+        {
+          "id": "video-wan2-serving",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7"
+          ],
+          "retrieved_sources": [
+            "856a34a0d0a8b72944e7",
+            "49ec6ffc39dd7dc70bab",
+            "8ef09b8e8c8835e97935",
+            "5a75b8a901e4f4a9de9b",
+            "5f2082f6728b36b18635"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.23942679200263228,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16157,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-version-action",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7",
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "49ec6ffc39dd7dc70bab",
+            "8ef09b8e8c8835e97935",
+            "856a34a0d0a8b72944e7",
+            "458c04cd04ca960bc316",
+            "39b901174b5433760268"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 2,
+          "anchor_count": 3,
+          "elapsed_seconds": 0.08873666699946625,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18276,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-offline-demos",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "49ec6ffc39dd7dc70bab",
+            "8ef09b8e8c8835e97935",
+            "0216c7938e68654c4eab",
+            "1d4f9a2706140c47dc97",
+            "856a34a0d0a8b72944e7"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.668665167002473,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16294,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-vibe-handoff",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "c5d1f531ff9cdcc70730",
+            "a0447b050f32ed608d81",
+            "131cc33953e1e64d024c",
+            "0216c7938e68654c4eab"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.1957905830058735,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16967,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-vibe-mac-selfhost",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "ee1498e61562e7a9e42d",
+            "7dce15731b62c6240c24",
+            "131cc33953e1e64d024c",
+            "d8989963e8e03233d51f",
+            "9e45464166d4e2042626"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.21755475000099977,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17844,
+          "required_unknowns": [
+            "Target-Mac runtime compatibility, complete memory footprint and usable speed"
+          ]
+        },
+        {
+          "id": "model-lfm-throughput",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "d8989963e8e03233d51f",
+            "e330c92570d182a14d20",
+            "b99c151f8719568d862a",
+            "a0bc0f630680e91c4594"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.20146324999950593,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17335,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-lfm-retrieval-context",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "d466ccc68189e7a5951d",
+            "72638330f853e6032370",
+            "53bed95ca3beaf733ee2",
+            "2bb4be0eb7d633cfba36"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.18975558400416048,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16934,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-release-state",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "b984a5c544e6313764dd",
+            "435b2f544ed33453e535",
+            "0f8268f141c4f8b87459",
+            "4614d93b14f5a752c9fb",
+            "02aa9de59f023db30636"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.1535368750046473,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16197,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-price-freshness",
+          "language": "id",
+          "category": "coding",
+          "answerability": "partial",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "b984a5c544e6313764dd",
+            "b90ce025dc5cb9815d0d",
+            "ccedc6d424922602d09f",
+            "2f45a14568a443012a7c",
+            "09b59cb95c871d718795"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.19346333399880677,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17491,
+          "required_unknowns": [
+            "Current official prices, account terms and workload-specific billing"
+          ]
+        },
+        {
+          "id": "tts-gemini-consent",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "60de89d70d5e51622a53",
+            "95a5094ffe65dab3d979",
+            "7c5dae94ee11589ab6c6",
+            "3e32e2d9c10dd5d8bdf9"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.1518263329999172,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17833,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-gemini-model-choice",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "3e32e2d9c10dd5d8bdf9",
+            "850203855328faa9151f",
+            "09b59cb95c871d718795",
+            "51316e8a2b80cf8adda9"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.1714453750028042,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19031,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-memory-evidence",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "1949e926c4e3b5f8fb79",
+            "85b46b22366af5414fe6",
+            "58a31237900f264a9452",
+            "8c3acf43834d43ba4e45"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.13307995799550554,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16277,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-segments",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "ea94d14eb7934084755f",
+            "ee9454afeead12b74657",
+            "57a59d53b52109678879",
+            "6c2eab2f655395e345c1"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.09296575000189478,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14453,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-learning-loop",
+          "language": "en",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "d343ec628915b37740d7",
+            "a0447b050f32ed608d81",
+            "0dd3bed5c7dd1c272c8d",
+            "72638330f853e6032370"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.09149354200053494,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15781,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-production-limit",
+          "language": "id",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "eb53e560a163c943e132",
+            "1a5d7a3aefbc6315896f",
+            "5a75b8a901e4f4a9de9b",
+            "033d2401578c640b1595"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.039061167000909336,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 13568,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-size",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "ece69941b922ed9e6bb4",
+            "087337a222b159255808",
+            "f0bfb648eb1c22bf5081",
+            "57d0838116badebf5eb0"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.17537879200244788,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16942,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-indonesian-evaluation",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "f0bfb648eb1c22bf5081",
+            "ca03e77e00827468345d",
+            "087337a222b159255808",
+            "ece69941b922ed9e6bb4",
+            "56b2c8931c56b7a19b7c"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.07238087500445545,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14937,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-streaming-throughput",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "f0bfb648eb1c22bf5081",
+            "2bb4be0eb7d633cfba36",
+            "d9a447df0e116e9567a0",
+            "48a7e71b12977c318369"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.0976047500007553,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17347,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-higgs-ranking",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c",
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "087337a222b159255808",
+            "ece69941b922ed9e6bb4",
+            "56b2c8931c56b7a19b7c",
+            "f0bfb648eb1c22bf5081"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.015366667001217138,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 13656,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-release-license-separation",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "cbcc592d671d610a780f",
+            "ac461dcf313aa72f58e1",
+            "b556225b4a8f3c57248a",
+            "a0bc0f630680e91c4594"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.09362012500059791,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17303,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-workflow-vs-coding",
+          "language": "en",
+          "category": "agents",
+          "answerability": "partial",
+          "actual_mode": "lexical",
+          "expected_sources": [
+            "7dce15731b62c6240c24",
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "f17b1396bd6b353ee820",
+            "87dd323306f86865044e",
+            "458c04cd04ca960bc316",
+            "0216c7938e68654c4eab"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.0926363750040764,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17460,
+          "required_unknowns": [
+            "Project-specific integration, cost and reliability validation"
+          ]
+        }
+      ]
+    },
+    "semantic": {
+      "summary": {
+        "cases": 40,
+        "any_expected_document_at_5": 31,
+        "all_expected_documents_at_5": 30,
+        "any_expected_anchor_at_5": 19,
+        "all_expected_anchors_at_5": 15,
+        "median_seconds": 0.60611843749939,
+        "p95_seconds": 0.968767124999431,
+        "excerpt_budget_violations": 0,
+        "provenance_errors": 0
+      },
+      "slices": {
+        "language": {
+          "en": {
+            "cases": 23,
+            "any_expected_document_at_5": 18,
+            "all_expected_documents_at_5": 18,
+            "any_expected_anchor_at_5": 11,
+            "all_expected_anchors_at_5": 8,
+            "median_seconds": 0.6072572499979287,
+            "p95_seconds": 0.8853165000036824,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "id": {
+            "cases": 17,
+            "any_expected_document_at_5": 13,
+            "all_expected_documents_at_5": 12,
+            "any_expected_anchor_at_5": 8,
+            "all_expected_anchors_at_5": 7,
+            "median_seconds": 0.6058752090029884,
+            "p95_seconds": 0.968767124999431,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "category": {
+          "agents": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.5936052910001308,
+            "p95_seconds": 0.8593002500056173,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "coding": {
+            "cases": 4,
+            "any_expected_document_at_5": 3,
+            "all_expected_documents_at_5": 3,
+            "any_expected_anchor_at_5": 3,
+            "all_expected_anchors_at_5": 3,
+            "median_seconds": 0.6385053960002551,
+            "p95_seconds": 0.6996890000009444,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "image": {
+            "cases": 5,
+            "any_expected_document_at_5": 5,
+            "all_expected_documents_at_5": 5,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 3,
+            "median_seconds": 0.6061820420000004,
+            "p95_seconds": 0.8589013749951846,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "language_models": {
+            "cases": 6,
+            "any_expected_document_at_5": 5,
+            "all_expected_documents_at_5": 5,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.6015445624980202,
+            "p95_seconds": 0.7377823339993483,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "research": {
+            "cases": 2,
+            "any_expected_document_at_5": 2,
+            "all_expected_documents_at_5": 2,
+            "any_expected_anchor_at_5": 1,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.784865625002567,
+            "p95_seconds": 0.968767124999431,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "tts": {
+            "cases": 10,
+            "any_expected_document_at_5": 9,
+            "all_expected_documents_at_5": 8,
+            "any_expected_anchor_at_5": 5,
+            "all_expected_anchors_at_5": 5,
+            "median_seconds": 0.8355243125006382,
+            "p95_seconds": 1.1349378330050968,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "video": {
+            "cases": 9,
+            "any_expected_document_at_5": 3,
+            "all_expected_documents_at_5": 3,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.5830705830012448,
+            "p95_seconds": 0.6058752090029884,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "answerability": {
+          "not_established": {
+            "cases": 5,
+            "any_expected_document_at_5": 2,
+            "all_expected_documents_at_5": 2,
+            "any_expected_anchor_at_5": 0,
+            "all_expected_anchors_at_5": 0,
+            "median_seconds": 0.5915804589967593,
+            "p95_seconds": 0.6593577079984243,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "partial": {
+            "cases": 4,
+            "any_expected_document_at_5": 3,
+            "all_expected_documents_at_5": 3,
+            "any_expected_anchor_at_5": 3,
+            "all_expected_anchors_at_5": 2,
+            "median_seconds": 0.5904432499992254,
+            "p95_seconds": 0.8593002500056173,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "supported": {
+            "cases": 31,
+            "any_expected_document_at_5": 26,
+            "all_expected_documents_at_5": 25,
+            "any_expected_anchor_at_5": 16,
+            "all_expected_anchors_at_5": 13,
+            "median_seconds": 0.6072572499979287,
+            "p95_seconds": 0.968767124999431,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        }
+      },
+      "cold_initialization_seconds": 2.377368249995925,
+      "availability": {
+        "status": "ok",
+        "model": {
+          "asset_hashes": {
+            "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+            "onnx/model.onnx": "ca456c06b3a9505ddfd9131408916dd79290368331e7d76bb621f1cba6bc8665",
+            "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+            "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+            "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+          },
+          "backend": "fastembed_onnx_cpu",
+          "dimensions": 384,
+          "fastembed_version": "0.9.1",
+          "license": "MIT",
+          "max_tokens": 512,
+          "model_name": "intfloat/multilingual-e5-small",
+          "onnxruntime_version": "1.31.1",
+          "passage_prefix": "passage: ",
+          "query_prefix": "query: ",
+          "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+        },
+        "index_built_at": "2026-11-02T04:37:26.453405+00:00",
+        "score_note": "Cosine similarity is a ranking signal, not factual confidence or an abstention threshold"
+      },
+      "actual_modes": {
+        "semantic": 40
+      },
+      "cases": [
+        {
+          "id": "tts-higgs-controls",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "f2aed0cfc87a52cf2e1c",
+            "b1f9c7a504c77281d310",
+            "a299aa1bde23bcdfc7d9",
+            "57d0838116badebf5eb0"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.8853165000036824,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18151,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-higgs-matched-prompt",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "1988761466109b07b2ee",
+            "643740d8b1d776507524",
+            "ecbb85bae4e7ab21df5b",
+            "087337a222b159255808"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.7937810420044116,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15317,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-method",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "c9093e13f571975b2946",
+            "087337a222b159255808",
+            "24eb91c8429f3028678f",
+            "a299aa1bde23bcdfc7d9",
+            "ca03e77e00827468345d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6072572499979287,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17061,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-indonesian-commercial",
+          "language": "id",
+          "category": "tts",
+          "answerability": "not_established",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "22b89e49eade15b8a36d",
+            "53bed95ca3beaf733ee2",
+            "c10c7a35a1aa4ddd271d",
+            "029f4f6cd7936fd26e77",
+            "a288277c843a5aedef63"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5944080830013263,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 12084,
+          "required_unknowns": [
+            "Indonesian evaluation for the intended narration workload",
+            "Applicable commercial-use license terms"
+          ]
+        },
+        {
+          "id": "model-deepseek-active-parameters",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "e800ee9ae57a1b53ea96",
+            "e23acc07445f9e7499ca",
+            "6e725a73dc7669f76049",
+            "a1a747f4e1222f585211",
+            "06bc9987abd69873646c"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5462469999984023,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15796,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-routing-date",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "c5d1f531ff9cdcc70730",
+            "c0948e70c4f5d841804e",
+            "6e725a73dc7669f76049",
+            "b96a45c2e08370dfb4cd",
+            "2bb4be0eb7d633cfba36"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.7377823339993483,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18906,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-current-price",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "6e725a73dc7669f76049",
+            "66321e57ae7a50676743",
+            "cb56155b61078c316622",
+            "39b901174b5433760268",
+            "13ef434401cf612b69bb"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6593577079984243,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15184,
+          "required_unknowns": [
+            "Current official tariff and billing conditions",
+            "Exact dollar amounts from an accessible pricing source"
+          ]
+        },
+        {
+          "id": "coding-deepswe-v11-change",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "7911d8e2d43a7c1a5a9e",
+            "6fe5dc780a1023905d67",
+            "7cf5c0f5e51ae17fa4fd",
+            "131cc33953e1e64d024c",
+            "6381db252deeabb6b54b"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6996890000009444,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15579,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-deepswe-no-wallclock",
+          "language": "id",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "b556225b4a8f3c57248a",
+            "e800ee9ae57a1b53ea96",
+            "cc7c7428f46387b2e089",
+            "7911d8e2d43a7c1a5a9e",
+            "11b86268bb2d567afb58"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6496627500018803,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16531,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-footprint",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "a0bc0f630680e91c4594",
+            "b99c151f8719568d862a",
+            "43607fb8f439aae3685c",
+            "2e4e52a9ba865a34a7e7"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6061820420000004,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17046,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-m1-speed",
+          "language": "id",
+          "category": "image",
+          "answerability": "partial",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "2e4e52a9ba865a34a7e7",
+            "76a568c6812162d71e79",
+            "668256d89af8ad5d4b18",
+            "60f494e5fc703d221df7",
+            "b556225b4a8f3c57248a"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5748316669996711,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14947,
+          "required_unknowns": [
+            "Measured latency and peak memory on the target Mac M1",
+            "Matching model variant, resolution and runtime configuration"
+          ]
+        },
+        {
+          "id": "image-flux-layout",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "37948658fc64306e709b",
+            "2e6c7d5b62b02c1a6c39",
+            "636074939d53bf3f5c2e",
+            "bb3e392e5a2386139aa1",
+            "b818714acd86e5a9e7c7"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6498761659968295,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15168,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-flux-commercial",
+          "language": "id",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "4614d93b14f5a752c9fb",
+            "eb98e102e6f7e5f51478",
+            "b90ce025dc5cb9815d0d",
+            "43607fb8f439aae3685c"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5708326669991948,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14339,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-reuse",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "f17b1396bd6b353ee820",
+            "87dd323306f86865044e",
+            "5fc31544674c6cbab287",
+            "3efbd9eb24461e518f19",
+            "48b80e86ccf8acefe93a"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5832761659985408,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14081,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-free-unlimited",
+          "language": "en",
+          "category": "agents",
+          "answerability": "not_established",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "87dd323306f86865044e",
+            "42e5c77f9f83d1cbadb6",
+            "f17b1396bd6b353ee820",
+            "58a31237900f264a9452",
+            "458c04cd04ca960bc316"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5487883749956382,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17048,
+          "required_unknowns": [
+            "Current account plan, generation charges and quotas"
+          ]
+        },
+        {
+          "id": "video-h3-modalities",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "7d6ba79e9a7b5a47dfef",
+            "f44ceb1521d590512122",
+            "4614d93b14f5a752c9fb",
+            "643740d8b1d776507524",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5830705830012448,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14904,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-h3-mac-local",
+          "language": "en",
+          "category": "video",
+          "answerability": "not_established",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "10c61440c12d919221f8",
+            "4614d93b14f5a752c9fb",
+            "7d6ba79e9a7b5a47dfef",
+            "60de89d70d5e51622a53",
+            "b1f9c7a504c77281d310"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5674092499975814,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14351,
+          "required_unknowns": [
+            "Current weight availability and applicable terms",
+            "Supported Mac runtime, memory and generation-time measurements"
+          ]
+        },
+        {
+          "id": "video-ltx-gated-download",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "87dd323306f86865044e",
+            "044c0150f5408638bab0",
+            "a2515949dde501f822db",
+            "fcccb23781b5069ed445",
+            "92c1824269f45469ee06"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5852756249951199,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18036,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-ltx-fps-runtime",
+          "language": "id",
+          "category": "video",
+          "answerability": "partial",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "58a31237900f264a9452",
+            "76a568c6812162d71e79",
+            "cbcc592d671d610a780f",
+            "8c7c2206dbdda081edfc",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5463753750009346,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15546,
+          "required_unknowns": [
+            "Measured render speed and memory for the laptop and requested settings"
+          ]
+        },
+        {
+          "id": "video-wan2-serving",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7"
+          ],
+          "retrieved_sources": [
+            "d330f38d59b873103480",
+            "24eb91c8429f3028678f",
+            "7c94f17f6ef15e6f6a75",
+            "d9a447df0e116e9567a0",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5729058750002878,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16541,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-version-action",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7",
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "22b89e49eade15b8a36d",
+            "2e6522c4bcc1f3a4a90e",
+            "53bed95ca3beaf733ee2",
+            "49ec6ffc39dd7dc70bab",
+            "1e5b8618d900b42a6d0b"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 3,
+          "elapsed_seconds": 0.6058752090029884,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 13936,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-offline-demos",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "2e6522c4bcc1f3a4a90e",
+            "9e27c60db2beca223ecd",
+            "0441f5644303dad5b450",
+            "72638330f853e6032370",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5894685840030434,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16907,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-vibe-handoff",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "f3fa2da0cf03d93c72e3",
+            "056574eb7d0e15df8530",
+            "42e5c77f9f83d1cbadb6",
+            "0781918e1175c60c1cde"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6039344160017208,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14497,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-vibe-mac-selfhost",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "4614d93b14f5a752c9fb",
+            "499fcbd081b8b35bf472",
+            "e0bf12c87bf4a661bc67",
+            "ee1498e61562e7a9e42d",
+            "b556225b4a8f3c57248a"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.5915804589967593,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15466,
+          "required_unknowns": [
+            "Target-Mac runtime compatibility, complete memory footprint and usable speed"
+          ]
+        },
+        {
+          "id": "model-lfm-throughput",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "d8989963e8e03233d51f",
+            "eb98e102e6f7e5f51478",
+            "c5d1f531ff9cdcc70730",
+            "f178ebcb292b51e073b0"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6115086659992812,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17301,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-lfm-retrieval-context",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "c021e87c1393168fb4aa",
+            "2bc2cf30ffd56fe14edd",
+            "d8989963e8e03233d51f",
+            "ca26bca182f697df2bca"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5897797500001616,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16125,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-release-state",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "4614d93b14f5a752c9fb",
+            "bf44de9e544de4cbe9fe",
+            "0c7dc78043ecab5d38d4",
+            "10c61440c12d919221f8",
+            "57d0838116badebf5eb0"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6273480419986299,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17992,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-price-freshness",
+          "language": "id",
+          "category": "coding",
+          "answerability": "partial",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "39b901174b5433760268",
+            "b984a5c544e6313764dd",
+            "76a568c6812162d71e79",
+            "b90ce025dc5cb9815d0d",
+            "13ef434401cf612b69bb"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6060548329987796,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17318,
+          "required_unknowns": [
+            "Current official prices, account terms and workload-specific billing"
+          ]
+        },
+        {
+          "id": "tts-gemini-consent",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "18e8d4ab775bfb037016",
+            "95b7ebc1937a7b61cc28",
+            "029f4f6cd7936fd26e77",
+            "51316e8a2b80cf8adda9"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.6456520829960937,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18558,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-gemini-model-choice",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "1e5b8618d900b42a6d0b",
+            "09b59cb95c871d718795",
+            "850203855328faa9151f",
+            "69cbe3169a5b0bf89f73"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6062640419986565,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 22131,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-memory-evidence",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "2e16d605a81b228ac26d",
+            "58a31237900f264a9452",
+            "2e4e52a9ba865a34a7e7",
+            "22f6631b616317b7eb68"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6027340829969035,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15642,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-segments",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "e49cc7174c4465b6fb08",
+            "13ef434401cf612b69bb",
+            "326020b4a21093e8e8a3",
+            "a5789000cc134671b3b5"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.5601534580055159,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15026,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-learning-loop",
+          "language": "en",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "488000f70daa15cfa4e7",
+            "1a5d7a3aefbc6315896f",
+            "9cd7c8894f8bf41a3e60",
+            "7cf5c0f5e51ae17fa4fd"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.600964125005703,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15229,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-production-limit",
+          "language": "id",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "ed1be8ea5f53c7373a9c",
+            "2bb4be0eb7d633cfba36",
+            "9cd7c8894f8bf41a3e60",
+            "7a50eca412aa538dfe95"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.968767124999431,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17064,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-size",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "ece69941b922ed9e6bb4",
+            "087337a222b159255808",
+            "f0bfb648eb1c22bf5081",
+            "d330f38d59b873103480"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.882012082998699,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15928,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-indonesian-evaluation",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "f0bfb648eb1c22bf5081",
+            "ca03e77e00827468345d",
+            "d8989963e8e03233d51f",
+            "13ef434401cf612b69bb",
+            "087337a222b159255808"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.8772675829968648,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 14600,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-streaming-throughput",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "d9a447df0e116e9567a0",
+            "58a31237900f264a9452",
+            "8ebf04c31c25311e98ee",
+            "056574eb7d0e15df8530"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.1349378330050968,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16281,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-higgs-ranking",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c",
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "087337a222b159255808",
+            "ca03e77e00827468345d",
+            "15e2051c5046525ff0e1",
+            "4deadbde5682be6dbcf0",
+            "76a568c6812162d71e79"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.8838460839979234,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15739,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-release-license-separation",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18",
+            "37948658fc64306e709b",
+            "b89351781ce952291b0d",
+            "92c1824269f45469ee06"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.8589013749951846,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15469,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-workflow-vs-coding",
+          "language": "en",
+          "category": "agents",
+          "answerability": "partial",
+          "actual_mode": "semantic",
+          "expected_sources": [
+            "7dce15731b62c6240c24",
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "e83de83eee8dd4e60f8b",
+            "87dd323306f86865044e",
+            "f17b1396bd6b353ee820",
+            "db9ca812eb17b8c3b05a"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.8593002500056173,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17918,
+          "required_unknowns": [
+            "Project-specific integration, cost and reliability validation"
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "summary": {
+        "cases": 40,
+        "any_expected_document_at_5": 36,
+        "all_expected_documents_at_5": 36,
+        "any_expected_anchor_at_5": 26,
+        "all_expected_anchors_at_5": 22,
+        "median_seconds": 0.9724408539987053,
+        "p95_seconds": 3.289056958994479,
+        "excerpt_budget_violations": 0,
+        "provenance_errors": 0
+      },
+      "slices": {
+        "language": {
+          "en": {
+            "cases": 23,
+            "any_expected_document_at_5": 20,
+            "all_expected_documents_at_5": 20,
+            "any_expected_anchor_at_5": 14,
+            "all_expected_anchors_at_5": 13,
+            "median_seconds": 0.9745748329951311,
+            "p95_seconds": 2.2140920419988106,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "id": {
+            "cases": 17,
+            "any_expected_document_at_5": 16,
+            "all_expected_documents_at_5": 16,
+            "any_expected_anchor_at_5": 12,
+            "all_expected_anchors_at_5": 9,
+            "median_seconds": 0.9695541670007515,
+            "p95_seconds": 3.7343082500010496,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "category": {
+          "agents": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 2,
+            "median_seconds": 1.0125108335014374,
+            "p95_seconds": 1.769719083000382,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "coding": {
+            "cases": 4,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 4,
+            "median_seconds": 2.124067083997943,
+            "p95_seconds": 3.7343082500010496,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "image": {
+            "cases": 5,
+            "any_expected_document_at_5": 5,
+            "all_expected_documents_at_5": 5,
+            "any_expected_anchor_at_5": 5,
+            "all_expected_anchors_at_5": 4,
+            "median_seconds": 0.9522099579990027,
+            "p95_seconds": 1.2170864159998018,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "language_models": {
+            "cases": 6,
+            "any_expected_document_at_5": 6,
+            "all_expected_documents_at_5": 6,
+            "any_expected_anchor_at_5": 6,
+            "all_expected_anchors_at_5": 5,
+            "median_seconds": 0.9957854165004392,
+            "p95_seconds": 1.2939974170003552,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "research": {
+            "cases": 2,
+            "any_expected_document_at_5": 2,
+            "all_expected_documents_at_5": 2,
+            "any_expected_anchor_at_5": 1,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.7195062914943264,
+            "p95_seconds": 0.7442188329951023,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "tts": {
+            "cases": 10,
+            "any_expected_document_at_5": 10,
+            "all_expected_documents_at_5": 10,
+            "any_expected_anchor_at_5": 6,
+            "all_expected_anchors_at_5": 5,
+            "median_seconds": 1.0496067494968884,
+            "p95_seconds": 2.2140920419988106,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "video": {
+            "cases": 9,
+            "any_expected_document_at_5": 5,
+            "all_expected_documents_at_5": 5,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 1,
+            "median_seconds": 0.998130708001554,
+            "p95_seconds": 1.264275749999797,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        },
+        "answerability": {
+          "not_established": {
+            "cases": 5,
+            "any_expected_document_at_5": 4,
+            "all_expected_documents_at_5": 4,
+            "any_expected_anchor_at_5": 4,
+            "all_expected_anchors_at_5": 3,
+            "median_seconds": 0.9695541670007515,
+            "p95_seconds": 1.1765641659949324,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "partial": {
+            "cases": 4,
+            "any_expected_document_at_5": 3,
+            "all_expected_documents_at_5": 3,
+            "any_expected_anchor_at_5": 2,
+            "all_expected_anchors_at_5": 2,
+            "median_seconds": 0.9958768545002386,
+            "p95_seconds": 1.0547147920005955,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          },
+          "supported": {
+            "cases": 31,
+            "any_expected_document_at_5": 29,
+            "all_expected_documents_at_5": 29,
+            "any_expected_anchor_at_5": 20,
+            "all_expected_anchors_at_5": 17,
+            "median_seconds": 0.998130708001554,
+            "p95_seconds": 3.289056958994479,
+            "excerpt_budget_violations": 0,
+            "provenance_errors": 0
+          }
+        }
+      },
+      "cold_initialization_seconds": 0.9628480419996777,
+      "availability": {
+        "status": "ok",
+        "model": {
+          "asset_hashes": {
+            "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+            "onnx/model.onnx": "ca456c06b3a9505ddfd9131408916dd79290368331e7d76bb621f1cba6bc8665",
+            "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+            "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+            "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+          },
+          "backend": "fastembed_onnx_cpu",
+          "dimensions": 384,
+          "fastembed_version": "0.9.1",
+          "license": "MIT",
+          "max_tokens": 512,
+          "model_name": "intfloat/multilingual-e5-small",
+          "onnxruntime_version": "1.31.1",
+          "passage_prefix": "passage: ",
+          "query_prefix": "query: ",
+          "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+        },
+        "index_built_at": "2026-11-02T04:37:26.453405+00:00",
+        "score_note": "Cosine similarity is a ranking signal, not factual confidence or an abstention threshold"
+      },
+      "actual_modes": {
+        "hybrid": 40
+      },
+      "cases": [
+        {
+          "id": "tts-higgs-controls",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "f2aed0cfc87a52cf2e1c",
+            "b1f9c7a504c77281d310",
+            "ca03e77e00827468345d",
+            "95b7ebc1937a7b61cc28"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9351809589934419,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17442,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-higgs-matched-prompt",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c"
+          ],
+          "retrieved_sources": [
+            "56b2c8931c56b7a19b7c",
+            "087337a222b159255808",
+            "fbec4857ab78bd2a083e",
+            "ca03e77e00827468345d",
+            "ece69941b922ed9e6bb4"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.1246386659986456,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17435,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-method",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "c9093e13f571975b2946",
+            "029f4f6cd7936fd26e77",
+            "e760210791c802fbcef3",
+            "d9a447df0e116e9567a0",
+            "0441f5644303dad5b450"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 2.2140920419988106,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17902,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-wav-indonesian-commercial",
+          "language": "id",
+          "category": "tts",
+          "answerability": "not_established",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "c9093e13f571975b2946"
+          ],
+          "retrieved_sources": [
+            "22b89e49eade15b8a36d",
+            "029f4f6cd7936fd26e77",
+            "f0bfb648eb1c22bf5081",
+            "c9093e13f571975b2946",
+            "92c1824269f45469ee06"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.1765641659949324,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17215,
+          "required_unknowns": [
+            "Indonesian evaluation for the intended narration workload",
+            "Applicable commercial-use license terms"
+          ]
+        },
+        {
+          "id": "model-deepseek-active-parameters",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "6e725a73dc7669f76049",
+            "e800ee9ae57a1b53ea96",
+            "cac24968e5aa0d5bf28d",
+            "06bc9987abd69873646c",
+            "bf44de9e544de4cbe9fe"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.8413819170018542,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17538,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-routing-date",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "c0948e70c4f5d841804e",
+            "6e725a73dc7669f76049",
+            "c5d1f531ff9cdcc70730",
+            "0216c7938e68654c4eab",
+            "039a4975e102cb538c36"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.0220166660001269,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16867,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-deepseek-current-price",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "6e725a73dc7669f76049"
+          ],
+          "retrieved_sources": [
+            "6e725a73dc7669f76049",
+            "13ef434401cf612b69bb",
+            "e7232d52f37fd859a2ad",
+            "4307222bc7e5f2e47115",
+            "cac24968e5aa0d5bf28d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9128315829948406,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17437,
+          "required_unknowns": [
+            "Current official tariff and billing conditions",
+            "Exact dollar amounts from an accessible pricing source"
+          ]
+        },
+        {
+          "id": "coding-deepswe-v11-change",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "7911d8e2d43a7c1a5a9e",
+            "7cf5c0f5e51ae17fa4fd",
+            "6381db252deeabb6b54b",
+            "608eb672ebb7d160faf8",
+            "1988761466109b07b2ee"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 3.289056958994479,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16869,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-deepswe-no-wallclock",
+          "language": "id",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "7911d8e2d43a7c1a5a9e"
+          ],
+          "retrieved_sources": [
+            "7911d8e2d43a7c1a5a9e",
+            "e800ee9ae57a1b53ea96",
+            "7cf5c0f5e51ae17fa4fd",
+            "c5d1f531ff9cdcc70730",
+            "cac24968e5aa0d5bf28d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 3.7343082500010496,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17731,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-footprint",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "a0bc0f630680e91c4594",
+            "b99c151f8719568d862a",
+            "2e4e52a9ba865a34a7e7",
+            "43607fb8f439aae3685c"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9522099579990027,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17467,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-bonsai-m1-speed",
+          "language": "id",
+          "category": "image",
+          "answerability": "partial",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "2e4e52a9ba865a34a7e7",
+            "ee1498e61562e7a9e42d",
+            "a0bc0f630680e91c4594",
+            "9e45464166d4e2042626"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.7875336670040269,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18470,
+          "required_unknowns": [
+            "Measured latency and peak memory on the target Mac M1",
+            "Matching model variant, resolution and runtime configuration"
+          ]
+        },
+        {
+          "id": "image-flux-layout",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18",
+            "d8bebcc9aa73b18e8c5d",
+            "78e78a9f60405b26d6dc",
+            "42e5c77f9f83d1cbadb6"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.0824998750031227,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17618,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-flux-commercial",
+          "language": "id",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39"
+          ],
+          "retrieved_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "eb98e102e6f7e5f51478",
+            "cbcc592d671d610a780f",
+            "43607fb8f439aae3685c",
+            "0cc83752db63c86fabeb"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.2170864159998018,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18019,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-reuse",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "f17b1396bd6b353ee820",
+            "5fc31544674c6cbab287",
+            "87dd323306f86865044e",
+            "e83de83eee8dd4e60f8b",
+            "0216c7938e68654c4eab"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.769719083000382,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18374,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-comfy-free-unlimited",
+          "language": "en",
+          "category": "agents",
+          "answerability": "not_established",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "87dd323306f86865044e",
+            "f17b1396bd6b353ee820",
+            "58a31237900f264a9452",
+            "5fc31544674c6cbab287",
+            "044c0150f5408638bab0"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9703068750022794,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18253,
+          "required_unknowns": [
+            "Current account plan, generation charges and quotas"
+          ]
+        },
+        {
+          "id": "video-h3-modalities",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "643740d8b1d776507524",
+            "f44ceb1521d590512122",
+            "4614d93b14f5a752c9fb",
+            "0781918e1175c60c1cde",
+            "6270c9d2cfdcee660f6d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.7404013339983067,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 13081,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-h3-mac-local",
+          "language": "en",
+          "category": "video",
+          "answerability": "not_established",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "643740d8b1d776507524"
+          ],
+          "retrieved_sources": [
+            "4614d93b14f5a752c9fb",
+            "7d6ba79e9a7b5a47dfef",
+            "6270c9d2cfdcee660f6d",
+            "f44ceb1521d590512122",
+            "6b6f38377d861449d93e"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9665783750024275,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17941,
+          "required_unknowns": [
+            "Current weight availability and applicable terms",
+            "Supported Mac runtime, memory and generation-time measurements"
+          ]
+        },
+        {
+          "id": "video-ltx-gated-download",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "92c1824269f45469ee06",
+            "b00cef0a46c39a3ea170",
+            "e3eb3569330482ffe8c5",
+            "044c0150f5408638bab0",
+            "87dd323306f86865044e"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.264275749999797,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17502,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-ltx-fps-runtime",
+          "language": "id",
+          "category": "video",
+          "answerability": "partial",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b00cef0a46c39a3ea170"
+          ],
+          "retrieved_sources": [
+            "10c61440c12d919221f8",
+            "8c7c2206dbdda081edfc",
+            "57d0838116badebf5eb0",
+            "435b2f544ed33453e535",
+            "92c1824269f45469ee06"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.0475972920030472,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 16576,
+          "required_unknowns": [
+            "Measured render speed and memory for the laptop and requested settings"
+          ]
+        },
+        {
+          "id": "video-wan2-serving",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7"
+          ],
+          "retrieved_sources": [
+            "056574eb7d0e15df8530",
+            "24eb91c8429f3028678f",
+            "d330f38d59b873103480",
+            "58a31237900f264a9452",
+            "d8989963e8e03233d51f"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.0166543750019628,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17845,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-version-action",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "856a34a0d0a8b72944e7",
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "49ec6ffc39dd7dc70bab",
+            "2e6522c4bcc1f3a4a90e",
+            "8ef09b8e8c8835e97935",
+            "856a34a0d0a8b72944e7",
+            "458c04cd04ca960bc316"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 2,
+          "anchor_count": 3,
+          "elapsed_seconds": 0.6242565419961466,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19292,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-wan-offline-demos",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "8ef09b8e8c8835e97935"
+          ],
+          "retrieved_sources": [
+            "2e6522c4bcc1f3a4a90e",
+            "72638330f853e6032370",
+            "0441f5644303dad5b450",
+            "5a75b8a901e4f4a9de9b",
+            "b649a4cac254bcbc298a"
+          ],
+          "any_document_hit": false,
+          "all_documents_hit": false,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.998130708001554,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18891,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-vibe-handoff",
+          "language": "en",
+          "category": "agents",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "0216c7938e68654c4eab",
+            "4e3ca8a95d36633072bd",
+            "2f45a14568a443012a7c",
+            "a0bc0f630680e91c4594"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.8730259579970152,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18447,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-vibe-mac-selfhost",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "not_established",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "7dce15731b62c6240c24"
+          ],
+          "retrieved_sources": [
+            "ee1498e61562e7a9e42d",
+            "499fcbd081b8b35bf472",
+            "9e45464166d4e2042626",
+            "7dce15731b62c6240c24",
+            "bf44de9e544de4cbe9fe"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9695541670007515,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19399,
+          "required_unknowns": [
+            "Target-Mac runtime compatibility, complete memory footprint and usable speed"
+          ]
+        },
+        {
+          "id": "model-lfm-throughput",
+          "language": "en",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "d8989963e8e03233d51f",
+            "f178ebcb292b51e073b0",
+            "2e4e52a9ba865a34a7e7",
+            "8ebf04c31c25311e98ee"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.1046769579988904,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18236,
+          "required_unknowns": []
+        },
+        {
+          "id": "model-lfm-retrieval-context",
+          "language": "id",
+          "category": "language_models",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "364f5f1cad75fb5b888b"
+          ],
+          "retrieved_sources": [
+            "364f5f1cad75fb5b888b",
+            "2bb4be0eb7d633cfba36",
+            "2f7c96875c607bdf1576",
+            "c021e87c1393168fb4aa",
+            "d466ccc68189e7a5951d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.2939974170003552,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18602,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-release-state",
+          "language": "en",
+          "category": "coding",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "4614d93b14f5a752c9fb",
+            "b984a5c544e6313764dd",
+            "743bfa6f4f42d6afc1de",
+            "0f8268f141c4f8b87459",
+            "d466ccc68189e7a5951d"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.959077209001407,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17674,
+          "required_unknowns": []
+        },
+        {
+          "id": "coding-m31-price-freshness",
+          "language": "id",
+          "category": "coding",
+          "answerability": "partial",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b984a5c544e6313764dd"
+          ],
+          "retrieved_sources": [
+            "b984a5c544e6313764dd",
+            "b90ce025dc5cb9815d0d",
+            "13ef434401cf612b69bb",
+            "09b59cb95c871d718795",
+            "c5d1f531ff9cdcc70730"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9441564169974299,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19464,
+          "required_unknowns": [
+            "Current official prices, account terms and workload-specific billing"
+          ]
+        },
+        {
+          "id": "tts-gemini-consent",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "51316e8a2b80cf8adda9",
+            "850203855328faa9151f",
+            "60de89d70d5e51622a53",
+            "0781918e1175c60c1cde"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.9745748329951311,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 20185,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-gemini-model-choice",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "b1f9c7a504c77281d310"
+          ],
+          "retrieved_sources": [
+            "b1f9c7a504c77281d310",
+            "09b59cb95c871d718795",
+            "850203855328faa9151f",
+            "1e5b8618d900b42a6d0b",
+            "51316e8a2b80cf8adda9"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.183544166997308,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 21409,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-memory-evidence",
+          "language": "en",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "58a31237900f264a9452",
+            "10c61440c12d919221f8",
+            "200899ba0220e0eed983",
+            "1949e926c4e3b5f8fb79"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.0062523750020773,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17575,
+          "required_unknowns": []
+        },
+        {
+          "id": "video-swift-segments",
+          "language": "id",
+          "category": "video",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "4445a7894d6c6fac4b36"
+          ],
+          "retrieved_sources": [
+            "4445a7894d6c6fac4b36",
+            "b00cef0a46c39a3ea170",
+            "13ef434401cf612b69bb",
+            "2f7c96875c607bdf1576",
+            "6c2eab2f655395e345c1"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.7564570419999654,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15926,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-learning-loop",
+          "language": "en",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "7cf5c0f5e51ae17fa4fd",
+            "f28b9e3b980cce725013",
+            "9e27c60db2beca223ecd",
+            "db9ca812eb17b8c3b05a"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.7442188329951023,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17691,
+          "required_unknowns": []
+        },
+        {
+          "id": "research-aspire-production-limit",
+          "language": "id",
+          "category": "research",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "407c32787439742b2579"
+          ],
+          "retrieved_sources": [
+            "407c32787439742b2579",
+            "1a5d7a3aefbc6315896f",
+            "9cd7c8894f8bf41a3e60",
+            "7a50eca412aa538dfe95",
+            "033d2401578c640b1595"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 2,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6947937499935506,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15536,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-size",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "ece69941b922ed9e6bb4",
+            "087337a222b159255808",
+            "f0bfb648eb1c22bf5081",
+            "029f4f6cd7936fd26e77"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 1,
+          "elapsed_seconds": 1.2261367499959306,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18429,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-indonesian-evaluation",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "f0bfb648eb1c22bf5081",
+            "ca03e77e00827468345d",
+            "087337a222b159255808",
+            "029f4f6cd7936fd26e77",
+            "0cfb75e917db63a8f099"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.7784061670026858,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15955,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-streaming-throughput",
+          "language": "en",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "ca03e77e00827468345d",
+            "d9a447df0e116e9567a0",
+            "58a31237900f264a9452",
+            "f0bfb648eb1c22bf5081",
+            "8ebf04c31c25311e98ee"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": true,
+          "anchor_hits": 1,
+          "anchor_count": 1,
+          "elapsed_seconds": 0.969056209003611,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 18019,
+          "required_unknowns": []
+        },
+        {
+          "id": "tts-audio8-higgs-ranking",
+          "language": "id",
+          "category": "tts",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "56b2c8931c56b7a19b7c",
+            "ca03e77e00827468345d"
+          ],
+          "retrieved_sources": [
+            "087337a222b159255808",
+            "ca03e77e00827468345d",
+            "f0bfb648eb1c22bf5081",
+            "56b2c8931c56b7a19b7c",
+            "15e2051c5046525ff0e1"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.6330450410023332,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 17078,
+          "required_unknowns": []
+        },
+        {
+          "id": "image-release-license-separation",
+          "language": "en",
+          "category": "image",
+          "answerability": "supported",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "2e6c7d5b62b02c1a6c39",
+            "668256d89af8ad5d4b18"
+          ],
+          "retrieved_sources": [
+            "668256d89af8ad5d4b18",
+            "2e6c7d5b62b02c1a6c39",
+            "43607fb8f439aae3685c",
+            "b556225b4a8f3c57248a",
+            "cbcc592d671d610a780f"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": true,
+          "all_anchors_hit": false,
+          "anchor_hits": 1,
+          "anchor_count": 2,
+          "elapsed_seconds": 0.9367264160027844,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 15891,
+          "required_unknowns": []
+        },
+        {
+          "id": "agent-workflow-vs-coding",
+          "language": "en",
+          "category": "agents",
+          "answerability": "partial",
+          "actual_mode": "hybrid",
+          "expected_sources": [
+            "7dce15731b62c6240c24",
+            "f17b1396bd6b353ee820"
+          ],
+          "retrieved_sources": [
+            "7dce15731b62c6240c24",
+            "f17b1396bd6b353ee820",
+            "87dd323306f86865044e",
+            "458c04cd04ca960bc316",
+            "1d4f9a2706140c47dc97"
+          ],
+          "any_document_hit": true,
+          "all_documents_hit": true,
+          "any_anchor_hit": false,
+          "all_anchors_hit": false,
+          "anchor_hits": 0,
+          "anchor_count": 2,
+          "elapsed_seconds": 1.0547147920005955,
+          "excerpt_budget_violations": 0,
+          "provenance_errors": 0,
+          "serialized_chars": 19113,
+          "required_unknowns": [
+            "Project-specific integration, cost and reliability validation"
+          ]
+        }
+      ]
+    }
+  },
+  "status": "completed",
+  "limits": [
+    "Known relevant sources are not exhaustive judgments; this development set is not a held-out accuracy estimate.",
+    "Relevant context for an unsupported question is not evidence of a supported answer or safe abstention.",
+    "Literal anchor hit and exact coordinates do not prove semantic entailment or current suitability.",
+    "No generated recommendation or audiovisual understanding was scored by this runner."
+  ],
+  "baseline": {
+    "baseline_commit": "2dfca14",
+    "scope": "Original retained old-extraction/index baseline; extraction and ranking both differ from v2. Gold uses recovered v2 sources. Whitespace-only source wrapping is normalized for literal anchors.",
+    "cases": [
+      {
+        "id": "tts-higgs-controls",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.03466212499915855,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-higgs-matched-prompt",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.010012416998506524,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-wav-method",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.010629333002725616,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-wav-indonesian-commercial",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.005253374998574145,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-deepseek-active-parameters",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.01048300000547897,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-deepseek-routing-date",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.008949750001193024,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-deepseek-current-price",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.01400570799887646,
+        "budget_violations": 0
+      },
+      {
+        "id": "coding-deepswe-v11-change",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.01243958299892256,
+        "budget_violations": 0
+      },
+      {
+        "id": "coding-deepswe-no-wallclock",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.008757292001973838,
+        "budget_violations": 0
+      },
+      {
+        "id": "image-bonsai-footprint",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.01372520799486665,
+        "budget_violations": 0
+      },
+      {
+        "id": "image-bonsai-m1-speed",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.006345458001305815,
+        "budget_violations": 0
+      },
+      {
+        "id": "image-flux-layout",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.012655457998334896,
+        "budget_violations": 0
+      },
+      {
+        "id": "image-flux-commercial",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.008503375000145752,
+        "budget_violations": 0
+      },
+      {
+        "id": "agent-comfy-reuse",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.01312487500399584,
+        "budget_violations": 0
+      },
+      {
+        "id": "agent-comfy-free-unlimited",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.010265041004458908,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-h3-modalities",
+        "language": "id",
+        "any_document_hit": false,
+        "all_documents_hit": false,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.0057607909984653816,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-h3-mac-local",
+        "language": "en",
+        "any_document_hit": false,
+        "all_documents_hit": false,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.01282458400237374,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-ltx-gated-download",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.013007915993512142,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-ltx-fps-runtime",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.0056807910004863515,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-wan2-serving",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.013676124995981809,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-wan-version-action",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.003923333999409806,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-wan-offline-demos",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.011661500000627711,
+        "budget_violations": 0
+      },
+      {
+        "id": "agent-vibe-handoff",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.015120292002393398,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-vibe-mac-selfhost",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.00801179200061597,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-lfm-throughput",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.013458749999699648,
+        "budget_violations": 0
+      },
+      {
+        "id": "model-lfm-retrieval-context",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.008286083000712097,
+        "budget_violations": 0
+      },
+      {
+        "id": "coding-m31-release-state",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.010991499999363441,
+        "budget_violations": 0
+      },
+      {
+        "id": "coding-m31-price-freshness",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.007328708998102229,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-gemini-consent",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.010575916996458545,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-gemini-model-choice",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.006819333000748884,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-swift-memory-evidence",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": true,
+        "elapsed_seconds": 0.01246895899384981,
+        "budget_violations": 0
+      },
+      {
+        "id": "video-swift-segments",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.005070457998954225,
+        "budget_violations": 0
+      },
+      {
+        "id": "research-aspire-learning-loop",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.009603332997357938,
+        "budget_violations": 0
+      },
+      {
+        "id": "research-aspire-production-limit",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.002576124999905005,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-audio8-size",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.01297333299589809,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-audio8-indonesian-evaluation",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.004353667005489115,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-audio8-streaming-throughput",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.009161082998616621,
+        "budget_violations": 0
+      },
+      {
+        "id": "tts-audio8-higgs-ranking",
+        "language": "id",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.0017851660013548099,
+        "budget_violations": 0
+      },
+      {
+        "id": "image-release-license-separation",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": false,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.011927833998925053,
+        "budget_violations": 0
+      },
+      {
+        "id": "agent-workflow-vs-coding",
+        "language": "en",
+        "any_document_hit": true,
+        "all_documents_hit": true,
+        "any_anchor_hit": true,
+        "all_anchors_hit": false,
+        "elapsed_seconds": 0.011533875003806315,
+        "budget_violations": 0
+      }
+    ],
+    "summary": {
+      "any_document_hit": 38,
+      "all_documents_hit": 38,
+      "any_anchor_hit": 12,
+      "all_anchors_hit": 10,
+      "budget_violations": 0,
+      "median_seconds": 0.01037402050496894
+    }
+  },
+  "architecture_decision": {
+    "default": "improved lexical",
+    "reason": "39/40 known-source hits and 26/40 any-anchor hits; optional semantic31/19 and hybrid36/26. Small pilot did not generalize. This is a fixed development set, not universal accuracy."
+  }
+}

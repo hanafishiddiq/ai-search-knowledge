@@ -2,6 +2,8 @@
 
 Observed: 2026-11-01 (Asia/Jakarta). Initial channel: `@theAIsearch`, channel ID `UCIgnGlGkVRhd4qNFcEwLL4A`.
 
+**Current implementation, 2026-11-02:** V2 supersedes the initial runtime limits below. The archive now grows; quality classification, bounded retrieval, typed source-linked claims, review states and optional local semantic retrieval are implemented. See [RESEARCH-V2.md](RESEARCH-V2.md), [VALIDATION-V2.md](VALIDATION-V2.md) and [STATUS.md](../STATUS.md) for current measured state. Initial observations below remain historical evidence.
+
 ## Goal
 
 The canonical operational goal is now [GOALS.md](GOALS.md), defined with the owner on 2026-11-02: support AI-assisted research and technology selection for projects/work through a continuously growing, evidence-backed knowledge base. Finding information, comparing suitability, explaining tradeoffs and retaining honest uncertainty are the outcomes. The public reusable repository is `ai-search-knowledge`.

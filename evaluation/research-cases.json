@@ -1,0 +1,1280 @@
+{
+  "schema_version": 1,
+  "authored_at": "2026-11-02",
+  "purpose": "Judged retained-source retrieval and evidence tests for technology research; not a universal answer-accuracy benchmark.",
+  "corpus_snapshot": {
+    "parser_version": "2.0.0",
+    "normalized_at": "2026-11-02",
+    "source_hashes_required": true,
+    "source_count": 18,
+    "observed_publication_months": [
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-09",
+      "2026-10"
+    ]
+  },
+  "annotation_policy": {
+    "method": "Questions and gold facts hand-authored from direct readings of normalized retained source documents, before running retrieval. No search ranking or generated answer used to select gold.",
+    "evidence_status": "Publisher statements in retained source snapshots; not independently reproduced facts, audiovisual review or semantic review of every corpus document.",
+    "literal_quotes": "At most 12 whitespace-delimited words per anchor and 25 total quoted words per source across all cases, counting repeated anchors again.",
+    "gold_scope": "Expected source IDs are known relevant documents, not exhaustive relevance judgments. Alternative valid sources may exist. These fixed questions are a diagnostic development set, not an independently held-out randomized sample.",
+    "unsupported_cases": "Partial and not_established cases still have relevant context sources. Document/span hits measure context retrieval only and do not establish a supported conclusion, abstention quality or answer faithfulness. Required unknowns must stay explicit in manual answer review.",
+    "temporal_scope": "Dated claims are scoped to their retained announcements. No guessed source date filters, present-day availability or price guarantees are encoded.",
+    "retrieval_metrics": "Report top-5 source-document relevance and literal supporting-anchor hits separately, with language/domain/answerability slices. A document hit is not a supporting-span hit. Neither is a complete research-answer evaluation.",
+    "public_contents": "Original questions, concise factual expectations, stable IDs, hashes and short literal anchors only. Raw documents, long passages, machine paths and private logs are excluded."
+  },
+  "cases": [
+    {
+      "id": "tts-higgs-controls",
+      "query": "How does Higgs TTS 3 let a voice agent change delivery inside its generated text?",
+      "language": "en",
+      "category": "tts",
+      "tags": [
+        "paraphrase",
+        "capability"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "56b2c8931c56b7a19b7c"
+      ],
+      "evidence": [
+        {
+          "source_id": "56b2c8931c56b7a19b7c",
+          "quote": "inline control over emotion, style, prosody, pauses, and sound effects",
+          "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The publisher describes text-level controls for expressive delivery, including emotional tone, timing and effects."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-higgs-matched-prompt",
+      "query": "Dalam evaluasi Emergent TTS Higgs TTS 3, apakah Higgs mendapat tag ekspresi tambahan dibanding model lain?",
+      "language": "id",
+      "category": "tts",
+      "tags": [
+        "benchmark",
+        "conditions",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "56b2c8931c56b7a19b7c"
+      ],
+      "evidence": [
+        {
+          "source_id": "56b2c8931c56b7a19b7c",
+          "quote": "no inline control tags inserted",
+          "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The described comparison shares reference audio per prompt and feeds the benchmark script without added control markup; this is the publisher's protocol, not an independent audit."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-wav-method",
+      "query": "What makes WavTTS different from TTS that generates compressed audio representations?",
+      "language": "en",
+      "category": "tts",
+      "tags": [
+        "paraphrase",
+        "research"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "c9093e13f571975b2946"
+      ],
+      "evidence": [
+        {
+          "source_id": "c9093e13f571975b2946",
+          "quote": "directly models speech waveforms",
+          "text_sha256": "2983b99c31ca17636467a5af71024c2f20b9cd0f4c39f7ac46fdb2580723bdc5"
+        },
+        {
+          "source_id": "c9093e13f571975b2946",
+          "quote": "simple patchification strategy",
+          "text_sha256": "2983b99c31ca17636467a5af71024c2f20b9cd0f4c39f7ac46fdb2580723bdc5"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Its proposed flow-matching DiT operates on waveform patches, with mel-based perceptual supervision during training rather than mel or VAE output generation."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-wav-indonesian-commercial",
+      "query": "Bisakah aku langsung memilih WavTTS untuk narasi bahasa Indonesia komersial, dengan kualitas dan lisensi yang sudah terbukti dari arsip?",
+      "language": "id",
+      "category": "tts",
+      "tags": [
+        "indonesian",
+        "unsupported",
+        "license",
+        "constraint"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "c9093e13f571975b2946"
+      ],
+      "evidence": [
+        {
+          "source_id": "c9093e13f571975b2946",
+          "quote": "English Zero-shot Generation",
+          "text_sha256": "2983b99c31ca17636467a5af71024c2f20b9cd0f4c39f7ac46fdb2580723bdc5"
+        },
+        {
+          "source_id": "c9093e13f571975b2946",
+          "quote": "Chinese Zero-shot Generation",
+          "text_sha256": "2983b99c31ca17636467a5af71024c2f20b9cd0f4c39f7ac46fdb2580723bdc5"
+        }
+      ],
+      "answerability": "not_established",
+      "expected_facts": [
+        "The project page provides English and Chinese example sections; these examples do not establish Indonesian performance or commercial permission."
+      ],
+      "required_unknowns": [
+        "Indonesian evaluation for the intended narration workload",
+        "Applicable commercial-use license terms"
+      ],
+      "notes": "Relevant project context should still be retrieved. Missing evidence is a limit of this retained page, not proof that Indonesian support or a license cannot exist elsewhere."
+    },
+    {
+      "id": "model-deepseek-active-parameters",
+      "query": "DeepSeek V4.1-Flash has 552B total parameters; how many are active for reading versus generating?",
+      "language": "en",
+      "category": "language_models",
+      "tags": [
+        "exact",
+        "architecture",
+        "units"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "6e725a73dc7669f76049"
+      ],
+      "evidence": [
+        {
+          "source_id": "6e725a73dc7669f76049",
+          "quote": "8B active parameters for input",
+          "text_sha256": "cb2a84956e3c5c0d3f428925e1fbe060111c8763070a626a7f93d00a0ef9febc"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The announcement distinguishes 8B active on the input side from 16B active for output in its MoE encoder-decoder design; 552B describes the total model."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "model-deepseek-routing-date",
+      "query": "Apa perubahan routing API deepseek-v4-pro pada 14 September 2026, dan apakah pengalihan itu dinyatakan permanen?",
+      "language": "id",
+      "category": "language_models",
+      "tags": [
+        "date",
+        "version",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "6e725a73dc7669f76049"
+      ],
+      "evidence": [
+        {
+          "source_id": "6e725a73dc7669f76049",
+          "quote": "04:00 UTC on Sept 14, 2026",
+          "text_sha256": "cb2a84956e3c5c0d3f428925e1fbe060111c8763070a626a7f93d00a0ef9febc"
+        },
+        {
+          "source_id": "6e725a73dc7669f76049",
+          "quote": "until V4.1-Pro launches",
+          "text_sha256": "cb2a84956e3c5c0d3f428925e1fbe060111c8763070a626a7f93d00a0ef9febc"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The September 10 announcement schedules v4-pro requests to use V4.1-Flash from 04:00 UTC on September 14 at Flash rates, until the future Pro release."
+      ],
+      "required_unknowns": [],
+      "notes": "This is an archived routing announcement, not confirmation of the API's current routing. No inferred source-date filter is used."
+    },
+    {
+      "id": "model-deepseek-current-price",
+      "query": "What exact USD token prices does DeepSeek V4.1-Flash charge today, and can I treat this archive as a current price guarantee?",
+      "language": "en",
+      "category": "language_models",
+      "tags": [
+        "unsupported",
+        "pricing",
+        "freshness"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "6e725a73dc7669f76049"
+      ],
+      "evidence": [
+        {
+          "source_id": "6e725a73dc7669f76049",
+          "quote": "Off-peak rates are 50% of peak rates.",
+          "text_sha256": "cb2a84956e3c5c0d3f428925e1fbe060111c8763070a626a7f93d00a0ef9febc"
+        }
+      ],
+      "answerability": "not_established",
+      "expected_facts": [
+        "The archived article states an off-peak discount and an effective date; its retained text does not provide a complete exact-dollar tariff or a current-price guarantee."
+      ],
+      "required_unknowns": [
+        "Current official tariff and billing conditions",
+        "Exact dollar amounts from an accessible pricing source"
+      ],
+      "notes": "A hit on the historical announcement is relevant context, not an answer to a present-day price request. The pricing image is not treated as visually reviewed."
+    },
+    {
+      "id": "coding-deepswe-v11-change",
+      "query": "Did DeepSWE v1.1 change the long-horizon tasks, or mainly how submitted agent work is executed and graded?",
+      "language": "en",
+      "category": "coding",
+      "tags": [
+        "version",
+        "benchmark",
+        "paraphrase"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "7911d8e2d43a7c1a5a9e"
+      ],
+      "evidence": [
+        {
+          "source_id": "7911d8e2d43a7c1a5a9e",
+          "quote": "same long-horizon engineering tasks",
+          "text_sha256": "fde8ea14a8f2202c6ccef9c655c7b0eba7ad21a40d64572c25e19c4c55cd0330"
+        },
+        {
+          "source_id": "7911d8e2d43a7c1a5a9e",
+          "quote": "grading their committed code",
+          "text_sha256": "fde8ea14a8f2202c6ccef9c655c7b0eba7ad21a40d64572c25e19c4c55cd0330"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The tasks remain those of v1; v1.1 evaluates the committed patch in a clean separate environment and addresses dependency and flaky-test problems."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "coding-deepswe-no-wallclock",
+      "query": "Kenapa DeepSWE v1.1 berhenti melaporkan wall-clock time? Apakah itu berarti semua model sama cepat?",
+      "language": "id",
+      "category": "coding",
+      "tags": [
+        "benchmark",
+        "conditions",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "7911d8e2d43a7c1a5a9e"
+      ],
+      "evidence": [
+        {
+          "source_id": "7911d8e2d43a7c1a5a9e",
+          "quote": "Wall-clock time is no longer reported",
+          "text_sha256": "fde8ea14a8f2202c6ccef9c655c7b0eba7ad21a40d64572c25e19c4c55cd0330"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The authors attribute timing variability to host and provider conditions. Omitting this metric does not establish equal execution speed across models."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "image-bonsai-footprint",
+      "query": "Is the 0.93 GB Bonsai Image 4B number the entire Apple deployment, including text encoding and image decoding?",
+      "language": "en",
+      "category": "image",
+      "tags": [
+        "constraint",
+        "memory",
+        "paraphrase"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "668256d89af8ad5d4b18"
+      ],
+      "evidence": [
+        {
+          "source_id": "668256d89af8ad5d4b18",
+          "quote": "Apple Silicon deployment payload is 3.42 GB",
+          "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The smaller figure describes the binary diffusion transformer; the article reports a 3.42 GB binary deployment payload including other components. Payload size and active runtime memory are separate quantities."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "image-bonsai-m1-speed",
+      "query": "Artikel Bonsai menyebut sekitar 6 detik di Mac. Apakah itu membuktikan Mac M1 16 GB milikku akan sama cepat?",
+      "language": "id",
+      "category": "image",
+      "tags": [
+        "indonesian",
+        "hardware",
+        "unsupported"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "668256d89af8ad5d4b18"
+      ],
+      "evidence": [
+        {
+          "source_id": "668256d89af8ad5d4b18",
+          "quote": "about 6 seconds on Mac M4 Pro.",
+          "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e"
+        }
+      ],
+      "answerability": "partial",
+      "expected_facts": [
+        "The reported roughly six-second example uses a Mac M4 Pro for 512-by-512 generation, not every Apple Silicon machine."
+      ],
+      "required_unknowns": [
+        "Measured latency and peak memory on the target Mac M1",
+        "Matching model variant, resolution and runtime configuration"
+      ],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "image-flux-layout",
+      "query": "For FLUX 3 Image Klein box-conditioned layouts, what coordinate range and coordinate order should a caller use?",
+      "language": "en",
+      "category": "image",
+      "tags": [
+        "exact",
+        "interface"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "2e6c7d5b62b02c1a6c39"
+      ],
+      "evidence": [
+        {
+          "source_id": "2e6c7d5b62b02c1a6c39",
+          "quote": "0 to 1000 grid",
+          "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79"
+        },
+        {
+          "source_id": "2e6c7d5b62b02c1a6c39",
+          "quote": "[y_min, x_min, y_max, x_max]",
+          "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Both axes use a normalized 0–1000 range irrespective of aspect ratio; boxes list vertical minimum, horizontal minimum, vertical maximum, horizontal maximum."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "image-flux-commercial",
+      "query": "FLUX 3 Image Klein menyediakan open weights. Apakah itu otomatis cukup untuk memasukkannya ke produk komersial self-hosted?",
+      "language": "id",
+      "category": "image",
+      "tags": [
+        "license",
+        "constraint",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "2e6c7d5b62b02c1a6c39"
+      ],
+      "evidence": [
+        {
+          "source_id": "2e6c7d5b62b02c1a6c39",
+          "quote": "needs a commercial license",
+          "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The page explicitly requires a commercial license for product deployment. Downloadable weights alone do not establish that permission."
+      ],
+      "required_unknowns": [],
+      "notes": "This evaluates retrieval of the publisher's stated requirement; it does not replace review of the actual license or establish legal advice."
+    },
+    {
+      "id": "agent-comfy-reuse",
+      "query": "Which Comfy MCP features would let an agent preserve a creative pipeline and give that pipeline to another agent?",
+      "language": "en",
+      "category": "agents",
+      "tags": [
+        "paraphrase",
+        "workflow"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "f17b1396bd6b353ee820"
+      ],
+      "evidence": [
+        {
+          "source_id": "f17b1396bd6b353ee820",
+          "quote": "Save and re-run workflows",
+          "text_sha256": "39ff8cbf72587b4b6252a3f3b132102564b9017cdf4b942c4c764f9776704060"
+        },
+        {
+          "source_id": "f17b1396bd6b353ee820",
+          "quote": "Read and execute shared workflow URLs",
+          "text_sha256": "39ff8cbf72587b4b6252a3f3b132102564b9017cdf4b942c4c764f9776704060"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The announcement supports saving and rerunning workflows, sharing workflow URLs, and retrieving workflows from MCP-generated outputs; these are reproducibility mechanisms, not independent proof of identical sampled outputs."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "agent-comfy-free-unlimited",
+      "query": "Does using Comfy MCP with no local GPU prove I get unlimited free cloud generations?",
+      "language": "en",
+      "category": "agents",
+      "tags": [
+        "unsupported",
+        "pricing",
+        "constraint"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "f17b1396bd6b353ee820"
+      ],
+      "evidence": [
+        {
+          "source_id": "f17b1396bd6b353ee820",
+          "quote": "need a Comfy account",
+          "text_sha256": "39ff8cbf72587b4b6252a3f3b132102564b9017cdf4b942c4c764f9776704060"
+        }
+      ],
+      "answerability": "not_established",
+      "expected_facts": [
+        "The article describes account-backed access and hosted workflows, but does not establish an unlimited free compute entitlement."
+      ],
+      "required_unknowns": [
+        "Current account plan, generation charges and quotas"
+      ],
+      "notes": "Related cloud/account evidence is relevant; a retrieval hit must not be scored as proof of free unlimited service."
+    },
+    {
+      "id": "video-h3-modalities",
+      "query": "Apa yang bisa diterima dan dihasilkan MiniMax H3 menurut pengumuman 31 Juli 2026?",
+      "language": "id",
+      "category": "video",
+      "tags": [
+        "date",
+        "capability",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "643740d8b1d776507524"
+      ],
+      "evidence": [
+        {
+          "source_id": "643740d8b1d776507524",
+          "quote": "native stereo sound",
+          "text_sha256": "db0dd83c80377aaad9303f3f8123cc8cb8e3599012c6f4a38a7c8dbcd0a2484e"
+        },
+        {
+          "source_id": "643740d8b1d776507524",
+          "quote": "up to 15 seconds at 2K resolution",
+          "text_sha256": "db0dd83c80377aaad9303f3f8123cc8cb8e3599012c6f4a38a7c8dbcd0a2484e"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The announcement describes text, image, video and audio context for joint audiovisual generation and editing, with stereo video up to fifteen seconds at 2K."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher description at the dated announcement; no inference that the retained videos were watched or outputs independently tested."
+    },
+    {
+      "id": "video-h3-mac-local",
+      "query": "Can I deploy the July 31 MiniMax H3 announcement locally on my Mac M1 16 GB now and guarantee a 15-second 2K clip?",
+      "language": "en",
+      "category": "video",
+      "tags": [
+        "unsupported",
+        "hardware",
+        "availability",
+        "freshness"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "643740d8b1d776507524"
+      ],
+      "evidence": [
+        {
+          "source_id": "643740d8b1d776507524",
+          "quote": "plan to open up the model weights",
+          "text_sha256": "db0dd83c80377aaad9303f3f8123cc8cb8e3599012c6f4a38a7c8dbcd0a2484e"
+        }
+      ],
+      "answerability": "not_established",
+      "expected_facts": [
+        "The archived announcement expresses a future weight-release plan and broad compatibility intent; it does not document a tested Mac M1 deployment."
+      ],
+      "required_unknowns": [
+        "Current weight availability and applicable terms",
+        "Supported Mac runtime, memory and generation-time measurements"
+      ],
+      "notes": "The output duration/resolution claim does not imply local hardware support or real-time generation."
+    },
+    {
+      "id": "video-ltx-gated-download",
+      "query": "I can see an LTX-2.5 model repository but its workflow cannot download the weights. What access step does the ComfyUI guide require?",
+      "language": "en",
+      "category": "video",
+      "tags": [
+        "paraphrase",
+        "access"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b00cef0a46c39a3ea170"
+      ],
+      "evidence": [
+        {
+          "source_id": "b00cef0a46c39a3ea170",
+          "quote": "Model downloads will fail without access.",
+          "text_sha256": "4bb4bc32c5195f4716caa9e692765654d2266048bb87de5d917a987d5502b137"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The guide says the relevant repositories are gated: accept their model license and obtain access before downloads can succeed."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "video-ltx-fps-runtime",
+      "query": "LTX-2.5 menyebut 4K HDR sampai 50 FPS. Apakah aku boleh menafsirkan itu sebagai kecepatan render 50 frame per detik pada laptopku?",
+      "language": "id",
+      "category": "video",
+      "tags": [
+        "indonesian",
+        "units",
+        "hardware",
+        "unsupported"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b00cef0a46c39a3ea170"
+      ],
+      "evidence": [
+        {
+          "source_id": "b00cef0a46c39a3ea170",
+          "quote": "up to 50 FPS",
+          "text_sha256": "4bb4bc32c5195f4716caa9e692765654d2266048bb87de5d917a987d5502b137"
+        }
+      ],
+      "answerability": "partial",
+      "expected_facts": [
+        "The guide presents 50 FPS as an output-video property; it does not supply laptop generation throughput."
+      ],
+      "required_unknowns": [
+        "Measured render speed and memory for the laptop and requested settings"
+      ],
+      "notes": "Retrieving the 50 FPS line alone must not be confused with supporting the user's throughput inference."
+    },
+    {
+      "id": "video-wan2-serving",
+      "query": "Does Wan Streamer v0.2's roughly 200 ms model latency come from running its complete real-time stack on a single GPU?",
+      "language": "en",
+      "category": "video",
+      "tags": [
+        "benchmark",
+        "hardware",
+        "paraphrase"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "856a34a0d0a8b72944e7"
+      ],
+      "evidence": [
+        {
+          "source_id": "856a34a0d0a8b72944e7",
+          "quote": "single-GPU thinker",
+          "text_sha256": "6b7124a6561666b18900b14af01bab57051f2a85919b31ff5d5040c860155f5b"
+        },
+        {
+          "source_id": "856a34a0d0a8b72944e7",
+          "quote": "multi-GPU performer",
+          "text_sha256": "6b7124a6561666b18900b14af01bab57051f2a85919b31ff5d5040c860155f5b"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The serving description separates one-GPU perception/state work from context-parallel generation on multiple GPUs; its model latency is distinct from the larger total latency including the illustrated network delay."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "video-wan-version-action",
+      "query": "Dari Wan Streamer v0.2 ke v0.3, apa perubahan yang relevan jika aku ingin aksi tubuh lewat bahasa biasa, dan apakah resolusinya harus dikorbankan?",
+      "language": "id",
+      "category": "video",
+      "tags": [
+        "cross_source",
+        "version",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "856a34a0d0a8b72944e7",
+        "8ef09b8e8c8835e97935"
+      ],
+      "evidence": [
+        {
+          "source_id": "856a34a0d0a8b72944e7",
+          "quote": "640×368",
+          "text_sha256": "6b7124a6561666b18900b14af01bab57051f2a85919b31ff5d5040c860155f5b"
+        },
+        {
+          "source_id": "8ef09b8e8c8835e97935",
+          "quote": "actions written in ordinary language",
+          "text_sha256": "b6e5701b362772f84f8d0b4eb17ddd0f3eb59b60c5dc054458b88a336beb02fd"
+        },
+        {
+          "source_id": "8ef09b8e8c8835e97935",
+          "quote": "keeping v0.2's speed and resolution",
+          "text_sha256": "b6e5701b362772f84f8d0b4eb17ddd0f3eb59b60c5dc054458b88a336beb02fd"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "v0.2 describes 640-by-368 real-time output; v0.3 adds textual action directions interleaved with speech while claiming to retain v0.2 speed and resolution."
+      ],
+      "required_unknowns": [],
+      "notes": "Both release pages are needed for the comparison; publisher claims do not independently validate action-following quality."
+    },
+    {
+      "id": "video-wan-offline-demos",
+      "query": "Can Wan Streamer v0.3's generic action pretraining gallery be used as evidence that those actions already work in live interactive sessions?",
+      "language": "en",
+      "category": "video",
+      "tags": [
+        "research",
+        "conditions",
+        "paraphrase"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "8ef09b8e8c8835e97935"
+      ],
+      "evidence": [
+        {
+          "source_id": "8ef09b8e8c8835e97935",
+          "quote": "Muted, offline results",
+          "text_sha256": "b6e5701b362772f84f8d0b4eb17ddd0f3eb59b60c5dc054458b88a336beb02fd"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The gallery labels those examples as silent offline output of the undistilled video model; broader interactive action control is identified as future work."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "agent-vibe-handoff",
+      "query": "When a local Mistral Vibe coding session is moved to the cloud, what context is preserved and how is execution isolated?",
+      "language": "en",
+      "category": "agents",
+      "tags": [
+        "paraphrase",
+        "workflow"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "7dce15731b62c6240c24"
+      ],
+      "evidence": [
+        {
+          "source_id": "7dce15731b62c6240c24",
+          "quote": "session history, task state, and approvals",
+          "text_sha256": "e94cbd46bbe14affeadb7f05ad5918bd6329eb1d4a146529006896692ff07ea8"
+        },
+        {
+          "source_id": "7dce15731b62c6240c24",
+          "quote": "Each coding session runs in an isolated sandbox",
+          "text_sha256": "e94cbd46bbe14affeadb7f05ad5918bd6329eb1d4a146529006896692ff07ea8"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The announcement says the handoff preserves conversation/task/approval context, and remote sessions execute in separate sandboxes with inspectable changes and progress."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "model-vibe-mac-selfhost",
+      "query": "Mistral Medium 3.5 sudah open weights. Apakah arsip ini cukup untuk memastikan modelnya bisa self-host di Mac M1 16 GB?",
+      "language": "id",
+      "category": "language_models",
+      "tags": [
+        "indonesian",
+        "hardware",
+        "unsupported"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "7dce15731b62c6240c24"
+      ],
+      "evidence": [
+        {
+          "source_id": "7dce15731b62c6240c24",
+          "quote": "as few as four GPUs",
+          "text_sha256": "e94cbd46bbe14affeadb7f05ad5918bd6329eb1d4a146529006896692ff07ea8"
+        }
+      ],
+      "answerability": "not_established",
+      "expected_facts": [
+        "The announcement's self-hosting statement refers to a multi-GPU configuration for its dense 128B model, not a demonstrated M1 laptop setup."
+      ],
+      "required_unknowns": [
+        "Target-Mac runtime compatibility, complete memory footprint and usable speed"
+      ],
+      "notes": "Open weights are an access property; this case checks that access is not substituted for hardware evidence."
+    },
+    {
+      "id": "model-lfm-throughput",
+      "query": "Can I compare LFM2.5's 21K output tokens/s on B300 directly with its 184 tokens/s on an Apple M5 Max as single-user speeds?",
+      "language": "en",
+      "category": "language_models",
+      "tags": [
+        "benchmark",
+        "conditions",
+        "units"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "364f5f1cad75fb5b888b"
+      ],
+      "evidence": [
+        {
+          "source_id": "364f5f1cad75fb5b888b",
+          "quote": "184 tokens/s on an Apple M5 Max",
+          "text_sha256": "191e4899cc929770800afa091acc1accf36bfcdb73304951061d365e0348a460"
+        },
+        {
+          "source_id": "364f5f1cad75fb5b888b",
+          "quote": "sustained-load setting",
+          "text_sha256": "191e4899cc929770800afa091acc1accf36bfcdb73304951061d365e0348a460"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The B300 result is aggregate sustained-load serving throughput at maintained concurrency; it is not a directly interchangeable single-user decoding measurement. The article specifies SGLang 0.5.22, 1024-token input and up to 256-token output for that test."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "model-lfm-retrieval-context",
+      "query": "Untuk pekerjaan knowledge-heavy, apakah LFM2.5-24B-A2B menyarankan hanya mengandalkan pengetahuan model? Apa perubahan context window dari versi sebelumnya?",
+      "language": "id",
+      "category": "language_models",
+      "tags": [
+        "indonesian",
+        "version",
+        "research_workflow"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "364f5f1cad75fb5b888b"
+      ],
+      "evidence": [
+        {
+          "source_id": "364f5f1cad75fb5b888b",
+          "quote": "recommend pairing LFM2.5-24B-A2B with retrieval",
+          "text_sha256": "191e4899cc929770800afa091acc1accf36bfcdb73304951061d365e0348a460"
+        },
+        {
+          "source_id": "364f5f1cad75fb5b888b",
+          "quote": "131,072 tokens",
+          "text_sha256": "191e4899cc929770800afa091acc1accf36bfcdb73304951061d365e0348a460"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The publisher recommends retrieval or web search for knowledge-intensive tasks; the stated window grows from 32768 to 131072 tokens. A larger window is not evidence that every answer is contained in model memory."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "coding-m31-release-state",
+      "query": "At the October 19, 2026 MiniMax M3.1 Flash announcement, were downloadable weights already released alongside the API?",
+      "language": "en",
+      "category": "coding",
+      "tags": [
+        "date",
+        "availability",
+        "version"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b984a5c544e6313764dd"
+      ],
+      "evidence": [
+        {
+          "source_id": "b984a5c544e6313764dd",
+          "quote": "Model weights will be released later.",
+          "text_sha256": "b2e11ac796c54f4d61810652a31bb8c407caea0ae8a5f279cc9fb86bb1d261d0"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The dated post announces API, M Plan and MiniMax Code access while describing weights as a later release; it does not establish present-day download availability."
+      ],
+      "required_unknowns": [],
+      "notes": "Answer is scoped to the announcement date. A future-tense archival statement must not be converted into a current availability guarantee."
+    },
+    {
+      "id": "coding-m31-price-freshness",
+      "query": "M3.1 Flash pernah mencantumkan $0.15 input dan $0.60 output per sejuta token. Bolehkah angka itu menjadi anggaran harga pasti hari ini?",
+      "language": "id",
+      "category": "coding",
+      "tags": [
+        "indonesian",
+        "pricing",
+        "freshness",
+        "unsupported"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b984a5c544e6313764dd"
+      ],
+      "evidence": [
+        {
+          "source_id": "b984a5c544e6313764dd",
+          "quote": "$0.15 input · $0.60 output",
+          "text_sha256": "b2e11ac796c54f4d61810652a31bb8c407caea0ae8a5f279cc9fb86bb1d261d0"
+        }
+      ],
+      "answerability": "partial",
+      "expected_facts": [
+        "These are rates in the October 19 announcement, which also distinguishes cached input; they are usable as dated historical context, not guaranteed current charges."
+      ],
+      "required_unknowns": [
+        "Current official prices, account terms and workload-specific billing"
+      ],
+      "notes": "Matching a historical price is not successful answering of a current guaranteed budget request."
+    },
+    {
+      "id": "tts-gemini-consent",
+      "query": "What must a user provide before Gemini 3.8 TTS voice replication can create a voice, beyond simply uploading a reference?",
+      "language": "en",
+      "category": "tts",
+      "tags": [
+        "exact",
+        "access",
+        "constraint"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b1f9c7a504c77281d310"
+      ],
+      "evidence": [
+        {
+          "source_id": "b1f9c7a504c77281d310",
+          "quote": "a verbal consent recording from the voice owner",
+          "text_sha256": "9d15af3d6313d2c0569f7c7d2ceb8502e0651eb048a80f8c37e2ac719c0ec271"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Google says replication requires a spoken consent recording matching the reference speaker; the article also describes watermarking and provenance safeguards."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-gemini-model-choice",
+      "query": "Untuk desain karakter suara versus dubbing bervolume besar, bagaimana posisi Gemini 3.8 Flash TTS dan Flash-Lite TTS pada peluncuran September 2026?",
+      "language": "id",
+      "category": "tts",
+      "tags": [
+        "indonesian",
+        "comparison",
+        "date"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "b1f9c7a504c77281d310"
+      ],
+      "evidence": [
+        {
+          "source_id": "b1f9c7a504c77281d310",
+          "quote": "deep creative direction and character design",
+          "text_sha256": "9d15af3d6313d2c0569f7c7d2ceb8502e0651eb048a80f8c37e2ac719c0ec271"
+        },
+        {
+          "source_id": "b1f9c7a504c77281d310",
+          "quote": "high-volume, cost-efficient scale",
+          "text_sha256": "9d15af3d6313d2c0569f7c7d2ceb8502e0651eb048a80f8c37e2ac719c0ec271"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The launch positions Flash for detailed creative voice direction and character work, and Flash-Lite for high-volume speech production. This positioning alone does not quantify a price or quality result for the user's language."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "video-swift-memory-evidence",
+      "query": "Which consumer GPU and memory capacity does SwiftI2V actually claim for 2K generation, and where was the roughly 111-second clip measured?",
+      "language": "en",
+      "category": "video",
+      "tags": [
+        "exact",
+        "hardware",
+        "benchmark"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "4445a7894d6c6fac4b36"
+      ],
+      "evidence": [
+        {
+          "source_id": "4445a7894d6c6fac4b36",
+          "quote": "consumer RTX 4090",
+          "text_sha256": "3ba33ffd0221757c3a689e0647d3f21415b74639f0ccaaeb6e86ddb22af50971"
+        },
+        {
+          "source_id": "4445a7894d6c6fac4b36",
+          "quote": "81 frames in ~111s on a single H800",
+          "text_sha256": "3ba33ffd0221757c3a689e0647d3f21415b74639f0ccaaeb6e86ddb22af50971"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The project claims 2K generation within 24 GB on RTX 4090, while the cited 81-frame approximately 111-second showcase uses H800. The timing must not be relabeled as the 4090 result."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "video-swift-segments",
+      "query": "Bagaimana SwiftI2V mempertahankan detail gambar sumber dan membatasi memori saat video diperpanjang?",
+      "language": "id",
+      "category": "video",
+      "tags": [
+        "indonesian",
+        "research",
+        "paraphrase"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "4445a7894d6c6fac4b36"
+      ],
+      "evidence": [
+        {
+          "source_id": "4445a7894d6c6fac4b36",
+          "quote": "re-injected into every segment",
+          "text_sha256": "3ba33ffd0221757c3a689e0647d3f21415b74639f0ccaaeb6e86ddb22af50971"
+        },
+        {
+          "source_id": "4445a7894d6c6fac4b36",
+          "quote": "bidirectional contextual interaction",
+          "text_sha256": "3ba33ffd0221757c3a689e0647d3f21415b74639f0ccaaeb6e86ddb22af50971"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The second stage conditions on both the original image and low-resolution motion reference, works in bounded temporal segments, reinserts the image anchor and shares neighboring context to limit drift."
+      ],
+      "required_unknowns": [],
+      "notes": "The project explains the method; retained text is not a review of the video demonstrations or a guarantee for arbitrarily long outputs."
+    },
+    {
+      "id": "research-aspire-learning-loop",
+      "query": "In ASPIRE, what turns failed robot executions into knowledge an agent can reuse for later tasks?",
+      "language": "en",
+      "category": "research",
+      "tags": [
+        "paraphrase",
+        "memory",
+        "agents"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "407c32787439742b2579"
+      ],
+      "evidence": [
+        {
+          "source_id": "407c32787439742b2579",
+          "quote": "distills validated fixes into modular, transferable robotic knowledge",
+          "text_sha256": "6160daf72feb935dc454b51dab24d99edf1f2386ad51889cab63708596668380"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The system inspects execution traces, repairs code policies, re-executes to validate them and stores transferable repairs in its skill library for future retrieval."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "research-aspire-production-limit",
+      "query": "Apakah ASPIRE sudah membuktikan robot pembelajar sepenuhnya otonom yang bisa langsung ditinggal di dunia nyata?",
+      "language": "id",
+      "category": "research",
+      "tags": [
+        "indonesian",
+        "maturity",
+        "limitations"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "407c32787439742b2579"
+      ],
+      "evidence": [
+        {
+          "source_id": "407c32787439742b2579",
+          "quote": "Not yet a fully autonomous real-world learner.",
+          "text_sha256": "6160daf72feb935dc454b51dab24d99edf1f2386ad51889cab63708596668380"
+        },
+        {
+          "source_id": "407c32787439742b2579",
+          "quote": "safe resets, safety monitoring, and calibration",
+          "text_sha256": "6160daf72feb935dc454b51dab24d99edf1f2386ad51889cab63708596668380"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Its limitations explicitly reject full real-world autonomy and identify remaining deployment requirements. Its reusable skill memory is also not claimed to solve long-term memory maintenance."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-audio8-size",
+      "query": "Does Audio8-TTS-Realistic's 0.6B label include its codec, and what main-model count does the model card report?",
+      "language": "en",
+      "category": "tts",
+      "tags": [
+        "exact",
+        "parameters",
+        "units"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "ca03e77e00827468345d"
+      ],
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "quote": "601,159,424 parameters, excluding the codec",
+          "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The 0.6B label refers to 601159424 main-model parameters; the separate bundled audio codec is excluded, so labels from different model families require matched counting conventions."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-audio8-indonesian-evaluation",
+      "query": "Audio8 Realistic mendukung bahasa Indonesia. Mengapa angka error Indonesian di CV3 dan MiniMax berbeda, dan apakah itu menjamin mutu sama pada semua bahasa?",
+      "language": "id",
+      "category": "tts",
+      "tags": [
+        "indonesian",
+        "benchmark",
+        "conditions"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "ca03e77e00827468345d"
+      ],
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "quote": "13.743 | 0.6682",
+          "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6"
+        },
+        {
+          "source_id": "ca03e77e00827468345d",
+          "quote": "2.128 | 0.7270",
+          "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The card reports Indonesian WER 13.743% on CV3 and 2.128% on the MiniMax suite, with different item sets and evaluation conventions; support does not promise uniform quality. The respective SIM values are separate metrics, not error percentages."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-audio8-streaming-throughput",
+      "query": "Does Audio8 Realistic's SGLang Omni validation establish a measured streaming speed or throughput figure?",
+      "language": "en",
+      "category": "tts",
+      "tags": [
+        "exact",
+        "benchmark",
+        "conditions"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "ca03e77e00827468345d"
+      ],
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "quote": "throughput and streaming were not benchmarked",
+          "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "The H20 BF16 validation checks non-streaming runtime compatibility, with compilation and CUDA graphs disabled; it does not provide a streaming/throughput benchmark."
+      ],
+      "required_unknowns": [],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    },
+    {
+      "id": "tts-audio8-higgs-ranking",
+      "query": "Bolehkah tabel perbandingan Audio8 versus Higgs langsung dipakai untuk menyatakan pemenang mutlak narasi proyekku? Bagaimana keterbatasan perbandingannya?",
+      "language": "id",
+      "category": "tts",
+      "tags": [
+        "cross_source",
+        "comparison",
+        "benchmark",
+        "indonesian"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "ca03e77e00827468345d",
+        "56b2c8931c56b7a19b7c"
+      ],
+      "evidence": [
+        {
+          "source_id": "ca03e77e00827468345d",
+          "quote": "rather than a strictly matched ranking",
+          "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6"
+        },
+        {
+          "source_id": "56b2c8931c56b7a19b7c",
+          "quote": "same reference audio per prompt",
+          "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Audio8 labels its cross-project table a reference comparison because pipelines and text normalization differ, and size conventions vary. Higgs describes a specific shared-reference protocol for its own benchmark; neither establishes a universal winner for the user's narration workload."
+      ],
+      "required_unknowns": [],
+      "notes": "Both sources are relevant, but their protocols must remain separate. No listening assessment or target-workload trial has been performed."
+    },
+    {
+      "id": "image-release-license-separation",
+      "query": "Can I transfer Bonsai Image 4B's announced Apache licensing to FLUX 3 Image Klein just because both have Klein in their lineage or name?",
+      "language": "en",
+      "category": "image",
+      "tags": [
+        "cross_source",
+        "version",
+        "license"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "668256d89af8ad5d4b18",
+        "2e6c7d5b62b02c1a6c39"
+      ],
+      "evidence": [
+        {
+          "source_id": "668256d89af8ad5d4b18",
+          "quote": "Apache 2.0 license",
+          "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e"
+        },
+        {
+          "source_id": "2e6c7d5b62b02c1a6c39",
+          "quote": "FLUX 3 Image Klein",
+          "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79"
+        }
+      ],
+      "answerability": "supported",
+      "expected_facts": [
+        "Bonsai's article concerns its FLUX.2 Klein 4B derivative and announces an Apache release; the FLUX 3 page describes a different model and requires commercial licensing for product use. Names do not establish identical license terms."
+      ],
+      "required_unknowns": [],
+      "notes": "The Bonsai announcement's future release wording and the actual applicable license files still matter; this is source-attributed comparison, not independent legal verification."
+    },
+    {
+      "id": "agent-workflow-vs-coding",
+      "query": "My agent needs either a reusable media workflow or a background repository coding task. How do Comfy MCP and Mistral Vibe remote agents divide those jobs?",
+      "language": "en",
+      "category": "agents",
+      "tags": [
+        "cross_source",
+        "constraint",
+        "comparison"
+      ],
+      "kind": "source",
+      "expected_sources": [
+        "f17b1396bd6b353ee820",
+        "7dce15731b62c6240c24"
+      ],
+      "evidence": [
+        {
+          "source_id": "f17b1396bd6b353ee820",
+          "quote": "Build, edit, and run workflows",
+          "text_sha256": "39ff8cbf72587b4b6252a3f3b132102564b9017cdf4b942c4c764f9776704060"
+        },
+        {
+          "source_id": "7dce15731b62c6240c24",
+          "quote": "sessions run in the cloud",
+          "text_sha256": "e94cbd46bbe14affeadb7f05ad5918bd6329eb1d4a146529006896692ff07ea8"
+        }
+      ],
+      "answerability": "partial",
+      "expected_facts": [
+        "Comfy MCP exposes creative generation workflows and their reusable artifacts, while Vibe remote agents run asynchronous coding sessions in cloud environments. The choice depends on the task; these announcements alone do not compare total cost, reliability or security for the user's project."
+      ],
+      "required_unknowns": [
+        "Project-specific integration, cost and reliability validation"
+      ],
+      "notes": "Publisher-reported evidence; no independent runtime or audiovisual validation."
+    }
+  ]
+}

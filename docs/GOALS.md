@@ -62,8 +62,8 @@ These are evaluation scenarios, not present-day product recommendations.
 
 ## Current implementation gap
 
-The existing collector still applies a rolling six-month scope in metadata/manifest/index processing. It does not yet implement the newly confirmed growing-archive policy. Resolve that mismatch before the next acquisition/index update so previously captured knowledge remains available.
+V2 implements the growing archive through a persisted acquisition floor, immutable evidence versions and retained current/historical source relationships. See [RESEARCH-V2.md](RESEARCH-V2.md) for the implementation and [VALIDATION-V2.md](VALIDATION-V2.md) for measured acceptance.
 
-The latest architecture audit also records incomplete extraction, a preview-budget defect, imperfect query windows and incomplete review/synthesis. See [ARCHITECTURE-AUDIT-2026-11-01.md](ARCHITECTURE-AUDIT-2026-11-01.md). The system has not yet met the acceptance criteria above.
+The [2026-11-01 audit](ARCHITECTURE-AUDIT-2026-11-01.md) remains the measured historical baseline. V2 repairs extraction, budgets and provenance and adds multilingual/typed evidence retrieval. Exhaustive source review, audiovisual understanding and independent recommendation/runtime qualification remain open; retrieval diagnostics alone do not establish these.
 
-Graphify, multilingual semantic retrieval, typed knowledge graphs and other tools may be evaluated against these goals. None has been selected merely by appearing in this document. No scheduling or runtime migration was performed while defining this goal.
+V2 selects optional local multilingual semantic retrieval and a lightweight typed evidence graph for measured research needs. Graphify is not a runtime dependency. No schedule is installed.

@@ -1,12 +1,10 @@
 # AI Search Knowledge
 
-A local, searchable evidence library built from [AI Search](https://www.youtube.com/@theAIsearch) long-form videos from the last six months and the original sources linked in their descriptions. Shorts are excluded.
+A local evidence library for AI-assisted technology research, built from [AI Search](https://www.youtube.com/@theAIsearch) long-form videos and their original references. Start with six months, exclude Shorts, then keep growing the archive.
 
-The library preserves publication dates, video timestamps, original URLs, retrieval dates, source text and explicit coverage gaps. English authored notes retain the terminology of the original sources. You can ask your AI assistant questions in any language.
+An agent can discover candidates, inspect dated capabilities and conditions, compare project requirements, and produce a source-backed brief with explicit unknowns. Original URLs, video relationships, publication/retrieval dates, immutable evidence versions and unresolved gaps stay available. Collection and retrieval do not imply that every source or audiovisual demonstration has been reviewed.
 
-The owner-defined goal is [evidence-backed technology research and selection](docs/GOALS.md). On 2026-11-02 the owner clarified that six months is the initial seed and the archive should subsequently grow. The current implementation still applies a rolling window; that behavior needs alignment before the next collection/index update.
-
-## Use it locally
+## Start locally
 
 Install [uv](https://docs.astral.sh/uv/), then:
 
@@ -15,52 +13,55 @@ git clone https://github.com/hanafishiddiq/ai-search-knowledge.git
 cd ai-search-knowledge
 uv sync --locked
 uv run aisk update
-uv run aisk search 'continual learning memory' --limit 4
+uv run aisk research 'TTS bahasa Indonesia untuk narasi' --mode lexical --required supports_language --required license --max-chars 12000
 uv run aisk status
 ```
 
-The collector needs no model API key. AI synthesis runs through your own assistant following [the agent workflow](docs/AGENT-WORKFLOW.md); the CLI does not silently call an LLM. Ordinary browser/reader tools are an optional fallback for JavaScript pages. A plain HTTP-only run can have more gaps than the initial owner-assisted collection.
+No model API key is required. Your AI assistant performs the interpretation following [the agent workflow](docs/AGENT-WORKFLOW.md). The CLI returns evidence; it does not silently call an LLM or verify a recommendation.
 
-Generated snapshots, the SQLite index and full source text stay in `data/` and `knowledge/`, excluded from Git. The public repository includes a [video/source catalog](public/catalog.json) and [five original synthesis examples](examples/KNOWLEDGE.md). Clone-and-update builds a new local corpus; the full owner snapshot is not downloaded from this repository.
+The public repository contains code, [metadata and links](public/catalog.json), evaluation questions and [original research examples](examples/research/). A [portable fact export](public/technology-facts.json) contains original concise statements, conditions and source provenance. Full third-party snapshots, source-bound local record files, model weights and indexes stay in ignored `data/` and `knowledge/`. A fresh clone collects its own corpus; website access and coverage can differ from the owner's snapshot.
 
-## Use it with an AI agent
+## Optional multilingual search
 
-Give your assistant [this task prompt](prompts/use-library.md), or ask it to read `AGENTS.md` and `docs/AGENT-WORKFLOW.md` in your checkout. It can search passages, inspect exact source lines, deepen a reference to its linked paper/model card, and validate reusable notes.
+Lexical search includes a small explicit Indonesian/English vocabulary. The full-corpus development evaluation favored improved lexical search, which is the default. Local semantic/hybrid retrieval remains optional for exploration and comparison:
+
+```sh
+uv sync --locked --extra semantic
+uv run aisk semantic-index --download-model
+uv run aisk research 'model suara yang cocok untuk bahasa Indonesia' --mode hybrid --required license --max-chars 12000
+```
+
+The first explicit setup downloads pinned multilingual E5-small ONNX assets (about 492 MB). Embeddings then run on local CPU; subsequent searches do not download weights. Index rebuilds reuse unchanged vectors. Similarity scores are ranking signals, not factual confidence or compatibility. An unavailable or stale semantic index is reported explicitly; auto/hybrid fallback says which mode actually ran.
+
+## Agent interfaces
 
 ```sh
 uv run aisk search 'Audio8 Indonesian codec' --kind source --limit 3
+uv run aisk search 'video generation' --mode hybrid --since 2026-09-01 --date-basis video
+uv run aisk read knowledge/sources/SOURCE_ID-TEXT_HASH_PREFIX.md --start 40 --lines 50 --max-chars 4000
+uv run aisk facts 'Audio8' --required runs_on --required license
+uv run aisk graph 'Audio8-TTS-Realistic-0.6B' --limit 8
 uv run aisk work --limit 3
 uv run aisk gaps --limit 20
 ```
 
-Search uses local SQLite FTS5 and returns JSON evidence excerpts with original links, timestamps and line citations. It requires no embedding service or running database server. Summaries are cached when useful; full evidence remains available for questions that need more detail. The [architecture audit](docs/ARCHITECTURE-AUDIT-2026-11-01.md) records current limits: incomplete extraction on some pages, query previews that can miss supporting text, and an unresolved long-line case that exceeds the requested preview budget. Graphify, semantic embeddings and entity-graph reasoning are not currently implemented.
+`search` preserves its lexical JSON-list interface unless a mode is explicitly selected. `--max-chars` caps each excerpt. `research --max-chars` caps the **whole compact JSON packet**, including provenance, profiles and constraints. Exact line/column citations refer to unchanged local evidence files. Typed facts and graph results depend on curated records; a newly collected corpus starts without those records. See [KNOWLEDGE-FORMAT.md](docs/KNOWLEDGE-FORMAT.md) for admission and [the usage prompt](prompts/use-library.md) for an agent entry point.
 
-## Observed coverage
+## Architecture and scope
 
-See [STATUS.md](STATUS.md) for the dated initial collection and validation report. The initial inventory contains 55 long-form videos in the six-month window, 1,039 chapters and 689 distinct description URLs. Nine additional primary artifacts were followed explicitly. The local corpus contains 569 successful reference snapshots and 35 recorded gaps. Source collection, authored-note coverage and audiovisual review are separate measures.
+The system combines versioned raw/normalized evidence, SQLite FTS retrieval, optional local multilingual embeddings, explicit typed technology claims and bounded graph traversal. The calling AI compares these against the project's constraints. [Architecture and limits](docs/RESEARCH-V2.md), [goals](docs/GOALS.md), [measured validation](docs/VALIDATION-V2.md) and [status](STATUS.md) explain what is implemented and what remains unreviewed. Graphify is not a runtime dependency.
 
-## Evidence model
+The first run saves a fixed acquisition floor; later updates retain older captured knowledge. A source removed from a revised description stays in the provenance registry as historical. Dates are not interchangeable: video-publication filters and source-publication filters are explicit, with an unknown-date policy.
 
-1. **Video metadata** records what the channel published, its description and chapter links.
-2. **Source snapshots** record text actually retrieved from linked public pages. Publisher claims remain attributed claims.
-3. **Knowledge notes** synthesize evidence, link exact source passages and preserve limitations.
-4. **Search index** lets an agent retrieve a small set of relevant passages before reading the originals.
-
-Video dates, source publication dates, event dates and retrieval dates are separate fields. Unknown dates stay unknown. Old news is not silently rewritten into a statement about the present.
-
-## Collection scope
-
-The public Videos tab is traversed newest first, validating exact publication dates until the six-month boundary. The boundary rolls in `Asia/Jakarta`; for the initial 2026-11-01 run it is 2026-05-01. Shorts are excluded. All in-scope description URLs are retained. Reference links are queued for text collection; detected shopping, support and channel profile links remain in the manifest with their classification. These classifications are heuristics, not human review.
-
-The document fetcher uses bounded requests, per-host spacing and robots checks; channel inventory extraction uses yt-dlp. It does not sign in, solve CAPTCHAs, bypass paywalls, download model weights or download video media. Failed, blocked, inaccessible and truncated links are reported as gaps. Descriptions and source documents cannot capture unspoken visual demonstrations; that coverage remains explicit.
-
-No schedule is installed. Incremental reruns and a documented agent workflow will support a later scheduling decision.
+The document fetcher uses bounded requests, host spacing and robots checks. It does not sign in, bypass access challenges, execute downloaded code, download video media or follow entire websites. The optional embedding setup is a separate explicit weight download. Narration, unspoken visuals and audio demonstrations remain unreviewed. No schedule is installed.
 
 ## Development and license
 
 ```sh
 uv sync --locked --dev
 uv run pytest -q
+# Requires a collected local corpus matching the dated fixture:
+uv run aisk evaluate --mode lexical
 ```
 
-Code and original documentation/synthesis are [MIT licensed](LICENSE). Third-party articles, research papers, model weights and other linked materials retain their own terms. This project is independent of the channel and its source publishers.
+Code and original documentation/synthesis are [MIT licensed](LICENSE). Third-party articles, research papers, model weights and linked materials retain their own terms. This project is independent of the channel and source publishers.

@@ -1,0 +1,2789 @@
+{
+  "schema_version": "aisk.public-facts.v1",
+  "scope": "Original curator-authored publisher-attributed facts; partial source review, not independently reproduced or guaranteed current.",
+  "usage": "Read-only portable synthesis. To admit local typed records, inspect original evidence and author literal value_text anchors against your retained source versions.",
+  "records": [
+    {
+      "id": "audio8-tts-preview-01b",
+      "title": "Audio8 TTS Preview 0.1B — small main model and conditional CPU deployment",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:audio8-preview-0.1b",
+          "type": "model_release",
+          "name": "Audio8 TTS Preview 0.1B",
+          "aliases": [
+            "Audio8-TTS-Preview-0.1b"
+          ]
+        },
+        {
+          "id": "language:chinese",
+          "type": "language",
+          "name": "Chinese",
+          "aliases": []
+        },
+        {
+          "id": "language:english",
+          "type": "language",
+          "name": "English",
+          "aliases": []
+        },
+        {
+          "id": "license:audio8-community-1.0",
+          "type": "license",
+          "name": "Audio8 Community License v1.0",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Preview primarily targets Chinese and English; the six other languages are experimental/evaluation coverage (lines 40–43, 170).",
+        "The 0.1B product label corresponds to approximately 170M main-model parameters, plus a separate approximately 120M codec decoder (lines 24–25, 50–55).",
+        "The cited low-memory CPU number applies to the separately linked ONNX INT8 package and its tested Linux x86_64 configuration; it is not this curator’s measurement."
+      ],
+      "gaps": [
+        "No cited Apple Silicon measurement establishes Mac latency or memory.",
+        "The complete-stack peak memory and codec encoder requirements need separate validation.",
+        "The custom revenue-capped model license requires its full terms; do not infer Apache/MIT or unconstrained commercial use."
+      ],
+      "claims": [
+        {
+          "id": "main-parameters",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "parameters_main",
+          "value": 170000000,
+          "statement": "Audio8 TTS Preview 0.1B has approximately 170 million main-model parameters; the codec decoder is additional.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "approximate": true,
+            "count_scope": "Main generative model; separate codec decoder approximately120M"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 24,
+              "end_line": 26,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "chinese",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "supports_language",
+          "object_entity": "language:chinese",
+          "value": "Chinese",
+          "statement": "Audio8 TTS Preview 0.1B names Chinese as a primary speech target language.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "support_level": "primary"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 40,
+              "end_line": 43,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "english",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "supports_language",
+          "object_entity": "language:english",
+          "value": "English",
+          "statement": "Audio8 TTS Preview 0.1B names English as a primary speech target language.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "support_level": "primary"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 40,
+              "end_line": 43,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "voice-cloning",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "capability",
+          "value": "zero_shot_voice_cloning",
+          "statement": "Audio8 TTS Preview 0.1B provides speech synthesis and reference-based voice cloning.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 20,
+              "end_line": 21,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "cpu-package",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "access",
+          "value": "ONNX INT8",
+          "statement": "The publisher links an ONNX INT8 deployment package for Audio8 TTS Preview 0.1B using ONNX Runtime CPU execution without CUDA.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "deployment_variant": "Linked ONNX INT8 package; Slow/Fast AR INT8, codec FP16",
+            "weights_in_current_source": "Package is linked, not downloaded or tested by curator"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 60,
+              "end_line": 76,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "cpu-memory",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "memory_requirement",
+          "value": {
+            "after_loading_GiB": 0.4
+          },
+          "statement": "The linked Audio8 Preview ONNX INT8 package is reported to use about 0.4 GiB after loading in a tested Linux x86_64 configuration.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "platform": "Linux x86_64",
+            "runtime": "ONNX Runtime CPUExecutionProvider",
+            "precision": "Slow/Fast AR per-token INT8; codec FP16",
+            "measurement_scope": "After-loading memory; not demonstrated total peak or Apple Silicon requirement"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 60,
+              "end_line": 72,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "model:audio8-preview-0.1b",
+          "predicate": "license",
+          "object_entity": "license:audio8-community-1.0",
+          "value": "Audio8 Community License v1.0",
+          "statement": "The Audio8 TTS Preview 0.1B model card describes a revenue-capped custom license, with separate written permission required for commercial entities at or above US$2 million annual revenue under its aggregation rule.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Model license as described by card; full license controls",
+            "commercial_revenue_threshold_USD": 2000000,
+            "aggregation": "Includes parent, subsidiaries and affiliates"
+          },
+          "evidence": [
+            {
+              "source_id": "087337a222b159255808",
+              "text_sha256": "920fafdae5bab671a4fb01b56633badc8d9319a6ebebdb8b5c39612d4f77a02d",
+              "start_line": 174,
+              "end_line": 184,
+              "source_url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:11.480030+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audio8-tts-realistic-06b",
+      "title": "Audio8 TTS Realistic 0.6B — multilingual speech and deployment evidence",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:audio8-realistic-0.6b",
+          "type": "model_release",
+          "name": "Audio8 TTS Realistic 0.6B",
+          "aliases": [
+            "Audio8-TTS-Realistic-0.6b"
+          ]
+        },
+        {
+          "id": "language:indonesian",
+          "type": "language",
+          "name": "Indonesian",
+          "aliases": []
+        },
+        {
+          "id": "hardware:nvidia-h20",
+          "type": "hardware",
+          "name": "NVIDIA H20",
+          "aliases": []
+        },
+        {
+          "id": "license:apache-2.0",
+          "type": "license",
+          "name": "Apache License 2.0",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Language coverage is not equal speech quality. The source reports pronunciation errors, repetitions, omissions and early stopping as possible failures (lines 241–245).",
+        "Publisher runtime checks are separate from benchmarks; streaming and throughput were not benchmarked in the serving validation (lines 124–125)."
+      ],
+      "gaps": [
+        "No cited measurement establishes Apple Silicon/Mac compatibility, real-time factor or total peak memory.",
+        "The main-model parameter count excludes the bundled codec.",
+        "Reference recording rights and consent must be established independently."
+      ],
+      "claims": [
+        {
+          "id": "languages",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "language_count",
+          "value": 23,
+          "statement": "The Audio8 TTS Realistic 0.6B publisher lists 23 supported speech languages.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 19,
+              "end_line": 22,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "indonesian",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "supports_language",
+          "object_entity": "language:indonesian",
+          "value": "Indonesian",
+          "statement": "Audio8 TTS Realistic 0.6B includes Indonesian among the added speech languages; support does not guarantee uniform quality.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 36,
+              "end_line": 41,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "main-parameters",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "parameters_main",
+          "value": 601159424,
+          "statement": "The model card counts 601,159,424 parameters for the Audio8 TTS Realistic main model, excluding the codec.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "count_scope": "Main DualAR model only; separate neural audio codec excluded",
+            "unit": "parameters"
+          },
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 46,
+              "end_line": 55,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "voice-cloning",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "capability",
+          "value": "zero_shot_voice_cloning",
+          "statement": "Audio8 TTS Realistic 0.6B can synthesize speech using reference audio plus a matching transcript, and can also generate without a reference.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "reference_requirements": "Clean recording; transcript must match exactly (lines 67–69)"
+          },
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 29,
+              "end_line": 33,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            },
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 67,
+              "end_line": 69,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "cuda-smoke",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "tested_on",
+          "object_entity": "hardware:nvidia-h20",
+          "value": "NVIDIA H20",
+          "statement": "The publisher smoke-tested the Audio8 TTS Realistic Transformers package on NVIDIA H20 in BF16, covering loading and selected multilingual generation cases.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "precision": "BF16",
+            "pytorch": "2.8.0",
+            "transformers": "4.57.3",
+            "scope": "Publisher runtime smoke; not independent local testing or a speed benchmark"
+          },
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 58,
+              "end_line": 63,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "license",
+          "object_entity": "license:apache-2.0",
+          "value": "Apache-2.0",
+          "statement": "The model card states that Audio8 TTS Realistic code and model weights use Apache License 2.0, with NOTICE attribution details.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Code and model weights as stated by publisher; third-party assets not independently audited"
+          },
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 247,
+              "end_line": 250,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "indonesian-cv3",
+          "subject": "model:audio8-realistic-0.6b",
+          "predicate": "benchmark_result",
+          "value": {
+            "WER_percent": 13.743,
+            "speaker_similarity": 0.6682
+          },
+          "statement": "On the publisher CV3 evaluation, Audio8 TTS Realistic reports Indonesian WER 13.743% and speaker similarity 0.6682.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "suite": "CV3",
+            "language": "Indonesian",
+            "items": 500,
+            "speaker_similarity_scale": "0–1; higher better",
+            "error_metric": "WER percent; lower better",
+            "hardware_and_precision": "Not specified for this evaluation table; do not substitute separate runtime smoke hardware"
+          },
+          "evidence": [
+            {
+              "source_id": "ca03e77e00827468345d",
+              "text_sha256": "191224e5efe4e871c6ebbec0dc8d83ff578788ca295839a17670885364bfebd6",
+              "start_line": 179,
+              "end_line": 205,
+              "source_url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.071020+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoswarm",
+      "title": "AutoSwarm — cross-agent coordination with host and collaborator requirements",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "tool:autoswarm",
+          "type": "tool",
+          "name": "AutoSwarm",
+          "aliases": []
+        },
+        {
+          "id": "license:mit",
+          "type": "license",
+          "name": "MIT License",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The host needs skill support and local command execution; collaborators need compatible installed CLIs (lines60–65).",
+        "Executable/version detection does not itself verify model access or resume; the README separates a real reply/resume probe, which spends model calls (lines174–181).",
+        "Published coordination capabilities are not a curator test of reliability, security or costs."
+      ],
+      "gaps": [
+        "No independent comparison establishes that AutoSwarm improves this knowledge system or every supported agent workflow.",
+        "Provider subscriptions/credentials, per-call costs, permission behavior and compatible installed CLI versions need deployment-specific checks.",
+        "Repository license does not grant model-provider subscriptions or account access."
+      ],
+      "claims": [
+        {
+          "id": "context-and-parallelism",
+          "subject": "tool:autoswarm",
+          "predicate": "capability",
+          "value": [
+            "context_memory_sharing",
+            "parallel_agent_tasks",
+            "routing_coordination_synthesis"
+          ],
+          "statement": "The AutoSwarm README describes coordinating existing agents through task routing, shared context/memory, parallel work and synthesized results.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "verification": "Publisher capability description, not an independent reliability benchmark"
+          },
+          "evidence": [
+            {
+              "source_id": "d528e97f4ac5c2675478",
+              "text_sha256": "427f5d5f66b41a003abf539b2b8311cbc0f39b45a0f1e6bc62873da584b996e4",
+              "start_line": 39,
+              "end_line": 54,
+              "source_url": "https://github.com/HKUDS/AutoSwarm",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:39:40.178646+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "collaborators",
+          "subject": "tool:autoswarm",
+          "predicate": "access",
+          "value": [
+            "Codex",
+            "Claude Code",
+            "OpenCode",
+            "Cursor",
+            "GitHub Copilot CLI",
+            "Meta Muse Code",
+            "CodeBuddy",
+            "Hermes",
+            "Nanobot",
+            "DeepSeek Harness",
+            "Grok Build"
+          ],
+          "statement": "AutoSwarm lists Codex, Claude Code and other existing agent CLIs as collaborators, conditional on compatible local installations.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Listed integrations; actual availability must be checked in the host environment"
+          },
+          "evidence": [
+            {
+              "source_id": "d528e97f4ac5c2675478",
+              "text_sha256": "427f5d5f66b41a003abf539b2b8311cbc0f39b45a0f1e6bc62873da584b996e4",
+              "start_line": 55,
+              "end_line": 65,
+              "source_url": "https://github.com/HKUDS/AutoSwarm",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:39:40.178646+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "host-platforms",
+          "subject": "tool:autoswarm",
+          "predicate": "runs_on",
+          "value": [
+            "Windows",
+            "macOS",
+            "Linux"
+          ],
+          "statement": "AutoSwarm documents Windows, macOS and Linux hosts, accessed through desktop, command line, IDE or skill-enabled environments.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "requirements": "Host skill support and local command execution; collaborators need compatible CLIs",
+            "curator_runtime_test": "Not performed"
+          },
+          "evidence": [
+            {
+              "source_id": "d528e97f4ac5c2675478",
+              "text_sha256": "427f5d5f66b41a003abf539b2b8311cbc0f39b45a0f1e6bc62873da584b996e4",
+              "start_line": 60,
+              "end_line": 65,
+              "source_url": "https://github.com/HKUDS/AutoSwarm",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:39:40.178646+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "provider-probe",
+          "subject": "tool:autoswarm",
+          "predicate": "limitation",
+          "value": "This spends model calls",
+          "statement": "The AutoSwarm README says a provider probe spends model calls to verify a reply and native resume; version discovery alone does not establish working access.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "d528e97f4ac5c2675478",
+              "text_sha256": "427f5d5f66b41a003abf539b2b8311cbc0f39b45a0f1e6bc62873da584b996e4",
+              "start_line": 174,
+              "end_line": 181,
+              "source_url": "https://github.com/HKUDS/AutoSwarm",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:39:40.178646+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "tool:autoswarm",
+          "predicate": "license",
+          "object_entity": "license:mit",
+          "value": "MIT",
+          "statement": "The AutoSwarm README links an MIT project license.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Repository/project license; no inference about external model/tool access rights"
+          },
+          "evidence": [
+            {
+              "source_id": "d528e97f4ac5c2675478",
+              "text_sha256": "427f5d5f66b41a003abf539b2b8311cbc0f39b45a0f1e6bc62873da584b996e4",
+              "start_line": 230,
+              "end_line": 234,
+              "source_url": "https://github.com/HKUDS/AutoSwarm",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:39:40.178646+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonsai-image-4b",
+      "title": "Bonsai Image 4B — binary/ternary image generation on Apple Silicon with memory definitions",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:bonsai-image-4b",
+          "type": "model_release",
+          "name": "Bonsai Image 4B",
+          "aliases": [
+            "1-bit Bonsai Image 4B",
+            "Ternary Bonsai Image 4B"
+          ]
+        },
+        {
+          "id": "model:flux-2-klein-4b",
+          "type": "model_release",
+          "name": "FLUX.2 Klein 4B",
+          "aliases": []
+        },
+        {
+          "id": "hardware:apple-silicon",
+          "type": "hardware",
+          "name": "Apple Silicon",
+          "aliases": []
+        },
+        {
+          "id": "hardware:apple-m4-pro",
+          "type": "hardware",
+          "name": "Apple M4 Pro",
+          "aliases": []
+        },
+        {
+          "id": "license:apache-2.0",
+          "type": "license",
+          "name": "Apache License 2.0",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Transformer footprint, complete deployment payload, mean active memory and peak memory are distinct quantities; the source only specifies the first three (lines31–48).",
+        "The launch article says the code and open weights will be released under Apache 2.0; this curation does not verify downloadable artifacts or full dependency licenses (line87).",
+        "The Mac speed sentence does not distinguish binary versus ternary variant, so it cannot rank those variants locally."
+      ],
+      "gaps": [
+        "Total peak memory and exact generation settings for the Mac timing are not specified in the cited passage.",
+        "No test on the user’s 16 GB Mac was performed; source hardware is M4 Pro, not an arbitrary M-series machine.",
+        "Current artifact availability and any inherited third-party conditions require verification before deployment."
+      ],
+      "claims": [
+        {
+          "id": "base-architecture",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "architecture",
+          "object_entity": "model:flux-2-klein-4b",
+          "value": "FLUX.2 Klein 4B",
+          "statement": "Bonsai Image 4B retains the FLUX.2 Klein 4B architecture while representing transformer weights in binary or ternary low-bit form.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "binary_effective_bits_per_weight": 1.125,
+            "ternary_effective_bits_per_weight": 1.71,
+            "scales": "FP16 group-wise"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 18,
+              "end_line": 30,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "apple-path",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "runs_on",
+          "object_entity": "hardware:apple-silicon",
+          "value": "Apple Silicon",
+          "statement": "PrismML states its Bonsai Image deployment stack supports Apple Silicon iPhone/iPad/Mac through MLX low-bit paths and separately supports CUDA kernels.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Publisher platform-support claim; no curator runtime validation"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 49,
+              "end_line": 51,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "payload",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "memory_requirement",
+          "value": {
+            "binary_deployment_payload_GB": 3.42,
+            "ternary_deployment_payload_GB": 3.88
+          },
+          "statement": "The Bonsai Image article reports Apple Silicon deployment payloads of 3.42 GB binary and 3.88 GB ternary, including compressed text encoder and FP16 VAE.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Complete deployment payload, not peak active memory",
+            "text_encoder": "Offloaded after prompt encoding"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 43,
+              "end_line": 48,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "mean-active-memory",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "memory_requirement",
+          "value": {
+            "binary_mean_active_GB": 1.5,
+            "ternary_mean_active_GB": 1.96
+          },
+          "statement": "For 512×512 generation, PrismML reports mean active memory of 1.5 GB binary and 1.96 GB ternary for the Bonsai Image pipeline.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "resolution": [
+              512,
+              512
+            ],
+            "scope": "Mean active memory; not total payload, peak memory or a guaranteed device minimum",
+            "precision": "Low-bit transformer with compressed text encoder and FP16 VAE"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 43,
+              "end_line": 48,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "m4-pro-timing",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "latency",
+          "object_entity": "hardware:apple-m4-pro",
+          "value": {
+            "approximately_seconds": 6
+          },
+          "statement": "The Bonsai Image launch article reports about 6 seconds for a 512×512 image on Mac M4 Pro; the sentence does not identify a particular low-bit variant.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "hardware": "Mac M4 Pro",
+            "resolution": [
+              512,
+              512
+            ],
+            "variant": "Unspecified in timing sentence",
+            "steps": "Not specified in cited passage",
+            "verification": "Publisher report"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 49,
+              "end_line": 54,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "announced-license",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "license",
+          "object_entity": "license:apache-2.0",
+          "value": "Apache-2.0",
+          "statement": "The Bonsai Image launch article announces that binary and ternary open weights and code will be released under Apache 2.0.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Announced future code and weights license; artifact availability and inherited asset terms not verified"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 86,
+              "end_line": 88,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "artifact-maturity",
+          "subject": "model:bonsai-image-4b",
+          "predicate": "maturity",
+          "value": "will be released",
+          "statement": "The Bonsai Image launch article uses future tense for the open weights/code release; this curation establishes the announcement, not completed artifact availability.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "snapshot": "Stored launch article; no download/release verification performed"
+          },
+          "evidence": [
+            {
+              "source_id": "668256d89af8ad5d4b18",
+              "text_sha256": "f75f88f66fbb2fdb9f0aeac35795542ae6b1389ed72cc8519f2b01c72f43c82e",
+              "start_line": 86,
+              "end_line": 88,
+              "source_url": "https://prismml.com/news/bonsai-image-4b",
+              "source_published_at": "2026-05-26",
+              "retrieved_at": "2026-11-01T13:42:38.947979+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comfy-mcp-local",
+      "title": "Comfy MCP Local — agent access to local creative workflows and inventory",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "tool:comfy-mcp",
+          "type": "tool",
+          "name": "Comfy MCP",
+          "aliases": [
+            "Comfy MCP Local"
+          ]
+        },
+        {
+          "id": "tool:comfyui",
+          "type": "tool",
+          "name": "ComfyUI",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The article describes capabilities and setup paths, not a qualification test on every MCP client, GPU, custom node or model.",
+        "Local generation still depends on the installed ComfyUI/model/node stack; the article’s hardware-selection description is not proof that an arbitrary model fits a given Mac."
+      ],
+      "gaps": [
+        "Exact MCP-server license terms are not quoted in this stored article; open-source wording alone does not identify a permissive license.",
+        "Hardware prerequisites, access/account configuration, node security and any model-generation rights need their own sources.",
+        "No curator installation, tool call, output generation or Mac compatibility test was performed."
+      ],
+      "claims": [
+        {
+          "id": "local-connection",
+          "subject": "tool:comfy-mcp",
+          "predicate": "access",
+          "object_entity": "tool:comfyui",
+          "value": "runs on your own machine",
+          "statement": "The Comfy article announces a local MCP connection from Claude, Codex, Cursor or other MCP clients to an existing ComfyUI installation.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Publisher access/capability description; actual client compatibility not tested"
+          },
+          "evidence": [
+            {
+              "source_id": "87dd323306f86865044e",
+              "text_sha256": "9ed746241e76f2698a53f64481536d198cdab9dffc2d3fe22d8ce60356124655",
+              "start_line": 23,
+              "end_line": 31,
+              "source_url": "https://blog.comfy.org/p/open-sourcing-comfy-mcp-on-local",
+              "source_published_at": "2026-08-18T16:46:49+00:00",
+              "retrieved_at": "2026-11-01T13:41:13.486928+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "workflow-operations",
+          "subject": "tool:comfy-mcp",
+          "predicate": "capability",
+          "value": [
+            "build_edit_run_workflows",
+            "search_models_nodes_templates",
+            "save_rerun"
+          ],
+          "statement": "Comfy MCP is described as building, editing, executing, saving and rerunning workflows, plus searching models, nodes and templates across local/cloud connections.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "does_not_establish": "Every linked model or workflow works on the user’s hardware"
+          },
+          "evidence": [
+            {
+              "source_id": "87dd323306f86865044e",
+              "text_sha256": "9ed746241e76f2698a53f64481536d198cdab9dffc2d3fe22d8ce60356124655",
+              "start_line": 29,
+              "end_line": 33,
+              "source_url": "https://blog.comfy.org/p/open-sourcing-comfy-mcp-on-local",
+              "source_published_at": "2026-08-18T16:46:49+00:00",
+              "retrieved_at": "2026-11-01T13:41:13.486928+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "hardware-inventory",
+          "subject": "tool:comfy-mcp",
+          "predicate": "capability",
+          "value": [
+            "read_gpu_hardware",
+            "inspect_installed_models_nodes"
+          ],
+          "statement": "The Comfy MCP article describes inspecting local GPU hardware, loaded custom nodes and on-disk models to inform workflow setup.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "verification": "Publisher statement, not a benchmark or correctness guarantee"
+          },
+          "evidence": [
+            {
+              "source_id": "87dd323306f86865044e",
+              "text_sha256": "9ed746241e76f2698a53f64481536d198cdab9dffc2d3fe22d8ce60356124655",
+              "start_line": 34,
+              "end_line": 42,
+              "source_url": "https://blog.comfy.org/p/open-sourcing-comfy-mcp-on-local",
+              "source_published_at": "2026-08-18T16:46:49+00:00",
+              "retrieved_at": "2026-11-01T13:41:13.486928+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "source-access",
+          "subject": "tool:comfy-mcp",
+          "predicate": "access",
+          "value": "fully open source",
+          "statement": "The article links the public Comfy-Org/comfy-mcp repository and describes its MCP server as open source.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "license": "Exact license not established by the article",
+            "repository": "https://github.com/Comfy-Org/comfy-mcp"
+          },
+          "evidence": [
+            {
+              "source_id": "87dd323306f86865044e",
+              "text_sha256": "9ed746241e76f2698a53f64481536d198cdab9dffc2d3fe22d8ce60356124655",
+              "start_line": 23,
+              "end_line": 28,
+              "source_url": "https://blog.comfy.org/p/open-sourcing-comfy-mcp-on-local",
+              "source_published_at": "2026-08-18T16:46:49+00:00",
+              "retrieved_at": "2026-11-01T13:41:13.486928+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fasth3-preview-v1",
+      "title": "FastH3 Preview v1 — sparse four-step video/audio with B200 conditions",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:fasth3-preview-v1",
+          "type": "model_release",
+          "name": "FastH3 Preview v1",
+          "aliases": [
+            "FastH3 V1",
+            "FastVideo FastH3 Preview v1"
+          ]
+        },
+        {
+          "id": "model:minimax-h3",
+          "type": "model_release",
+          "name": "MiniMax H3",
+          "aliases": [
+            "MiniMax-H3"
+          ]
+        },
+        {
+          "id": "hardware:nvidia-b200",
+          "type": "hardware",
+          "name": "NVIDIA B200",
+          "aliases": []
+        },
+        {
+          "id": "method:vsa-h3",
+          "type": "method",
+          "name": "VSA-H3 sparse attention",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The stored Preview v1 release supports text-to-video/audio only; first/last-frame and reference conditioning are in development (lines85–90).",
+        "The recommended VSA checkpoint requires its compatible sparse-attention backend/kernel; dense attention is not a drop-in replacement (lines82–84).",
+        "B200 warm timings exclude model loading and compilation. Apple MLX and RTX/DGX optimized recipes are described as forthcoming (lines549–556)."
+      ],
+      "gaps": [
+        "No cited Mac runtime measurement, whole-pipeline memory budget or generally portable VSA kernel support was established.",
+        "Checkpoint license permissions need the MiniMax H3 Community License and any relevant derivative terms, not an inference from source-code openness.",
+        "Precision is not specified in the cited performance table."
+      ],
+      "claims": [
+        {
+          "id": "base-model",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "architecture",
+          "object_entity": "model:minimax-h3",
+          "value": "H3’s base transformer",
+          "statement": "FastH3 Preview v1 distills the H3 base transformer and reuses H3-Base text encoder, audio/video VAEs, tokenizers and schedulers.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 63,
+              "end_line": 69,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "t2va-only",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "capability",
+          "value": "T2VA only",
+          "statement": "All FastH3 Preview v1 checkpoints in this source snapshot are restricted to text-to-video/audio; FL2VA and Ref2VA require additional training or checkpoints.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "version": "Preview v1 snapshot; do not generalize to later FastH3 variants"
+          },
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 85,
+              "end_line": 90,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "four-step-vsa",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "uses_method",
+          "object_entity": "method:vsa-h3",
+          "value": {
+            "calls": 4,
+            "sparsity_percent": 90
+          },
+          "statement": "The recommended FastH3 Preview v1 VSA/Data-Free checkpoint uses four transformer calls with 90% sparse VSA-H3 attention and needs its dedicated backend/kernel.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "checkpoint": "4-step VSA / Data-Free Preview v1",
+            "dense_attention_substitute": false
+          },
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 77,
+              "end_line": 84,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "warm-b200-latency",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "latency",
+          "object_entity": "hardware:nvidia-b200",
+          "value": {
+            "seconds": 47.2
+          },
+          "statement": "For a 15-second 1344×768 24 fps audio-video sample, the authors report 47.2 seconds warm end-to-end generation on one B200 using Preview v1 VSA/Data-Free.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "hardware": "1×NVIDIA B200",
+            "clip_seconds": 15,
+            "frames": 345,
+            "width": 1344,
+            "height": 768,
+            "fps": 24,
+            "audio": true,
+            "precision": "Not specified in cited table",
+            "statistic": "Median of3 timed requests after1 full warmup",
+            "excluded": "Model loading and compilation",
+            "included": "Encoding, denoising, decoding, audio, muxing and file output",
+            "backend": "tile64 CUDA VSA, regional DiT compilation, H3 fusions, compiled video VAE"
+          },
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 350,
+              "end_line": 373,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "preview-maturity",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "maturity",
+          "value": "early_checkpoint_family",
+          "statement": "FastH3 Preview v1 is identified as an early checkpoint family, with an eight-step option and additional conditioning workflows pending evaluation.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 527,
+              "end_line": 539,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "public-access",
+          "subject": "model:fasth3-preview-v1",
+          "predicate": "access",
+          "value": "public",
+          "statement": "The FastH3 setup describes Base H3 and FastH3 adapters as publicly downloadable without Hugging Face login and directs readers to the MiniMax H3 Community License.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Access statement, not unrestricted use or confirmation that every component is licensed alike"
+          },
+          "evidence": [
+            {
+              "source_id": "435b2f544ed33453e535",
+              "text_sha256": "5dd7764f05206b76a5cb5d047948611bb5bb9f5a97fdab295b90efd3df597993",
+              "start_line": 438,
+              "end_line": 447,
+              "source_url": "https://haoailab.com/blogs/fasth3-preview/",
+              "source_published_at": "2026-08-27T00:00:00-07:00",
+              "retrieved_at": "2026-11-01T13:41:07.873848+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flux-3-image-klein",
+      "title": "FLUX 3 Image Klein — downloadable generation/editing with commercial-license conditions",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:flux-3-image-klein",
+          "type": "model_release",
+          "name": "FLUX 3 Image Klein",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The source distinguishes local open weights from API access, which advertises extra features such as native 4K and prompt enhancement (lines16–18).",
+        "A consumer-GPU claim does not identify a specific card, memory minimum or measured latency.",
+        "Open weights are not a claim of unrestricted commercial use; the page directs commercial products to a commercial license (lines86–91)."
+      ],
+      "gaps": [
+        "Exact download size, parameter-count convention, GPU memory and Apple Silicon support are absent from these cited passages.",
+        "The specific weight license text is linked rather than reproduced; code and weights terms were not independently assessed.",
+        "No compatibility or output quality was tested by the curator."
+      ],
+      "claims": [
+        {
+          "id": "nominal-size",
+          "subject": "model:flux-3-image-klein",
+          "predicate": "parameter_convention",
+          "value": {
+            "nominal_parameters_B": 5.6
+          },
+          "statement": "Black Forest Labs labels FLUX 3 Image Klein as 5.6B parameters and says it runs on one consumer GPU; the page gives no full-stack count convention or GPU model.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Publisher nominal parameter scale; no total-pipeline hardware claim"
+          },
+          "evidence": [
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 15,
+              "end_line": 18,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "unified-image-tasks",
+          "subject": "model:flux-3-image-klein",
+          "predicate": "capability",
+          "value": [
+            "text_to_image",
+            "instruction_image_editing",
+            "multi_reference_composition"
+          ],
+          "statement": "FLUX 3 Image Klein uses one downloadable model for image generation, instruction editing and combining multiple references.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "supporting_description": "FAQ lines75–77"
+          },
+          "evidence": [
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 19,
+              "end_line": 23,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            },
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 75,
+              "end_line": 77,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "bbox-layout",
+          "subject": "model:flux-3-image-klein",
+          "predicate": "capability",
+          "value": "[y_min, x_min, y_max, x_max]",
+          "statement": "FLUX 3 Image Klein accepts element descriptions and bounding boxes on a 0–1000 coordinate grid in [y_min, x_min, y_max, x_max] order.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "coordinate_grid": [
+              0,
+              1000
+            ],
+            "order": [
+              "y_min",
+              "x_min",
+              "y_max",
+              "x_max"
+            ]
+          },
+          "evidence": [
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 81,
+              "end_line": 83,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "local-and-comfy",
+          "subject": "model:flux-3-image-klein",
+          "predicate": "access",
+          "value": [
+            "downloadable_weights",
+            "comfyui",
+            "own_pipeline"
+          ],
+          "statement": "The FLUX 3 Image Klein FAQ directs users to download Hugging Face weights for their own pipeline or ComfyUI stack.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Publisher access path; artifact download and runtime not tested"
+          },
+          "evidence": [
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 75,
+              "end_line": 80,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "commercial-license",
+          "subject": "model:flux-3-image-klein",
+          "predicate": "license",
+          "value": "commercial license",
+          "statement": "The FLUX 3 Image Klein FAQ states that using Klein in a commercial product requires a commercial license for self-hosted deployment.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Product-use policy stated by publisher; precise weight license remains linked and must be read"
+          },
+          "evidence": [
+            {
+              "source_id": "2e6c7d5b62b02c1a6c39",
+              "text_sha256": "fd96dcc1b6e616c8bbf344f04d21f945698fe82763833a8d5e2137b2ef058a79",
+              "start_line": 86,
+              "end_line": 91,
+              "source_url": "https://bfl.ai/models/flux-3-image-klein",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:03.146858+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "higgs-tts-3",
+      "title": "Higgs TTS 3 — conversational control and hosted or local access",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:higgs-tts-3",
+          "type": "model_release",
+          "name": "Higgs TTS 3",
+          "aliases": [
+            "Higgs Audio v3 TTS",
+            "Higgs Audio v3"
+          ]
+        }
+      ],
+      "limitations": [
+        "The multilingual benchmark values are publisher-reported macro averages, not a guarantee of quality for every language (lines37–39).",
+        "API, browser workspace and downloadable weights are different access paths; local resource requirements do not follow from API availability."
+      ],
+      "gaps": [
+        "The cited article does not establish exact main-model parameter count, complete local memory, Apple Silicon runtime support or weight license terms.",
+        "Indonesian-specific accuracy needs language-level evidence beyond the 100+ language headline."
+      ],
+      "claims": [
+        {
+          "id": "language-coverage",
+          "subject": "model:higgs-tts-3",
+          "predicate": "language_count",
+          "value": {
+            "lower_bound": 100,
+            "relation": "more_than"
+          },
+          "statement": "Boson describes Higgs TTS 3 as a conversational speech model covering more than 100 languages.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "exact_count": "Not given by headline",
+            "does_not_establish": "Equal quality or individual language acceptance"
+          },
+          "evidence": [
+            {
+              "source_id": "56b2c8931c56b7a19b7c",
+              "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd",
+              "start_line": 19,
+              "end_line": 20,
+              "source_url": "https://www.boson.ai/blog/higgs-audio-v3-tts",
+              "source_published_at": "2026-06-04T00:00:00.000Z",
+              "retrieved_at": "2026-11-01T13:42:29.290691+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "inline-control",
+          "subject": "model:higgs-tts-3",
+          "predicate": "capability",
+          "value": [
+            "zero_shot_voice_cloning",
+            "inline_emotion_style_speed_pitch_pause_sound_effects"
+          ],
+          "statement": "Higgs TTS 3 exposes text-stream tags for changing emotion, delivery style, speed, pitch, pauses and sound effects, alongside reference voice cloning.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "56b2c8931c56b7a19b7c",
+              "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd",
+              "start_line": 19,
+              "end_line": 26,
+              "source_url": "https://www.boson.ai/blog/higgs-audio-v3-tts",
+              "source_published_at": "2026-06-04T00:00:00.000Z",
+              "retrieved_at": "2026-11-01T13:42:29.290691+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "hosted-access",
+          "subject": "model:higgs-tts-3",
+          "predicate": "access",
+          "value": [
+            "browser_workspace",
+            "blocking_api",
+            "streaming_api"
+          ],
+          "statement": "Higgs TTS 3 can be tried in Boson Workspace and served through an API with blocking or streaming speech and reference cloning.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "curator_access_test": "Not performed"
+          },
+          "evidence": [
+            {
+              "source_id": "56b2c8931c56b7a19b7c",
+              "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd",
+              "start_line": 81,
+              "end_line": 88,
+              "source_url": "https://www.boson.ai/blog/higgs-audio-v3-tts",
+              "source_published_at": "2026-06-04T00:00:00.000Z",
+              "retrieved_at": "2026-11-01T13:42:29.290691+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "local-weights",
+          "subject": "model:higgs-tts-3",
+          "predicate": "access",
+          "value": "weights are available",
+          "statement": "Boson links Higgs TTS 3 weights on Hugging Face and a SGLang-Omni recipe for local inference.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Publisher access statement; not a Mac or resource compatibility test"
+          },
+          "evidence": [
+            {
+              "source_id": "56b2c8931c56b7a19b7c",
+              "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd",
+              "start_line": 89,
+              "end_line": 93,
+              "source_url": "https://www.boson.ai/blog/higgs-audio-v3-tts",
+              "source_published_at": "2026-06-04T00:00:00.000Z",
+              "retrieved_at": "2026-11-01T13:42:29.290691+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "cv3-report",
+          "subject": "model:higgs-tts-3",
+          "predicate": "benchmark_result",
+          "value": {
+            "macro_WER_CER_x100": 4.41
+          },
+          "statement": "Boson reports Higgs TTS 3 macro WER/CER×100 of 4.41 on its 13-language CV3 evaluation.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "suite": "CV3",
+            "languages": 13,
+            "metric": "Macro average WER/CER times100, lower better",
+            "hardware_precision": "Not specified in cited table",
+            "verification": "Publisher report; the linked reproduction was not separately reviewed"
+          },
+          "evidence": [
+            {
+              "source_id": "56b2c8931c56b7a19b7c",
+              "text_sha256": "e8ae897906dae158780c187fd9165fdefda0cc329114f3d17e75a74c7ce606dd",
+              "start_line": 36,
+              "end_line": 63,
+              "source_url": "https://www.boson.ai/blog/higgs-audio-v3-tts",
+              "source_published_at": "2026-06-04T00:00:00.000Z",
+              "retrieved_at": "2026-11-01T13:42:29.290691+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indextts-25",
+      "title": "IndexTTS 2.5 — controllable voice cloning with NVIDIA requirements",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:indextts-2.5",
+          "type": "model_release",
+          "name": "IndexTTS 2.5",
+          "aliases": [
+            "IndexTTS-2.5",
+            "IndexTTS2.5"
+          ]
+        },
+        {
+          "id": "hardware:nvidia-gpu",
+          "type": "hardware",
+          "name": "NVIDIA GPU",
+          "aliases": []
+        },
+        {
+          "id": "license:bilibili-model-use",
+          "type": "license",
+          "name": "bilibili Model Use License Agreement",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Long speech is generated in separate segments with a silence join, so prosody is not modeled across the boundary (lines 90).",
+        "Text-described emotion needs the optional QwenEmotion model; enabling emotion randomization reduces cloning fidelity (lines 91–94)."
+      ],
+      "gaps": [
+        "No cited support or runtime test establishes Apple Silicon compatibility or Indonesian speech support.",
+        "The approximately 0.8B parameter figure covers the GPT backbone; auxiliary models download separately and are not counted as a whole-stack audit.",
+        "Commercial permissions are not inferred from the named model-use license."
+      ],
+      "claims": [
+        {
+          "id": "language-list",
+          "subject": "model:indextts-2.5",
+          "predicate": "supports_language",
+          "value": [
+            "Chinese",
+            "English",
+            "Japanese",
+            "Spanish",
+            "Arabic"
+          ],
+          "statement": "IndexTTS 2.5 lists Chinese, English, Japanese, Spanish and Arabic speech, including cross-language voice transfer.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "does_not_establish": "Indonesian support"
+          },
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 18,
+              "end_line": 21,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "voice-and-emotion",
+          "subject": "model:indextts-2.5",
+          "predicate": "capability",
+          "value": [
+            "zero_shot_voice_cloning",
+            "emotion_control",
+            "speaking_speed_control"
+          ],
+          "statement": "IndexTTS 2.5 supports voice cloning from one reference clip, separates emotion control from vocal timbre, and adds speaking speed control.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 18,
+              "end_line": 21,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "main-parameters",
+          "subject": "model:indextts-2.5",
+          "predicate": "parameters_main",
+          "value": 800000000,
+          "statement": "IndexTTS 2.5 reports approximately 0.8B parameters for its GPT backbone, not a complete auxiliary-model count.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "approximate": true,
+            "count_scope": "GPT backbone"
+          },
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 24,
+              "end_line": 28,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "gpu-requirements",
+          "subject": "model:indextts-2.5",
+          "predicate": "memory_requirement",
+          "object_entity": "hardware:nvidia-gpu",
+          "value": {
+            "roughly_VRAM_GB": 6
+          },
+          "statement": "The IndexTTS 2.5 getting-started instructions require Python 3.10–3.11, NVIDIA GPU and approximately 6 GB VRAM for inference.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "platform": "NVIDIA GPU",
+            "python": "3.10–3.11",
+            "precision": "Not specified in requirement sentence",
+            "scope": "Publisher approximate inference requirement"
+          },
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 34,
+              "end_line": 34,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "auxiliary-download",
+          "subject": "model:indextts-2.5",
+          "predicate": "access",
+          "value": "first run",
+          "statement": "IndexTTS 2.5 downloads w2v-bert-2.0, MaskGCT codec, CAMPPlus and BigVGAN auxiliary components on first use; they are not bundled in this repository.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 48,
+              "end_line": 49,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "model:indextts-2.5",
+          "predicate": "license",
+          "object_entity": "license:bilibili-model-use",
+          "value": "bilibili Model Use License Agreement",
+          "statement": "The IndexTTS 2.5 model card names the bilibili Model Use License Agreement for the model.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Model license identified; no independent full-terms review"
+          },
+          "evidence": [
+            {
+              "source_id": "a299aa1bde23bcdfc7d9",
+              "text_sha256": "d3b4f345c6b8cfe6c1826817266475609809b535883800dd3db0c0aca8ade494",
+              "start_line": 24,
+              "end_line": 31,
+              "source_url": "https://huggingface.co/IndexTeam/IndexTTS-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:20.566387+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ltx-25",
+      "title": "LTX 2.5 — local joint audio-video generation and checkpoint constraints",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:ltx-2.5",
+          "type": "model_release",
+          "name": "LTX 2.5",
+          "aliases": [
+            "LTX-2.5"
+          ]
+        },
+        {
+          "id": "license:ltx-2x-community",
+          "type": "license",
+          "name": "LTX-2.x Community License",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Comfy INT8/convrot weights are specific to ComfyUI; the card explicitly excludes their use in the ltx-pipelines/PyTorch path (lines67–71,164).",
+        "The cited package recommends CUDA 12.7 or newer and Python 3.12 or newer; these instructions do not validate Apple Silicon (line117).",
+        "Compatibility for older LoRAs is not universal; the publisher requests adapter validation (lines265–268)."
+      ],
+      "gaps": [
+        "No cited measurement establishes total peak VRAM, Mac speed or a suitable configuration for a 16 GB unified-memory Mac.",
+        "The card names a custom community license and possible paid fine-tune-transfer license; the complete binding terms must be checked for the intended use.",
+        "The 22B filenames are release labels for the DiT; no full-stack parameter-count audit was performed."
+      ],
+      "claims": [
+        {
+          "id": "joint-generation",
+          "subject": "model:ltx-2.5",
+          "predicate": "capability",
+          "value": [
+            "text_to_video_audio",
+            "image_to_video_audio",
+            "video_to_video_audio"
+          ],
+          "statement": "LTX 2.5 is described as generating synchronized video and audio using text, image or video inputs, with weights intended for local execution and fine-tuning.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 33,
+              "end_line": 37,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "multi-shot",
+          "subject": "model:ltx-2.5",
+          "predicate": "capability",
+          "value": "Native multishot generation",
+          "statement": "LTX 2.5 adds connected multi-shot generation intended to retain characters, environment, lighting, voice and visual style across cuts.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 40,
+              "end_line": 41,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "distilled-schedule",
+          "subject": "model:ltx-2.5",
+          "predicate": "architecture",
+          "value": {
+            "distilled_steps": 8,
+            "CFG": 1
+          },
+          "statement": "The LTX 2.5 BF16 distilled DiT checkpoint is specified for an eight-step diffusion schedule with CFG set to 1.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "checkpoint": "ltx-2.5-22b-distilled-transformer-bf16.safetensors",
+            "precision": "BF16",
+            "scope": "Distilled checkpoint schedule, not a measured speed"
+          },
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 60,
+              "end_line": 65,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "checkpoint-portability",
+          "subject": "model:ltx-2.5",
+          "predicate": "limitation",
+          "value": "ComfyUI only",
+          "statement": "LTX 2.5 Comfy INT8/convrot diffusion checkpoints are ComfyUI-specific and are not interchangeable with the BF16 PyTorch/ltx-pipelines assets.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "format": "Comfy INT8 + convrot; NVFP4 has separate backend requirements"
+          },
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 67,
+              "end_line": 74,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "subject": "model:ltx-2.5",
+          "predicate": "access",
+          "value": {
+            "open_weights": true,
+            "gated_hf_access": true
+          },
+          "statement": "The LTX 2.5 Hugging Face page describes an access agreement that shares account information; it separately presents downloadable weights for self-hosting.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "gate_scope": "Hugging Face access conditions at stored snapshot",
+            "not_inferred": "Unrestricted commercial licensing or zero implementation cost"
+          },
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 16,
+              "end_line": 37,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "model:ltx-2.5",
+          "predicate": "license",
+          "object_entity": "license:ltx-2x-community",
+          "value": "LTX-2.x Community License",
+          "statement": "The LTX 2.5 card offers commercial/production use under its community-license terms and warns that transfer of fine-tunes may require a paid agreement.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Model-use terms as stated on card; full license controls; code license not inferred"
+          },
+          "evidence": [
+            {
+              "source_id": "92c1824269f45469ee06",
+              "text_sha256": "0d99f6d372b120168d7b4109cd751b040d3afde560986c453d2aef781ea4cd16",
+              "start_line": 21,
+              "end_line": 28,
+              "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:15.183825+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matanyone-e",
+      "title": "MatAnyone-E — sparse video matting, hardware-specific efficiency and pending artifacts",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "project:matanyone-e",
+          "type": "project",
+          "name": "MatAnyone-E",
+          "aliases": []
+        },
+        {
+          "id": "hardware:nvidia-h200",
+          "type": "hardware",
+          "name": "NVIDIA H200",
+          "aliases": []
+        },
+        {
+          "id": "hardware:nvidia-a800-sxm4-80gb",
+          "type": "hardware",
+          "name": "NVIDIA A800-SXM4-80GB",
+          "aliases": []
+        },
+        {
+          "id": "method:sparse-memory-propagation",
+          "type": "method",
+          "name": "Sparse Memory Propagation",
+          "aliases": []
+        },
+        {
+          "id": "license:ntu-slab-1.0",
+          "type": "license",
+          "name": "NTU S-Lab License 1.0",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The repository TODO lists inference code/checkpoints, demo and ComfyUI node as pending; a public repository does not establish runnable availability (lines47–53).",
+        "The A800 table and H200 headline use different hardware and conditions; extrapolated MatAnyone2 baseline values are marked as such (lines65–77).",
+        "GPU efficiency reports do not establish Mac performance or a total-system memory requirement."
+      ],
+      "gaps": [
+        "No Apple Silicon inference, runtime compatibility or whole-pipeline deployment test is cited.",
+        "Weights were not downloaded and their eventual license scope is not inferred from the project license.",
+        "H200 precision is not specified in the cited headline, unlike the explicitly FP16 A800 table."
+      ],
+      "claims": [
+        {
+          "id": "sparse-method",
+          "subject": "project:matanyone-e",
+          "predicate": "uses_method",
+          "object_entity": "method:sparse-memory-propagation",
+          "value": "sparse_memory_propagation",
+          "statement": "MatAnyone-E uses a low-resolution pass to select uncertain query positions and relevant memory, then performs high-resolution matching only for selected pairs.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "task": "Efficient high-resolution video foreground matting",
+            "other_component": "Feature-distilled lightweight decoder"
+          },
+          "evidence": [
+            {
+              "source_id": "8c7c2206dbdda081edfc",
+              "text_sha256": "1a40fc7a21582949101032da102f6fa7b594d42d728ea1224d51f5a7df8589b5",
+              "start_line": 54,
+              "end_line": 64,
+              "source_url": "https://github.com/Shuyun-Wang/MatAnyone-E",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.072498+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "h200-report",
+          "subject": "project:matanyone-e",
+          "predicate": "benchmark_result",
+          "object_entity": "hardware:nvidia-h200",
+          "value": {
+            "FPS": 28.6,
+            "GPU_memory_GB": 3.1
+          },
+          "statement": "The MatAnyone-E authors report native 4K video matting at 28.6 FPS and 3.1 GB GPU memory on one H200 with torch.compile.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "hardware": "1×NVIDIA H200",
+            "resolution": "Native4K; headline does not give exact dimensions",
+            "torch_compile": true,
+            "precision": "Not specified in this H200 headline",
+            "memory_scope": "Reported GPU memory; not a Mac or total-system peak"
+          },
+          "evidence": [
+            {
+              "source_id": "8c7c2206dbdda081edfc",
+              "text_sha256": "1a40fc7a21582949101032da102f6fa7b594d42d728ea1224d51f5a7df8589b5",
+              "start_line": 40,
+              "end_line": 43,
+              "source_url": "https://github.com/Shuyun-Wang/MatAnyone-E",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.072498+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "a800-report",
+          "subject": "project:matanyone-e",
+          "predicate": "benchmark_result",
+          "object_entity": "hardware:nvidia-a800-sxm4-80gb",
+          "value": {
+            "FPS": 13.6,
+            "peak_GPU_memory_GB": 3.89
+          },
+          "statement": "At 3840×2160 on one NVIDIA A800-SXM4-80GB in FP16 with torch.compile, the source reports MatAnyone-E at 13.6 FPS and 3.89 GB peak GPU memory.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "hardware": "1×NVIDIA A800-SXM4-80GB",
+            "resolution": [
+              3840,
+              2160
+            ],
+            "precision": "FP16",
+            "torch_compile": true,
+            "memory_scope": "Peak GPU memory in table"
+          },
+          "evidence": [
+            {
+              "source_id": "8c7c2206dbdda081edfc",
+              "text_sha256": "1a40fc7a21582949101032da102f6fa7b594d42d728ea1224d51f5a7df8589b5",
+              "start_line": 65,
+              "end_line": 77,
+              "source_url": "https://github.com/Shuyun-Wang/MatAnyone-E",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.072498+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "artifact-maturity",
+          "subject": "project:matanyone-e",
+          "predicate": "maturity",
+          "value": "TODO",
+          "statement": "The MatAnyone-E repository says its page/repository are online while inference code and checkpoints, demo and ComfyUI custom node remain in TODO.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "snapshot": "Stored2026-11-01 text; source update heading says2026.10",
+            "does_not_establish": "Future availability or present runnable release"
+          },
+          "evidence": [
+            {
+              "source_id": "8c7c2206dbdda081edfc",
+              "text_sha256": "1a40fc7a21582949101032da102f6fa7b594d42d728ea1224d51f5a7df8589b5",
+              "start_line": 47,
+              "end_line": 53,
+              "source_url": "https://github.com/Shuyun-Wang/MatAnyone-E",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.072498+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "project-license",
+          "subject": "project:matanyone-e",
+          "predicate": "license",
+          "object_entity": "license:ntu-slab-1.0",
+          "value": "NTU S-Lab License 1.0",
+          "statement": "The MatAnyone-E repository names NTU S-Lab License 1.0 for the project and directs redistribution/use to those terms.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Project license as stated; not an independently verified license for pending weights"
+          },
+          "evidence": [
+            {
+              "source_id": "8c7c2206dbdda081edfc",
+              "text_sha256": "1a40fc7a21582949101032da102f6fa7b594d42d728ea1224d51f5a7df8589b5",
+              "start_line": 108,
+              "end_line": 111,
+              "source_url": "https://github.com/Shuyun-Wang/MatAnyone-E",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:57:53.072498+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minimax-code",
+      "title": "MiniMax Code — terminal coding agent with BYOK and scoped source license",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "tool:minimax-code",
+          "type": "tool",
+          "name": "MiniMax Code",
+          "aliases": [
+            "MCode",
+            "mcode"
+          ]
+        },
+        {
+          "id": "license:mit",
+          "type": "license",
+          "name": "MIT License",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Coding requests require a MiniMax account with credits or a compatible model API, and model usage can incur charges (lines40–41).",
+        "Managed network tools have account/access/service-credit requirements (lines399–405).",
+        "The default MIT first-party license preserves existing file/package-specific licenses; assets and dependencies are not blanket MIT (lines481–490)."
+      ],
+      "gaps": [
+        "No deployment or sandbox test on the user’s machine was performed.",
+        "Model quality, costs, data-handling rules and model-weight licenses depend on the selected engine/provider.",
+        "Provider compatibility should be checked against the actual server’s context/output limits and API format."
+      ],
+      "claims": [
+        {
+          "id": "code-workflow",
+          "subject": "tool:minimax-code",
+          "predicate": "capability",
+          "value": [
+            "read_files",
+            "inspect_diffs",
+            "run_shell_tests",
+            "permission_sandbox_control"
+          ],
+          "statement": "MiniMax Code documents reading files, inspecting diffs, running shell commands/tests and controlling tool use through permissions and sandboxing.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "verification": "Publisher feature table; not a security or runtime validation"
+          },
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 396,
+              "end_line": 405,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "model-access",
+          "subject": "tool:minimax-code",
+          "predicate": "access",
+          "value": [
+            "MiniMax_account_with_credits",
+            "BYOK_compatible_API"
+          ],
+          "statement": "MiniMax Code can use a credited MiniMax account or a compatible user-supplied model API; its local example is separate from paid model-driven coding.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 39,
+              "end_line": 41,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "api-formats",
+          "subject": "tool:minimax-code",
+          "predicate": "access",
+          "value": [
+            "openai-completions",
+            "openai-responses",
+            "anthropic-messages"
+          ],
+          "statement": "MiniMax Code supports user-configured OpenAI completions/responses and Anthropic messages API formats, including compatible self-hosted endpoints.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "context_output_limits": "Must be configured to the actual custom/local model server",
+            "scope": "Protocol support is not a guarantee every provider behaves identically"
+          },
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 130,
+              "end_line": 161,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "automation-interfaces",
+          "subject": "tool:minimax-code",
+          "predicate": "capability",
+          "value": [
+            "headless_cli",
+            "ACP_editor_client_connection"
+          ],
+          "statement": "MiniMax Code exposes a headless CLI for scripted jobs and ACP connections for compatible clients/editors.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {},
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 399,
+              "end_line": 405,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "node-requirement",
+          "subject": "tool:minimax-code",
+          "predicate": "limitation",
+          "value": {
+            "node_versions": [
+              "22.19+ within22.x",
+              "24.2+ within24.x",
+              "25",
+              "26"
+            ]
+          },
+          "statement": "The MiniMax Code source checkout documents specific Node 22/24 minimums plus 25 or 26 and pnpm 9.12.0; the one-command installer has separate runtime preparation.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Build-from-source requirements, not the sole distribution path",
+            "pnpm": "9.12.0"
+          },
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 407,
+              "end_line": 412,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "first-party-license",
+          "subject": "tool:minimax-code",
+          "predicate": "license",
+          "object_entity": "license:mit",
+          "value": "MIT",
+          "statement": "MiniMax Code first-party code defaults to MIT while existing per-file/per-package licenses and third-party notices remain applicable.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Default first-party source code; dependencies/assets/mcode-tools require their own notices; model licenses not included"
+          },
+          "evidence": [
+            {
+              "source_id": "006c7eeb54ff362fa127",
+              "text_sha256": "2572b50e7b61f424b9395ea11b0098d5d396361579d352aa80fa49979260dbf9",
+              "start_line": 481,
+              "end_line": 490,
+              "source_url": "https://github.com/MiniMax-AI/minimax-code",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:48.772251+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minimax-h3-comfy",
+      "title": "MiniMax H3 in ComfyUI — modalities, distribution and commercial-use boundary",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:minimax-h3",
+          "type": "model_release",
+          "name": "MiniMax H3",
+          "aliases": [
+            "MiniMax-H3"
+          ]
+        },
+        {
+          "id": "tool:comfyui",
+          "type": "tool",
+          "name": "ComfyUI",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Open-weight H3 targets roughly 768px short edge, 24fps and about 15 seconds; the Comfy guide distinguishes hosted 2K output from a separate local upscale (lines15–17).",
+        "File format and ComfyUI version matter; INT8/convrot diffusion files are recommended when using cu130, while FP8 is a fallback in the stored packaging card (lines25–27)."
+      ],
+      "gaps": [
+        "The cited sources give no exact whole-pipeline VRAM requirement or Apple Silicon runtime result.",
+        "Comfy’s commercial-output policy is a source statement about this distribution/access path; full model weight terms are not reproduced or independently assessed."
+      ],
+      "claims": [
+        {
+          "id": "modalities",
+          "subject": "model:minimax-h3",
+          "predicate": "capability",
+          "value": [
+            "text_image_video_audio_reference",
+            "native_stereo_video_audio"
+          ],
+          "statement": "Comfy’s H3 guide describes text/image/video/audio context and joint video output with stereo voice, sound effects and music.",
+          "assertion_kind": "source_stated",
+          "conditions": {
+            "output_target": "About1megapixel;768px short edge;24fps;up to~15s",
+            "2K_boundary": "Hosted service output; local ComfyUI needs separate upscale"
+          },
+          "evidence": [
+            {
+              "source_id": "044c0150f5408638bab0",
+              "text_sha256": "d959198a9557cf76b9a07389de3666a1ecdecdeb4c5d8cd693d2661dfee48d69",
+              "start_line": 15,
+              "end_line": 23,
+              "source_url": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:44.960658+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "local-comfy",
+          "subject": "model:minimax-h3",
+          "predicate": "access",
+          "object_entity": "tool:comfyui",
+          "value": "run the model locally",
+          "statement": "Comfy’s documentation states that MiniMax H3 weights can be run locally through ComfyUI.",
+          "assertion_kind": "source_stated",
+          "conditions": {
+            "curator_runtime_test": "Not performed"
+          },
+          "evidence": [
+            {
+              "source_id": "044c0150f5408638bab0",
+              "text_sha256": "d959198a9557cf76b9a07389de3666a1ecdecdeb4c5d8cd693d2661dfee48d69",
+              "start_line": 18,
+              "end_line": 30,
+              "source_url": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:44.960658+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "template-versions",
+          "subject": "model:minimax-h3",
+          "predicate": "maturity",
+          "object_entity": "tool:comfyui",
+          "value": {
+            "t2v_i2v_r2v_min_comfyui": "0.30.0",
+            "multiframe_min_comfyui": "0.34.0",
+            "controlnet_union_min_comfyui": "0.35.0",
+            "controlnet_union_2_min_comfyui": "0.38.0"
+          },
+          "statement": "The MiniMax H3 Comfy guide assigns different minimum ComfyUI versions to T2V/I2V/R2V, multiframe reference and ControlNet Union workflows.",
+          "assertion_kind": "source_stated",
+          "conditions": {
+            "scope": "Version floors in the stored guide, not runtime validation"
+          },
+          "evidence": [
+            {
+              "source_id": "044c0150f5408638bab0",
+              "text_sha256": "d959198a9557cf76b9a07389de3666a1ecdecdeb4c5d8cd693d2661dfee48d69",
+              "start_line": 31,
+              "end_line": 41,
+              "source_url": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:44.960658+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "commercial-output-policy",
+          "subject": "model:minimax-h3",
+          "predicate": "license",
+          "value": "commercial license",
+          "statement": "Comfy’s guide states that commercial use of locally generated MiniMax H3 outputs requires a commercial license, whereas Comfy Cloud generations include commercial rights.",
+          "assertion_kind": "source_stated",
+          "conditions": {
+            "scope": "Locally generated outputs versus Comfy Cloud outputs; source-stated distribution policy; no full legal determination"
+          },
+          "evidence": [
+            {
+              "source_id": "044c0150f5408638bab0",
+              "text_sha256": "d959198a9557cf76b9a07389de3666a1ecdecdeb4c5d8cd693d2661dfee48d69",
+              "start_line": 18,
+              "end_line": 19,
+              "source_url": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:44.960658+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "repackaged-assets",
+          "subject": "model:minimax-h3",
+          "predicate": "access",
+          "value": "Repackaged model files",
+          "statement": "The Comfy-Org MiniMax H3 repository is a repackaging of model assets for ComfyUI and links the original H3 and derivative sources.",
+          "assertion_kind": "source_stated",
+          "conditions": {
+            "distribution": "Comfy-Org/MiniMax-H3",
+            "not_inferred": "Identity with every original upstream checkpoint or a separate permissive weights license"
+          },
+          "evidence": [
+            {
+              "source_id": "9e46d458613f25bfe688",
+              "text_sha256": "cccd9592752fd302f31e983d01efe375384fcf1af9fefaf24bae1ecc02ca77bb",
+              "start_line": 15,
+              "end_line": 27,
+              "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:44.949416+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobilewan",
+      "title": "MobileWan — mobile video diffusion with explicit evaluation gaps",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "model:mobilewan",
+          "type": "model_release",
+          "name": "MobileWan",
+          "aliases": []
+        },
+        {
+          "id": "model:wan-2.2-5b",
+          "type": "model_release",
+          "name": "Wan 2.2 5B",
+          "aliases": [
+            "Wan2.2-5B"
+          ]
+        },
+        {
+          "id": "method:recurrent-distillation",
+          "type": "method",
+          "name": "Recurrent distillation",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "The page includes temporal-consistency failure cases (lines157–158).",
+        "An on-device/mobile claim does not establish support for every phone, Mac or general CPU; exact hardware and precision are absent from the cited latency text.",
+        "The page links code/checkpoint/demo but also uses future-tense release language; downloadable-artifact completeness was not checked."
+      ],
+      "gaps": [
+        "Exact tested mobile hardware, peak memory, precision and runtime dependencies need additional source evidence.",
+        "The source page does not establish code and weights licensing terms or an Apple Silicon benchmark."
+      ],
+      "claims": [
+        {
+          "id": "base-model",
+          "subject": "model:mobilewan",
+          "predicate": "architecture",
+          "object_entity": "model:wan-2.2-5b",
+          "value": "Wan2.2-5B",
+          "statement": "MobileWan starts with the 5B-scale Wan2.2 video transformer and compresses/reformulates it for mobile video generation.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "count_scope": "Base-model scale; not a complete artifact count"
+          },
+          "evidence": [
+            {
+              "source_id": "cb1b3c8fb188a3d5ada7",
+              "text_sha256": "d71d04acd52c00a85cb3b0114ce0c00be98d6b7334729a8f6a17baf5bac06af3",
+              "start_line": 55,
+              "end_line": 64,
+              "source_url": "https://qualcomm-ai-research.github.io/MobileWan/",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:55.536291+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "recurrent-method",
+          "subject": "model:mobilewan",
+          "predicate": "uses_method",
+          "object_entity": "method:recurrent-distillation",
+          "value": "recurrent_distillation",
+          "statement": "MobileWan combines chunk-wise autoregressive generation and causal linear attention so the video diffusion transformer can operate recurrently at inference.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "other_reported_methods": "Learned attention-head pruning, sampling-step distillation and memory-optimized VAE decoding"
+          },
+          "evidence": [
+            {
+              "source_id": "cb1b3c8fb188a3d5ada7",
+              "text_sha256": "d71d04acd52c00a85cb3b0114ce0c00be98d6b7334729a8f6a17baf5bac06af3",
+              "start_line": 57,
+              "end_line": 64,
+              "source_url": "https://qualcomm-ai-research.github.io/MobileWan/",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:55.536291+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "reported-latency",
+          "subject": "model:mobilewan",
+          "predicate": "latency",
+          "value": {
+            "end_to_end_seconds": 20
+          },
+          "statement": "The MobileWan authors report generating a 5-second 480×832 clip at 16 fps in 20 seconds end to end on a commercial mobile device.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "clip_seconds": 5,
+            "width": 832,
+            "height": 480,
+            "fps": 16,
+            "hardware": "Commercial mobile device; exact product unspecified here",
+            "precision": "Not stated",
+            "verification": "Publisher report, not this curator’s local measurement"
+          },
+          "evidence": [
+            {
+              "source_id": "cb1b3c8fb188a3d5ada7",
+              "text_sha256": "d71d04acd52c00a85cb3b0114ce0c00be98d6b7334729a8f6a17baf5bac06af3",
+              "start_line": 65,
+              "end_line": 72,
+              "source_url": "https://qualcomm-ai-research.github.io/MobileWan/",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:55.536291+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "vbench",
+          "subject": "model:mobilewan",
+          "predicate": "benchmark_result",
+          "value": {
+            "VBench_total": 83.79
+          },
+          "statement": "The MobileWan page reports a VBench total score of 83.79 for the complete optimized method.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "suite": "VBench",
+            "quality": 85.16,
+            "semantic": 78.32,
+            "evaluation_scope": "Publisher pipeline; compare only with matching protocol, not local speed"
+          },
+          "evidence": [
+            {
+              "source_id": "cb1b3c8fb188a3d5ada7",
+              "text_sha256": "d71d04acd52c00a85cb3b0114ce0c00be98d6b7334729a8f6a17baf5bac06af3",
+              "start_line": 125,
+              "end_line": 133,
+              "source_url": "https://qualcomm-ai-research.github.io/MobileWan/",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:55.536291+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "subject": "model:mobilewan",
+          "predicate": "access",
+          "value": {
+            "code_link": true,
+            "checkpoint_link": true,
+            "demo_link": true
+          },
+          "statement": "The MobileWan project page links source code, a Hugging Face checkpoint and an interactive demo; artifact completeness was not verified.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Links present in source snapshot; no download or runtime test"
+          },
+          "evidence": [
+            {
+              "source_id": "cb1b3c8fb188a3d5ada7",
+              "text_sha256": "d71d04acd52c00a85cb3b0114ce0c00be98d6b7334729a8f6a17baf5bac06af3",
+              "start_line": 40,
+              "end_line": 44,
+              "source_url": "https://qualcomm-ai-research.github.io/MobileWan/",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:41:55.536291+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "open-duet",
+      "title": "Open Duet — self-hosted named-agent workspace with explicit experimental boundaries",
+      "as_of": "2026-11-01",
+      "entities": [
+        {
+          "id": "tool:open-duet",
+          "type": "tool",
+          "name": "Open Duet",
+          "aliases": []
+        },
+        {
+          "id": "license:apache-2.0",
+          "type": "license",
+          "name": "Apache License 2.0",
+          "aliases": []
+        }
+      ],
+      "limitations": [
+        "Open Duet is active development; desktop and self-hosted server are experimental, and server scope is a single owner (lines38–41,147–155,206–209).",
+        "Team leads must use Claude or Codex; tools differ by chosen engine (lines47–52,137–146,210).",
+        "Connected apps were tested against a fake Composio rather than the live service; several remote features lack live/package qualification (lines221–225).",
+        "The app does not supply model access or a subscription; provider accounts, permissions and usage costs remain separate."
+      ],
+      "gaps": [
+        "No curator runtime/deployment test was performed; the current installer/build must be checked for the target platform.",
+        "Local workspace storage does not imply prompts stay local when a hosted engine is chosen (lines126–146).",
+        "A production multi-user organization deployment is outside the stated single-owner server scope."
+      ],
+      "claims": [
+        {
+          "id": "named-agent-teams",
+          "subject": "tool:open-duet",
+          "predicate": "capability",
+          "value": [
+            "named_agents",
+            "lead_specialist_delegation",
+            "persistent_memory"
+          ],
+          "statement": "Open Duet provides named-agent workspaces, lead/specialist delegation and notes/history recall; team leads are limited to Claude or Codex.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "lead_engines": [
+              "Claude",
+              "Codex"
+            ],
+            "scope": "Publisher feature description"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 42,
+              "end_line": 58,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "routines",
+          "subject": "tool:open-duet",
+          "predicate": "capability",
+          "value": [
+            "scheduled_routines",
+            "service_triggered_routines",
+            "manual_routines"
+          ],
+          "statement": "Open Duet documents routines started by schedule, external service trigger or manual action with approval handling.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Project feature description; no schedule is installed by this curation"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 59,
+              "end_line": 64,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "bring-engine",
+          "subject": "tool:open-duet",
+          "predicate": "access",
+          "value": [
+            "own_cli_engine",
+            "own_api_engine"
+          ],
+          "statement": "Open Duet requires an external model engine/account and does not include a model or model subscription.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Application access versus separately acquired engine/model access"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 15,
+              "end_line": 23,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "local-model-api",
+          "subject": "tool:open-duet",
+          "predicate": "access",
+          "value": [
+            "OpenAI_compatible_API",
+            "Ollama",
+            "LM_Studio"
+          ],
+          "statement": "Open Duet lists external CLI engines and OpenAI-compatible APIs such as Ollama/LM Studio; available tools vary by engine.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Listed engine integration, not a guarantee that every tool works for every local model"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 137,
+              "end_line": 146,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "experimental-single-owner",
+          "subject": "tool:open-duet",
+          "predicate": "maturity",
+          "value": "experimental",
+          "statement": "The Open Duet README limits its experimental server to one owner with paired devices and explicitly excludes a multi-user organization workspace.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "desktop": "Experimental; unsigned installers and limited platform verification",
+            "phone": "Source only; Android emulator tried, no physical phone/iOS or store release in cited snapshot"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 206,
+              "end_line": 218,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        },
+        {
+          "id": "license",
+          "subject": "tool:open-duet",
+          "predicate": "license",
+          "object_entity": "license:apache-2.0",
+          "value": "Apache-2.0",
+          "statement": "The Open Duet repository names Apache License 2.0 for its application code; external model/service rights remain separate.",
+          "assertion_kind": "publisher_reported",
+          "conditions": {
+            "scope": "Repository application license; no model/provider subscription or model weights rights"
+          },
+          "evidence": [
+            {
+              "source_id": "e83de83eee8dd4e60f8b",
+              "text_sha256": "3d74827ea0c9838855f8a18d4d867cf285a90bbdaa8a758bed3505174150ea26",
+              "start_line": 269,
+              "end_line": 272,
+              "source_url": "https://github.com/Anil-matcha/Open-Dots",
+              "source_published_at": null,
+              "retrieved_at": "2026-11-01T13:40:23.608863+00:00",
+              "is_current_text_version": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rejected_record_count": 0
+}
