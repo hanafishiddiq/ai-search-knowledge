@@ -1,6 +1,6 @@
 [project]
 name = "ai-search-knowledge"
-version = "0.1.0"
+version = "0.2.0"
 description = "A local, source-linked knowledge library built from AI Search videos."
 readme = "README.md"
 license = "MIT"
@@ -16,6 +16,9 @@ dependencies = [
 
 [project.scripts]
 aisk = "ai_search_knowledge.cli:main"
+
+[project.optional-dependencies]
+semantic = ["fastembed>=0.9.1,<0.10"]
 
 [build-system]
 requires = ["hatchling"]

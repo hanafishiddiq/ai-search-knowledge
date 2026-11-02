@@ -261,6 +261,8 @@ def inventory(root: Path) -> list[dict]:
 
 
 def cutoff(cfg: dict, at: datetime | None = None) -> datetime:
+    if cfg.get('archive_since'):
+        return _aware_floor(cfg['archive_since'], cfg['scope_timezone'])
     local = (at or datetime.now(timezone.utc)).astimezone(ZoneInfo(cfg["scope_timezone"]))
     month_index = local.year * 12 + local.month - 1 - cfg["lookback_months"]
     year, month = divmod(month_index, 12)
@@ -269,15 +271,88 @@ def cutoff(cfg: dict, at: datetime | None = None) -> datetime:
     return datetime(year, month, day, tzinfo=local.tzinfo)
 
 
-def in_scope(item: dict, cfg: dict) -> bool:
+def _aware_floor(value: str, zone: str) -> datetime:
+    """An explicit calendar date means local midnight; timestamps require a zone."""
+    if not isinstance(value, str):
+        raise ValueError('Archive floor must be an ISO date or timezone-aware timestamp')
+    parsed = datetime.fromisoformat(value)
+    if parsed.tzinfo is None:
+        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
+            return parsed.replace(tzinfo=ZoneInfo(zone))
+        raise ValueError('Archive timestamp must include its timezone')
+    return parsed
+
+
+def archive_policy(root: Path, at: datetime | None = None, persist: bool = True) -> dict:
+    """Establish the six-month seed once, then retain that floor as the archive grows.
+
+    Existing acquisition receipts migrate before a new rolling cutoff is computed.
+    An explicit earlier floor extends acquisition; a later setting cannot discard
+    the retained archive. No captured documents or evidence versions are deleted.
+    """
+    cfg = config(root)
+    zone = cfg['scope_timezone']
+    path = root / 'data/archive-policy.json'
+    previous = read(path) or {}
+    if previous.get('channel_id') and cfg.get('channel_id') and previous['channel_id'] != cfg['channel_id']:
+        raise ValueError('Archive policy belongs to another channel; use a separate library')
+    candidates = []
+    if previous.get('initial_since'):
+        candidates.append((_aware_floor(previous['initial_since'], zone), 'persisted_archive_policy'))
+    if cfg.get('archive_since'):
+        candidates.append((_aware_floor(cfg['archive_since'], zone), 'config.archive_since'))
+    if not previous:
+        legacy = read(root / 'data/metadata-run.json') or {}
+        if legacy.get('cutoff'):
+            candidates.append((_aware_floor(legacy['cutoff'], zone), 'legacy_metadata_run.cutoff'))
+        for receipt in (root / 'data/runs').glob('*.json'):
+            run = read(receipt) or {}
+            old_cutoff = run.get('steps', {}).get('videos', {}).get('cutoff')
+            if old_cutoff:
+                candidates.append((_aware_floor(old_cutoff, zone), 'legacy_update_run.cutoff'))
+    if candidates:
+        floor, evidence = min(candidates, key=lambda pair: pair[0])
+    else:
+        # Ignore archive_since here only to make the legacy seed calculation explicit.
+        seed_config = {key: value for key, value in cfg.items() if key != 'archive_since'}
+        floor, evidence = cutoff(seed_config, at), 'initial_six_month_seed'
+    warnings = []
+    if cfg.get('archive_since') and _aware_floor(cfg['archive_since'], zone) > floor:
+        warnings.append('Configured later floor does not remove previously retained knowledge')
+    policy = {**previous, 'schema_version': 1, 'mode': 'growing',
+              'channel_id': cfg.get('channel_id'), 'scope_timezone': zone,
+              'initial_since': floor.isoformat(), 'floor_evidence': evidence,
+              'established_at': previous.get('established_at') or now(), 'warnings': warnings}
+    if persist and (not previous or previous.get('initial_since') != policy['initial_since']
+                    or previous.get('warnings') != warnings):
+        if previous:
+            policy['updated_at'] = now()
+        save(path, policy)
+    return policy
+
+
+def archive_config(root: Path, at: datetime | None = None, persist: bool = True) -> dict:
+    cfg = dict(config(root))
+    policy = archive_policy(root, at=at, persist=persist)
+    return cfg | {'archive_since': policy['initial_since'], 'archive_mode': 'growing'}
+
+
+def in_scope(item: dict, cfg: dict, at: datetime | None = None) -> bool:
     if item.get("status") != "ok" or not item.get("published_at") or "videos" not in item.get("tabs", []):
         return False
-    published = datetime.fromisoformat(item["published_at"])
-    return cutoff(cfg) <= published <= datetime.now(timezone.utc)
+    if cfg.get('channel_id') and item.get('channel_id') and item['channel_id'] != cfg['channel_id']:
+        return False
+    try:
+        published = datetime.fromisoformat(item['published_at'])
+    except (TypeError, ValueError):
+        return False
+    if published.tzinfo is None:
+        return False
+    return cutoff(cfg) <= published <= (at or datetime.now(timezone.utc))
 
 
 def collect_videos(root: Path, limit: int = 0, refresh: bool = False) -> dict:
-    cfg = config(root)
+    cfg = archive_config(root)
     items = inventory(root)
     fetcher = Fetcher(cfg)
 
@@ -315,14 +390,20 @@ def collect_videos(root: Path, limit: int = 0, refresh: bool = False) -> dict:
                 counts[status] = counts.get(status, 0) + 1
             item = read(root / f"data/raw/videos/{entry['id']}.json") or {}
             visited.append(entry["id"])
-            if item.get("status") == "ok" and item.get("published_at"):
-                published = datetime.fromisoformat(item["published_at"])
+            try:
+                published = datetime.fromisoformat(item.get('published_at') or '')
+                if published.tzinfo is None:
+                    published = None
+            except (TypeError, ValueError):
+                published = None
+            if item.get("status") == "ok" and published is not None:
                 if previous_date and published > previous_date:
                     monotonic = False
                 previous_date = published
                 consecutive_old = consecutive_old + 1 if published < cutoff(cfg) else 0
             else:
                 consecutive_old = 0
+                monotonic = False
             if len(visited) % 10 == 0:
                 print(json.dumps({"phase": "videos", "visited": len(visited), "fetched": fetched, "results": counts}), flush=True)
             if monotonic and consecutive_old >= 3:
@@ -333,7 +414,8 @@ def collect_videos(root: Path, limit: int = 0, refresh: bool = False) -> dict:
     result = {"inventory": len(items), "visited": len(visited), "fetched": fetched, "results": counts,
               "fetched_at": now(), "cutoff": cutoff(cfg).isoformat(), "tabs": cfg["tabs"],
               "newest_first_verified_in_visited": monotonic, "boundary_reached": boundary,
-              "method": "newest-first Videos traversal; stop after three exact dates older than cutoff when visited dates remain monotonic",
+              "scope_mode": "growing_archive",
+              "method": "newest-first Videos traversal; stop after three exact dates older than fixed initial archive floor when visited dates remain monotonic",
               "visited_ids": visited}
     save(root / "data/metadata-run.json", result)
     return result

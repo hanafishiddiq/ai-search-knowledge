@@ -1,26 +1,25 @@
 from __future__ import annotations
 
-import io
 import json
 import re
+from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from urllib.parse import urlsplit, urljoin
 
-import trafilatura
-from bs4 import BeautifulSoup
-from pypdf import PdfReader
-
-from .core import Fetcher, FetchFailure, canonical_url, config, digest, needs_fetch, in_scope, now, read, save
+from .core import Fetcher, FetchFailure, archive_config, canonical_url, config, digest, needs_fetch, in_scope, now, read, save
+from .extraction import (PARSER_VERSION, extract_document, extract_markdown,
+                         explicit_publication_date, extraction_status, sanitize_derived_text)
+from .evidence import freeze_source_version
 
 
 def videos(root: Path) -> list[dict]:
-    cfg = config(root)
+    cfg = archive_config(root, persist=False)
     return sorted((v for p in (root / "data/raw/videos").glob("*.json")
-                   if in_scope(v := read(p), cfg)), key=lambda v: v["published_at"], reverse=True)
+                   if in_scope(v := read(p), cfg)), key=lambda v: datetime.fromisoformat(v["published_at"]), reverse=True)
 
 
 def build_manifest(root: Path) -> dict:
+    archive_config(root)
     sources = {}
     active = videos(root)
     for video in active:
@@ -31,6 +30,8 @@ def build_manifest(root: Path) -> dict:
             if link["role"] not in item["roles"]:
                 item["roles"].append(link["role"])
             item["mentions"].append({"video_id": video["id"], "published_at": video["published_at"],
+                                     'video_description_sha256': video.get('description_sha256'),
+                                     'video_metadata_fetched_at': video.get('fetched_at'),
                                      **{k: v for k, v in link.items() if k != "url"}})
     # Explicit, evidence-checked primary artifacts added by a reading agent.
     # Two hops is sufficient for landing page → paper/model card without an open crawl.
@@ -46,13 +47,20 @@ def build_manifest(root: Path) -> dict:
             child = sources.setdefault(sid, {"id": sid, "url": edge["url"], "mentions": [], "roles": ["reference"], "depth": depth})
             if "reference" not in child["roles"]:
                 child["roles"].append("reference")
+            snapshot = read(root / f"data/sources/{parent['id']}.json") or {}
+            linked_now = any(link.get('url') == edge['url'] for link in snapshot.get('outbound_links', []))
             for mention in parent["mentions"]:
                 inherited = {**mention, "via_source_id": parent["id"], "source_link_label": edge["label"],
+                             'via_source_text_sha256': snapshot.get('text_sha256') if linked_now else edge.get('parent_text_sha256'),
+                             'reference_is_current': linked_now and mention.get('reference_is_current', True),
+                             'parent_link_status': 'present_in_current_snapshot' if linked_now else 'historical_discovery_only',
                              "original_url": edge["url"], "description_line": None,
                              "role": "reference", "role_reason": "primary artifact explicitly linked from stored source"}
                 if inherited not in child["mentions"]:
                     child["mentions"].append(inherited)
     result = {"generated_at": now(), "videos": [v["id"] for v in active], "sources": list(sources.values())}
+    from .provenance import retain_manifest
+    result = retain_manifest(root, result)
     save(root / "data/source-manifest.json", result)
     return result
 
@@ -68,106 +76,99 @@ def add_source(root: Path, parent_id: str, url: str, label: str) -> dict:
         raise ValueError("URL must appear in the parent's stored outbound links; do not invent references")
     edges = read(root / "data/extra-sources.json", [])
     if not any(e["parent_id"] == parent_id and e["url"] == url for e in edges):
-        edges.append({"parent_id": parent_id, "url": url, "label": label, "added_at": now()})
+        edges.append({"parent_id": parent_id, "url": url, "label": label, "added_at": now(),
+                      'parent_text_sha256': snapshot.get('text_sha256')})
         save(root / "data/extra-sources.json", edges)
     build_manifest(root)
     return {"id": digest(url)[:20], "url": url, "status": "queued", "parent_id": parent_id}
 
-
-def _meta(soup: BeautifulSoup, names: list[str]) -> tuple[str | None, str | None]:
-    for name in names:
-        tag = soup.find("meta", attrs={"property": name}) or soup.find("meta", attrs={"name": name}) or soup.find("meta", attrs={"itemprop": name})
-        if tag and tag.get("content"):
-            return str(tag["content"]), name
-    return None, None
-
-
-def explicit_publication_date(soup: BeautifulSoup) -> tuple[str | None, str | None]:
-    value, evidence = _meta(soup, ["article:published_time", "datePublished", "citation_publication_date", "DC.date.issued"])
-    if value:
-        return value, evidence
-    def scan(item):
-        if isinstance(item, dict):
-            if item.get("datePublished"):
-                return str(item["datePublished"])
-            for v in item.values():
-                if found := scan(v):
-                    return found
-        elif isinstance(item, list):
-            for v in item:
-                if found := scan(v):
-                    return found
-        return None
-    for tag in soup.select('script[type="application/ld+json"]'):
-        try:
-            if value := scan(json.loads(tag.get_text())):
-                return value, "JSON-LD datePublished"
-        except (ValueError, TypeError):
-            continue
-    return None, None
+def store_source_result(root: Path, result: dict, previous: dict | None = None,
+                        *, reprocessing: bool = False) -> bool:
+    """Freeze cited versions and retain a good snapshot after a transient fetch failure."""
+    path = root / f"data/sources/{result['id']}.json"
+    previous = previous if previous is not None else read(path)
+    material = bool(previous and any(previous.get(key) != result.get(key)
+                                     for key in ('text_sha256', 'quality', 'status', 'content_kind')))
+    if material and previous.get('text_sha256') and isinstance(previous.get('text'), str):
+        freeze_source_version(root, previous)
+    if previous and previous.get('status') == 'ok' and result.get('status') != 'ok' and not reprocessing:
+        save(root / f"data/errors/sources/{result['id']}.json", result)
+        return False
+    if material and previous.get('text_sha256'):
+        history_key = digest(json.dumps(previous, sort_keys=True, ensure_ascii=False))[:20]
+        save(root / f"data/history/sources/{result['id']}/{history_key}.json", previous)
+    save(path, result)
+    return True
 
 
-def extract_document(body: bytes, content_type: str, url: str) -> dict:
-    if "application/pdf" in content_type or body.startswith(b"%PDF-"):
-        pdf = PdfReader(io.BytesIO(body))
-        if len(pdf.pages) > 250:
-            raise FetchFailure("pdf_too_long", "PDF exceeds 250-page limit; manual review needed")
-        pages = [(page.extract_text() or "").strip() for page in pdf.pages]
-        text = "\n\n".join(f"[PDF page {i}]\n{page}" for i, page in enumerate(pages, 1))
-        return {"title": str((pdf.metadata or {}).get("/Title") or urlsplit(url).path.rsplit("/", 1)[-1]),
-                "text": text, "format": "pdf", "extraction_method": "pypdf; text layer only; no OCR",
-                "published_at": None, "date_evidence": None, "page_count": len(pages),
-                "description": None, "outbound_links": [], "quality": "text_layer_unreviewed"}
-    if "text/plain" in content_type or urlsplit(url).path.lower().endswith((".md", ".txt")):
-        text = body.decode("utf-8", "replace")
-        return {"title": urlsplit(url).path.rsplit("/", 1)[-1], "text": text,
-                "format": "text", "extraction_method": "UTF-8 plain text", "published_at": None,
-                "date_evidence": None, "description": None, "outbound_links": [], "quality": "text_unreviewed"}
-    if not any(x in content_type for x in ["html", "xml", "text/"]):
-        raise FetchFailure("unsupported_content", f"Unsupported content type: {content_type}")
-    html = body.decode("utf-8", "replace")
-    soup = BeautifulSoup(html, "lxml")
-    title, _ = _meta(soup, ["og:title", "twitter:title"])
-    title = title or (soup.title.get_text(" ", strip=True) if soup.title else url)
-    description, _ = _meta(soup, ["description", "og:description", "twitter:description"])
-    published, date_evidence = explicit_publication_date(soup)
-    host = (urlsplit(url).hostname or "").removeprefix("www.")
-    # Use README/article regions when publishers expose them. Never clone/run a repository.
-    article = None
-    if host == "github.com":
-        article = soup.select_one("article.markdown-body, .markdown-body")
-    elif host.endswith(".github.io"):
-        # Demo sites spread caveats across small sections that article extractors
-        # can discard. Preserve the full project region, including limitations.
-        article = soup.body
-    elif host in {"arxiv.org", "export.arxiv.org"} and "/abs/" in url:
-        article = soup.select_one("#content, main")
-    method = "publisher article/README region" if article else "trafilatura main text"
-    if article:
-        for tag in article.select("script, style, nav, button"):
-            tag.decompose()
-        text = article.get_text("\n", strip=True)
+def reprocess_document(root: Path, source: dict, *, persist: bool = True) -> dict:
+    """Re-extract retained raw bytes locally; do not change the retrieval timestamp.
+
+    Local parser corrections may downgrade inadequate legacy text. Old source
+    versions and their immutable Markdown evidence files remain available.
+    """
+    raw_name = source.get('raw_path')
+    if not raw_name:
+        return {'id': source.get('id'), 'reprocess_status': 'missing_raw', 'status': source.get('status'),
+                'reason': 'No retained raw snapshot; a targeted retrieval would be required'}
+    raw = (root / raw_name).resolve()
+    if not raw.is_relative_to((root / 'data').resolve()):
+        raise ValueError('Raw snapshot must stay inside this library data directory')
+    if not raw.is_file():
+        return {'id': source.get('id'), 'reprocess_status': 'missing_raw', 'status': source.get('status'),
+                'reason': 'The retained raw snapshot file is missing'}
+    body = raw.read_bytes()
+    if source.get('format') == 'markdown':
+        receipt = json.loads(body.decode('utf-8'))
+        returned = receipt.get('result', {})
+        if returned.get('isError'):
+            raise ValueError('Stored browser receipt contains a tool error')
+        text = '\n\n'.join(item['text'] for item in returned.get('content', []) if item.get('type') == 'text')
+        document = extract_markdown(text, source['url'], title=source.get('title'))
     else:
-        text = trafilatura.extract(html, url=url, include_links=True, include_tables=True,
-                                   include_comments=False, favor_recall=True) or ""
-    text = re.sub(r"\n{3,}", "\n\n", text).strip()
-    quality = "extracted_unreviewed"
-    low = (title + "\n" + text[:2500]).lower()
-    if any(x in low for x in ["just a moment...", "verify you are human", "access denied", "enable javascript and cookies to continue", "checking your browser", "this page is not available", "something went wrong, but don’t fret", "you’ve been blocked"]):
-        quality = "access_challenge"
-    elif len(text) < 250:
-        quality = "thin_or_js_required"
-    # Outbound URLs are discovery hints only; this does not recursively crawl the web.
-    outlinks = []
-    for anchor in soup.select("a[href]"):
-        href = anchor.get("href", "")
-        if href and not href.startswith(("#", "mailto:", "javascript:", "tel:", "data:")):
-            target = urljoin(url, href)
-            if target.startswith(("http://", "https://")):
-                outlinks.append({"url": canonical_url(target), "label": anchor.get_text(" ", strip=True)[:300]})
-    return {"title": title, "description": description, "published_at": published,
-            "date_evidence": date_evidence, "text": text, "format": "html",
-            "extraction_method": method, "outbound_links": outlinks, "quality": quality}
+        content_type = source.get('content_type') or {
+            '.html': 'text/html', '.pdf': 'application/pdf', '.json': 'application/json',
+            '.txt': 'text/plain', '.md': 'text/markdown'}.get(raw.suffix.lower(), '')
+        document = extract_document(body, content_type, source.get('final_url') or source['url'])
+    result = {**source, **document, 'status': extraction_status(document),
+              'text_sha256': digest(document['text']), 'raw_file_sha256': digest(body),
+              'fetched_at': source.get('fetched_at'),
+              'reprocessed_from': {'text_sha256': source.get('text_sha256'),
+                                   'parser_version': source.get('parser_version', 'legacy'), 'raw_path': raw_name}}
+    changed = any(source.get(key) != result.get(key) for key in
+                  ('text_sha256', 'quality', 'status', 'content_kind', 'parser_version', 'coverage'))
+    if persist and changed:
+        store_source_result(root, result, source, reprocessing=True)
+    return {'id': source['id'], 'reprocess_status': 'updated' if changed else 'unchanged',
+            'status': result['status'], 'previous_status': source.get('status'),
+            'previous_text_sha256': source.get('text_sha256'), 'text_sha256': result['text_sha256'],
+            'content_kind': result.get('content_kind'), 'quality': result['quality'],
+            'coverage': result.get('coverage'), 'fetched_at': result.get('fetched_at'),
+            'extracted_at': result.get('extracted_at'), 'parser_version': PARSER_VERSION,
+            **({'document': result} if not persist else {})}
+
+
+def reprocess_sources(root: Path, ids: list[str] | None = None, *, persist: bool = True) -> dict:
+    """Public local migration helper; caller owns the writer lock and later index step."""
+    requested = set(ids) if ids is not None else None
+    results = []
+    for path in sorted((root / 'data/sources').glob('*.json')):
+        if requested is not None and path.stem not in requested:
+            continue
+        try:
+            results.append(reprocess_document(root, read(path), persist=persist))
+        except Exception as exc:
+            results.append({'id': path.stem, 'reprocess_status': 'error', 'error': str(exc),
+                            'error_type': type(exc).__name__})
+    if requested is not None:
+        seen = {item['id'] for item in results}
+        results.extend({'id': sid, 'reprocess_status': 'missing_source'} for sid in sorted(requested - seen))
+    counts = {}
+    for result in results:
+        status = result['reprocess_status']
+        counts[status] = counts.get(status, 0) + 1
+    return {'parser_version': PARSER_VERSION, 'processed_at': now(), 'persisted': persist,
+            'results': counts, 'items': results}
 
 
 def collect_sources(root: Path, limit: int = 0, refresh: bool = False, retry: bool = False, statuses: list[str] | None = None) -> dict:
@@ -198,28 +199,20 @@ def collect_sources(root: Path, limit: int = 0, refresh: bool = False, retry: bo
             result = {**base, **doc, "final_url": final_url, "http_status": response.status_code,
                       "content_type": content_type, "body_sha256": digest(body), "body_bytes": len(body),
                       "text_sha256": digest(doc["text"]),
-                      "status": "ok" if doc["quality"] not in {"access_challenge", "thin_or_js_required"} else doc["quality"],
+                      "status": extraction_status(doc),
                       "evidence_level": "publisher_text; claims_not_independently_verified"}
-            suffix = "pdf" if doc["format"] == "pdf" else "html" if doc["format"] == "html" else "txt"
+            suffix = {'pdf': 'pdf', 'html': 'html', 'json': 'json'}.get(doc['format'], 'txt')
             raw_path = root / f"data/raw/pages/{item['id']}/{digest(body)}.{suffix}"
             raw_path.parent.mkdir(parents=True, exist_ok=True)
             if not raw_path.exists():
                 raw_path.write_bytes(body)
             result["raw_path"] = str(raw_path.relative_to(root))
-            if old and old.get("text_sha256") and old.get("text_sha256") != result["text_sha256"]:
-                save(root / f"data/history/sources/{item['id']}/{digest(old['fetched_at'])[:16]}.json", old)
-            if old and old.get("status") == "ok" and result["status"] != "ok":
-                save(root / f"data/errors/sources/{item['id']}.json", result)
-            else:
-                save(path, result)
+            store_source_result(root, result, old)
             return result["status"]
         except Exception as exc:
             result = {**base, "status": getattr(exc, "status", "error"), "error": str(exc),
                       "error_type": type(exc).__name__}
-            if old and old.get("status") == "ok":
-                save(root / f"data/errors/sources/{item['id']}.json", result)
-            else:
-                save(path, result)
+            store_source_result(root, result, old)
             return result["status"]
 
     counts = {}
